@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
 </head>
 <body>
     <header>
@@ -13,16 +14,20 @@
        <nav class="botaoNav"> <a href="telaInicial.html"><i class="fa fa-home" aria-hidden="true"></i></a>
     </nav>
     </header>
-    <h1><img height="200px" src="../arquivos/icon.png" > 
+    <h1>
+    <i class="fa-solid fa-user"></i>
     </h1>
     <form class="login" onsubmit="fazerLogin(event)">
-        <label for="usuario">Usuário:</label>
+        <label class="labelTxtLogin"
+        for="usuario">Usuário:</label>
         <input id="usuario" type="text">
 
-        <label for="senha">Senha:</label>
+        <label class="labelTxtLogin"
+        for="senha">Senha:</label>
         <input id="senha" type="password">
 
-        <input type="submit" value="Entrar">
+        <input class=botaoPrin
+        type="submit" value="Entrar">
     </form>
     <script src="script.js"></script>
 </body>

@@ -62,7 +62,14 @@
         margin: 00px auto;         
         display: flex;
         flex-direction: column;     
-        gap: 10px;                  
+        gap: 10px;
+        padding: 20px 60px;
+        border: none;
+        border-radius: 40px;
+        cursor: pointer;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+      
+                          
     }
 
     p img{
@@ -94,6 +101,7 @@
       background-color: #7bb32e;
       box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
       transform: translateY(-5px);
+      text-align: center;
     }
     .botaoNav i{
       background-color: transparent;
@@ -111,5 +119,22 @@
       right: 10px;
     }
     
+    .fa-user{
+    color:#7bb32e;
+    font-size: 100px;
+    }
 
-    
+    .labelTxtLogin{
+      font-size: 20px;
+      font-weight: normal;
+      color: #00000093;
+      margin-bottom: 5px;
+      text-align: center;
+      
+    }
+    input[type="text"], input[type="password"] {
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 35px;
+      text-align: center;
+    }
