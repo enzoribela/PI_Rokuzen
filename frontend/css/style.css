@@ -1,6 +1,6 @@
    body {
       background-color: #ffffff;
-      background-image: url('arquivos/telaDeFundo.png');
+      background-image: url('../arquivos/telaDeFundo.png');
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -73,7 +73,10 @@
         padding-top: 10px;
     }
     
-    
+    footer {
+      text-align: center;
+      height: 50px;
+    }
     
 
     
