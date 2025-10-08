@@ -85,7 +85,7 @@
       height: 50px;
     }
 
-        .botaoPrin {
+    .botaoPrin {
       background-color: #9acd32;
       color: white;
       font-size: 24px;
@@ -96,13 +96,25 @@
       cursor: pointer;
       box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
       transition: all 0.3s ease;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      height: 70px;
+      width: 40%;
+      margin-top: 40px;
+      align-self: center;
+      
+  
     }
     .botaoPrin:hover {
       background-color: #7bb32e;
       box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
       transform: translateY(-5px);
-      text-align: center;
+      justify-content: center;
+      align-items: center
     }
+
     .botaoNav i{
       background-color: transparent;
       border: none;
@@ -138,3 +150,30 @@
       border-radius: 35px;
       text-align: center;
     }
+
+.unidades-container {
+  display: flex;          
+  gap: 20px;               
+  flex-wrap: wrap;         
+  justify-content: center; 
+  align-items: flex-start; 
+}
+
+.unidade-item {
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: left;
+  width: 200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.container-botao {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+  
+}
