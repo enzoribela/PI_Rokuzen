@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção Data</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <header>
+       <img class="RokuzenLogo" src="../arquivos/RokuzenLogo.png" alt="logo Site"> 
+    </header>
+
+    <main class="container" id="container-calendario">
+        <h2>Selecione a data:</h2>
+        
+        <div id="calendario-inline"></div>
+
+    </main>
+    <footer class="container-botao">
+        <input class="botaoPrin" type="submit" value="Avançar">
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+
+    <script>
+        flatpickr("#calendario-inline", {
+            "locale": "pt",
+            inline: true, 
+            dateFormat: "d/m/Y",
+            defaultDate: "today" 
+        });
+    </script>
+</body>
+</html>
