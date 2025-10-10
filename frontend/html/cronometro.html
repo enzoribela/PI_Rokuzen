@@ -10,16 +10,20 @@
 <body>
 <header>
     <img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png" alt="logo Site"> 
+    <nav>
+        <a class="btnNav" href="cronometro.html"><i class="fa-solid fa-clock"></i></a> 
+        <a class="btnNav" href=""><i class="fa-solid fa-calendar"></i></a>
+    </nav>
 </header> 
 <h1>Cronômetro</h1>
 <p id="cronometro">00:00:00.0</p>
 
 <div class="botoesCro">
-  <button class="btnCro"><i class="fa-solid fa-play"></i></button>
-  <button class="btnCro"><i class="fa-solid fa-pause"></i></button>
-  <button class="btnCro"><i class="fa-solid fa-repeat"></i></button>
+  <button class="btnCro" id="btnLigar"><i class="fa-solid fa-play"></i></button>
+  <button class="btnCro" id="btnPausar"><i class="fa-solid fa-pause"></i></button>
+  <button class="btnCro" id="btnResetar"><i class="fa-solid fa-repeat"></i></button>
 </div>
 
-    <script src="main.js"></script>
+    <script src="../javascript/cronometro.js"></script>
 </body>
 </html>
