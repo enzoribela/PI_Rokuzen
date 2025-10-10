@@ -206,25 +206,37 @@
 
    }
 
-   .btnCro{
-    color: #7bb32e;
-     justify-content: center;
-     align-items: center;
-     background-color: transparent;
-     border: none;
-     cursor: pointer;
-     font-size: 24px;
-     transition: color 0.3s ease;
-     width: 50px;
-     height: 50px;
-   }
-   .btnCro:hover {
-    background-color: #77777777;
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
-  }
+   #cronometro {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 20px;
+}
 
-  #cronometro{
-    font-size: 24px;
-    justify-content: center;
-    align-items: center;
-  }
+.container-cronometro {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 150px); 
+}
+
+.botoesCro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; 
+}
+
+.btnCro {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #7dbb3e;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.btnCro:hover {
+  transform: scale(1.2);
+  color: #5f9230;
+}
