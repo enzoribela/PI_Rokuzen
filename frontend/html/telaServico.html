@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha o serviço</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png" alt="logo Site">
+        <nav>
+            <a class="btnNav" href=""><i class="fa-solid fa-location-dot"></i></a>
+            <a class="btnNav" href=""><i class="fa-solid fa-calendar"></i></a>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h1 class="titulo-pergunta">Qual é o serviço de sua preferência?</h1>
+
+        <section class="servicos-container">
+            <div class="servico-item">
+                <img src="/arquivos/quickmassage.PNG" alt="Quick massage">
+                <h2>Quick massage</h2>
+            </div>
+            <div class="servico-item selected">
+                <img src="/arquivos/maca.png" alt="Maca">
+                <h2>Maca</h2>
+            </div>
+            <div class="servico-item">
+                <img src="/arquivos/reflexologiapodal.PNG" alt="Reflexologia podal">
+                <h2>Reflexologia podal</h2>
+            </div>
+            <div class="servico-item">
+                <img src="/arquivos/auriculoterapia.PNG" alt="Auriculoterapia">
+                <h2>Auriculoterapia</h2>
+            </div>
+        </section>
+
+        <button class="btn-continuar">Continuar</button>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const servicoItems = document.querySelectorAll('.servico-item');
+
+    if (servicoItems.length === 0) {
+        console.error("Erro: Nenhum elemento com a classe '.servico-item' foi encontrado.");
+        return;
+    }
+
+    servicoItems.forEach(item => {
+        item.addEventListener('click', function() {
+            
+            servicoItems.forEach(i => {
+                i.classList.remove('selected');
+            });
+            
+            this.classList.add('selected');
+        });
+    });
+});
+</script>
+</body>
+</html>
