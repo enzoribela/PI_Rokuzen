@@ -1,91 +1,100 @@
-var t = 0;
-var per = 0;
-var timerInterval = null;
+// Variáveis globais para controlar o estado do cronômetro
+let tempoRestante = 0; // Armazena o tempo total em segundos
+let intervalId = null; // Armazena o ID do setInterval para podermos pausar/cancelar
+
+// Seleciona os elementos da página que vamos manipular
+const displayElement = document.getElementById('demo');
+const formElement = document.getElementById('cronometro');
 
 /**
- * INICIAR / APLICAR MUDANÇAS
- * Sempre lê os valores do formulário, para qualquer timer existente
- * e inicia uma NOVA contagem.
+ * Função principal que inicia uma nova contagem.
+ * Lê os valores do formulário, calcula o total de segundos e dispara o contador.
  */
 function iniciarTimer() {
-    // 1. Para qualquer timer que esteja rodando ou pausado.
-    clearInterval(timerInterval);
-    timerInterval = null;
+    // Para qualquer cronômetro que já esteja em execução
+    clearInterval(intervalId);
 
-    // 2. Lê os valores ATUAIS do formulário.
-    var x = document.getElementById("frm1");
-    var hr = Number(x.elements[0].value) || 0;
-    var min = Number(x.elements[1].value) || 0;
-    var sec = Number(x.elements[2].value) || 0;
+    // Pega os valores dos inputs, tratando campos vazios como 0
+    const horas = parseInt(formElement.elements['hr'].value) || 0;
+    const minutos = parseInt(formElement.elements['min'].value) || 0;
+    const segundos = parseInt(formElement.elements['sec'].value) || 0;
 
-    // 3. Define o tempo com os novos valores.
-    t = (hr * 3600) + (min * 60) + sec;
-    per = t; // Atualiza o tempo inicial para a função de reset
+    // Calcula o tempo total em segundos
+    tempoRestante = (horas * 3600) + (minutos * 60) + segundos;
 
-    // 4. Inicia a contagem se o tempo for maior que zero.
-    if (t > 0) {
-        timer();
+    // Inicia o contador apenas se o tempo for maior que zero
+    if (tempoRestante > 0) {
+        atualizarVisor(); // Mostra o tempo inicial imediatamente
+        intervalId = setInterval(tick, 1000); // A cada 1 segundo, chama a função tick
     } else {
-        // Se o tempo for zero, limpa a tela.
-        document.getElementById("demo").innerHTML = "0h : 00m : 00s";
-    }
-    
-}
-
-/**
- * CONTINUAR (RESUME)
- * Continua a contagem de onde parou, sem ler o formulário.
- */
-function continuarTimer() {
-    // Só faz algo se houver tempo no contador e se não estiver rodando.
-    if (t > 0 && !timerInterval) {
-        timer();
+        // Se o tempo for 0, apenas mostra 00:00:00
+        tempoRestante = 0;
+        atualizarVisor();
     }
 }
 
 /**
- * PAUSAR
- * Para a execução do timer.
+ * Pausa a contagem do tempo.
  */
 function pause() {
-    clearInterval(timerInterval);
-    timerInterval = null;
+    clearInterval(intervalId);
+    intervalId = null; // Define como nulo para sabermos que está pausado
 }
-
-function cancelarTimer() {
-    clearInterval(timerInterval);
-    timerInterval = null;
-    t = 0;
-    document.getElementById("demo").innerHTML = "0h : 00m : 00s";
-}
-
 
 /**
- * Função principal do timer, chamada a cada segundo.
+ * Continua uma contagem que foi pausada.
  */
-function timer() {
-    if (t < 0) {
-        document.getElementById("demo").innerHTML = "TEMPO ESGOTADO";
-        pause();
-        t = 0;
-        return;
+function continuarTimer() {
+    // Só continua se houver tempo restante E se o timer não estiver rodando
+    if (tempoRestante > 0 && !intervalId) {
+        intervalId = setInterval(tick, 1000);
     }
-
-    var temp = t;
-    t = t - 1;
-
-    var h = Math.floor(temp / 3600);
-    var m = Math.floor((temp % 3600) / 60);
-    var s = temp % 60;
-
-    m = checkTime(m);
-    s = checkTime(s);
-
-    document.getElementById("demo").innerHTML = h + "h : " + m + "m : " +s;
-    timerInterval = setTimeout(timer, 1000);
 }
 
-function checkTime(i) {
-    if (i < 10) { i = "0" + i; }
-    return i;
+/**
+ * Cancela a contagem, zerando o tempo e o visor.
+ */
+function cancelarTimer() {
+    clearInterval(intervalId);
+    intervalId = null;
+    tempoRestante = 0;
+    formElement.reset(); // Limpa os campos do formulário (horas, minutos, segundos)
+    displayElement.textContent = "Configure o tempo e inicie."; // Restaura a mensagem inicial
+}
+
+/**
+ * Função executada a cada segundo pelo setInterval.
+ * Ela decrementa o tempo e atualiza o visor.
+ */
+function tick() {
+    if (tempoRestante > 0) {
+        tempoRestante--;
+        atualizarVisor();
+    } else {
+        // Quando o tempo chega a zero
+        clearInterval(intervalId);
+        intervalId = null;
+        displayElement.textContent = "Tempo Esgotado!";
+    }
+}
+
+/**
+ * Formata os números e atualiza o H1 com o tempo restante.
+ */
+function atualizarVisor() {
+    // Garante que o tempo nunca seja negativo
+    const tempoAtual = Math.max(0, tempoRestante);
+    
+    // Calcula horas, minutos e segundos a partir do total de segundos
+    const horas = Math.floor(tempoAtual / 3600);
+    const minutos = Math.floor((tempoAtual % 3600) / 60);
+    const segundos = tempoAtual % 60;
+
+    // Formata os números para sempre terem dois dígitos (ex: 07, 12)
+    const horasFormatadas = String(horas).padStart(2, '0');
+    const minutosFormatados = String(minutos).padStart(2, '0');
+    const segundosFormatados = String(segundos).padStart(2, '0');
+    
+    // Atualiza o texto na tela
+    displayElement.textContent = `${horasFormatadas}:${minutosFormatados}:${segundosFormatados}`;
 }

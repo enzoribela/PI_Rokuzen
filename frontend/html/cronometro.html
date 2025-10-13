@@ -16,7 +16,12 @@
     </nav>
 </header> 
 <h1>Cronômetro</h1>
-<p id="cronometro">00:00:00.0</p>
+<h1 id="demo">Configure o tempo e inicie.</h1>
+<form id="cronometro" onsubmit="return false;">
+  Horas: <input id="cronometro" type="number" name="hr" min="0"><br>
+  Minutos: <input id="cronometro" type="number" name="min" min="0"><br>
+  Segundos: <input id="cronometro" type="number" name="sec" min="0"><br><br>
+</form>
 
 <div class="botoesCro">
     <button onclick="iniciarTimer()" class="btnCro"><i class="fa-solid fa-play"></i></button>
