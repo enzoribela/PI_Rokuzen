@@ -13,7 +13,7 @@ function iniciarTimer() {
     timerInterval = null;
 
     // 2. Lê os valores ATUAIS do formulário.
-    var x = document.getElementById("cronometro");
+    var x = document.getElementById("frm1");
     var hr = Number(x.elements[0].value) || 0;
     var min = Number(x.elements[1].value) || 0;
     var sec = Number(x.elements[2].value) || 0;
@@ -56,7 +56,7 @@ function cancelarTimer() {
     clearInterval(timerInterval);
     timerInterval = null;
     t = 0;
-    document.getElementById("demo").innerHTML = "0h : 00m : 00s"; 
+    document.getElementById("demo").innerHTML = "0h : 00m : 00s";
 }
 
 
