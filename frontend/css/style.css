@@ -245,3 +245,48 @@ nav a{
     text-decoration: none;
     color: #797070b9;
 }
+
+#container-formulario {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     text-align: center;
+     justify-content: center;
+     font-family: sans-serif;
+   }
+
+   #container-formulario>h2 {
+     font-size: 24px;
+     margin-bottom: 0px;
+     padding-top: 0px;
+     display: inline-block;
+     height: auto;
+     width: auto;
+     margin-top: 30px;
+     margin-bottom: 35px;
+   }
+
+        .form-group {
+            margin-bottom: 20px; 
+        }
+
+
+        .form-group label {
+            display: block; 
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            margin-bottom: 5px; 
+            text-align: left; 
+        }
+
+        
+        .form-group input {
+            width: 265px;        
+            height: 35px;        
+            padding: 5px;        
+            border: 1px solid #ccc; 
+            border-radius: 4px;   
+            font-size: 18px;      
+            box-sizing: border-box; 
+            text-align: left;
+        }
