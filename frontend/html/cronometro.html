@@ -16,14 +16,21 @@
     </nav>
 </header> 
 <h1>Cronômetro</h1>
-<p id="cronometro">00:00:00.0</p>
+<h1 id="demo">Configure o tempo e inicie.</h1>
+<form id="cronometro" onsubmit="return false;">
+  Horas: <input id="cronometro" type="number" name="hr" min="0"><br>
+  Minutos: <input id="cronometro" type="number" name="min" min="0"><br>
+  Segundos: <input id="cronometro" type="number" name="sec" min="0"><br><br>
+</form>
 
 <div class="botoesCro">
-  <button class="btnCro" id="btnLigar"><i class="fa-solid fa-play"></i></button>
-  <button class="btnCro" id="btnPausar"><i class="fa-solid fa-pause"></i></button>
-  <button class="btnCro" id="btnResetar"><i class="fa-solid fa-repeat"></i></button>
+    <button onclick="iniciarTimer()" class="btnCro"><i class="fa-solid fa-play"></i></button>
+    <button onclick="continuarTimer()" class="btnCro">...</button>
+    <button onclick="pause()" class="btnCro"><i class="fa-solid fa-pause"></i></button>
+    <button onclick="cancelarTimer()" class="btnCro"><i class="fa solid fa-xmark"></i></button>
 </div>
 
-    <script src="../javascript/cronometro.js"></script>
+        <script src="../javascript/cronometro.js"></script>
+  </div>
 </body>
 </html>
