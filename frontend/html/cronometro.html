@@ -10,7 +10,7 @@
 <body>
 <header class="header">
       <nav class="nav">
-        <a href="telaPrincipal.html"
+        <a href="telaPrincipalAdm.html"
           ><img
             class="RokuzenAgendamento"
             src="../arquivos/RokuzenLogo.png"
@@ -25,12 +25,11 @@
     </header>
 <h1>Cronômetro</h1>
 <h1 id="demo">Configure o tempo e inicie.</h1>
-<form id="cronometro" onsubmit="return false;">
-  Horas: <input id="cronometro" type="number" name="hr" min="0"><br>
-  Minutos: <input id="cronometro" type="number" name="min" min="0"><br>
-  Segundos: <input id="cronometro" type="number" name="sec" min="0"><br><br>
-</form>
-
+  <form id="cronometro" onsubmit="return false;">
+    Horas: <input class="cronometro" type="number" name="hr" min="0"><br>
+    Minutos: <input class="cronometro" type="number" name="min" min="0"><br>
+    Segundos: <input class="cronometro" type="number" name="sec" min="0"><br><br>
+  </form>
 <div class="botoesCro">
     <button onclick="iniciarTimer()" class="btnCro"><i class="fa-solid fa-play"></i></button>
     <button onclick="continuarTimer()" class="btnCro">...</button>
