@@ -8,13 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-<header>
-    <img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png" alt="logo Site"> 
-    <nav>
-        <a class="btnNav" href="cronometro.html"><i class="fa-solid fa-clock"></i></a> 
-        <a class="btnNav" href=""><i class="fa-solid fa-calendar"></i></a>
-    </nav>
-</header> 
+<header class="header">
+      <nav class="nav">
+        <a href="telaPrincipal.html"
+          ><img
+            class="RokuzenAgendamento"
+            src="../arquivos/RokuzenLogo.png"
+            alt="logo Site"
+        /></a>
+        <button class="hamburger"></button>
+        <ul class="nav-list">
+          <li><a href="cronometro.html"><i class="fa-solid fa-clock"></i></a></li>
+          <li><a href="calendario.html"><i class="fa-solid fa-calendar"></i></a></li>
+        </ul>
+      </nav>
+    </header>
 <h1>Cronômetro</h1>
 <h1 id="demo">Configure o tempo e inicie.</h1>
 <form id="cronometro" onsubmit="return false;">
