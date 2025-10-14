@@ -1,24 +1,34 @@
 const protocolo = "http://"
-const baseURL = "localhost:8080"
+const baseURL = `localhost:8080`
 
-async function login()
+async function login(event)
 {
-  const usernameInput = document.getElementById("username")
-  const passwordInput = document.getElementById("password")
+  event.preventDefault(); // Evita o recarregamento da página
+  const usernameInput = document.getElementById("usuario")
+  const passwordInput = document.getElementById("senha")
 
   const username = usernameInput.value
   const password = passwordInput.value
 
   const URLCompleta = `${protocolo}${baseURL}/login`
 
-  try
+  if(!username || !password)
   {
-    await axios.post(URLCompleta, {username: username, password: password})
-    
-    document.getElementById("p1").textContent = "OK, login deu certo"
+    alert("Preencha todos os campos")
   }
-  catch (error)
+  else
   {
-    document.getElementById("p1").textContent = error.response.data.erro
+    try
+    {
+      const response = await axios.post(URLCompleta, {username: username, password: password})
+      const token = response.data.token
+      localStorage.setItem('jwt', token);
+
+      window.location.href = "../html/telaInicial.html"
+    }
+    catch (error)
+    {
+      alert("Credenciais inválidas")
+    }
   }
 }
