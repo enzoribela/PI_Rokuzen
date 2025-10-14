@@ -1,58 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selecionar Unidade</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selecionar Unidade</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
-<body>
-    <header class="header">
-      <nav class="nav">
-        <a href="telaPrincipal.html"
-          ><img
-            class="RokuzenAgendamento"
-            src="../arquivos/RokuzenLogo.png"
-            alt="logo Site"
-        /></a>
-        <button class="hamburger"></button>
-        <ul class="nav-list">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#unidades">Unidades</a></li>
-          <li><a href="#contato">Contato</a></li>
-          <li><a href="unidades.html">Agende sua consulta</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    <section class="unidades-container">
+<body class="unidades">
+  <header class="header">
+    <nav class="nav">
+      <a href="telaPrincipal.html"><img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png"
+          alt="logo Site" /></a>
+      <button class="hamburger"></button>
+      <ul class="nav-list">
+        <li><a href="cronometro.html"><i class="fa-solid fa-clock"></i></a></li>
+        <li><a href="calendario.html"><i class="fa-solid fa-calendar"></i></a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <div class="unidade-item">
-            <img src="../arquivos/rokuzenGolden.jpg" alt="Unidade 1">
-            <h1>Unidade 1</h1>
-        </div>
+  <section class="unidades-container">
 
-        <div class="unidade-item">
-            <img src="../arquivos/rokuzenGolden.jpg"  alt="Unidade 2">
-            <h1>Unidade 2</h1>
-        </div>
-
-        <div class="unidade-item">
-            <img src= "../arquivos/rokuzenGolden.jpg"  alt="Unidade 3">
-            <h1>Unidade 3</h1>
-        </div>
-
-        <div class="unidade-item">
-            <img src="../arquivos/rokuzenGolden.jpg" alt="Unidade 4">
-            <h1>Unidade 4</h1>
-        </div>
-
-    </section>
-    <div class="container-botao">
-        <input class="botaoPrin" type="submit" value="Avançar">
+    <div class="unidade-item">
+      <img src="../arquivos/rokuzenGolden.jpg" alt="Unidade 1">
+      <h1>Unidade 1</h1>
     </div>
 
+    <div class="unidade-item">
+      <img src="../arquivos/rokuzenGolden.jpg" alt="Unidade 2">
+      <h1>Unidade 2</h1>
+    </div>
+
+    <div class="unidade-item">
+      <img src="../arquivos/rokuzenGolden.jpg" alt="Unidade 3">
+      <h1>Unidade 3</h1>
+    </div>
+
+    <div class="unidade-item">
+      <img src="../arquivos/rokuzenGolden.jpg" alt="Unidade 4">
+      <h1>Unidade 4</h1>
+    </div>
+
+  </section>
+  </section>
+
+  </section>
+  <div class="botoes-container">
+    <button class="btn-continuar">Continuar</button>
+  </div>
+  </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const servicoItems = document.querySelectorAll('.unidade-item');
+
+      if (servicoItems.length === 0) {
+        console.error("Erro: Nenhum elemento com a classe '.unidade-item' foi encontrado.");
+        return;
+      }
+
+      servicoItems.forEach(item => {
+        item.addEventListener('click', function () {
+
+          servicoItems.forEach(i => {
+            i.classList.remove('selected');
+          });
+
+          this.classList.add('selected');
+        });
+      });
+    });
+  </script>
+
 </body>
+
 </html>
