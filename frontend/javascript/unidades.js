@@ -1,27 +1,53 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Seleciona todos os cards de unidade usando a classe CSS
-    const unidadeItems = document.querySelectorAll('.unidade-item');
+document.addEventListener('DOMContentLoaded', () => {
+  // VARIÁVEIS PARA SELEÇÃO DOS CARDS
+  const unidadeItems = document.querySelectorAll('.unidade-item');
 
-    // Verifica se algum card de unidade foi encontrado no HTML
-    if (unidadeItems.length === 0) {
-        console.error("Erro: Nenhum card de unidade encontrado com a classe '.unidade-item'.");
-        return;
-    }
+  // VARIÁVEIS PARA O BOTÃO
+  const btnContinuar = document.querySelector('.btn-continuar');
+  const proximaURL = 'calendario.html';
 
-    // Adiciona o evento de clique a cada card
+  // ----------------------------------------------------
+  // LÓGICA DE SELEÇÃO DOS CARDS (CLIQUE)
+  // ----------------------------------------------------
+  if (unidadeItems.length === 0) {
+    console.error("Erro: Nenhum elemento com a classe '.unidade-item' foi encontrado.");
+  } else {
     unidadeItems.forEach(item => {
-        item.addEventListener('click', function () {
-
-            // Remove a classe 'selected' de TODOS os cards primeiro
-            unidadeItems.forEach(i => {
-                i.classList.remove('selected');
-            });
-
-            // Adiciona a classe 'selected' APENAS no card que foi clicado (usando 'this')
-            this.classList.add('selected');
+      item.addEventListener('click', function () {
+        // Remove 'selected' de todos
+        unidadeItems.forEach(i => {
+          i.classList.remove('selected');
         });
+        // Adiciona 'selected' ao clicado
+        this.classList.add('selected');
+      });
+    });
+  }
+
+  // ----------------------------------------------------
+  // LÓGICA DO BOTÃO CONTINUAR (REDIRECIONAMENTO)
+  // ----------------------------------------------------
+  if (!btnContinuar) {
+    console.error("Erro: Botão com a classe '.btn-continuar' não encontrado.");
+    return;
+  }
+
+  btnContinuar.addEventListener('click', () => {
+    let isUnidadeSelected = false;
+
+    // Verifica se algum card possui a classe 'selected'
+    unidadeItems.forEach(card => {
+      if (card.classList.contains('selected')) {
+        isUnidadeSelected = true;
+      }
     });
 
-    // Opcional: Para debugar e confirmar que o script carregou
-    // console.log("Script de seleção de unidade carregado com sucesso.");
+    if (isUnidadeSelected) {
+      // REDIRECIONAMENTO
+      window.location.href = proximaURL;
+    } else {
+      // Se nenhuma unidade foi selecionada, avisa o usuário
+      alert('Por favor, selecione uma Unidade antes de continuar.');
+    }
+  });
 });

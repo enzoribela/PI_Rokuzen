@@ -45,37 +45,12 @@
     </div>
 
   </section>
-  </section>
 
-  </section>
   <div class="botoes-container">
     <button class="btn-continuar">Continuar</button>
   </div>
-  </div>
-  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const servicoItems = document.querySelectorAll('.unidade-item');
-
-      if (servicoItems.length === 0) {
-        console.error("Erro: Nenhum elemento com a classe '.unidade-item' foi encontrado.");
-        return;
-      }
-
-      servicoItems.forEach(item => {
-        item.addEventListener('click', function () {
-
-          servicoItems.forEach(i => {
-            i.classList.remove('selected');
-          });
-
-          this.classList.add('selected');
-        });
-      });
-    });
-  </script>
+  <script src="/frontend/javascript/unidades.js"></script>
 
 </body>
-
 </html>

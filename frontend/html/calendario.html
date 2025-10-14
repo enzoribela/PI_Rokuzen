@@ -1,50 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seleção Data</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seleção Data</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 <body>
-    <header class="header">
-      <nav class="nav">
-        <a href="telaPrincipalAdm.html"
-          ><img
-            class="RokuzenAgendamento"
-            src="../arquivos/RokuzenLogo.png"
-            alt="logo Site"
-        /></a>
-        <button class="hamburger"></button>
-        <ul class="nav-list">
-          <li><a href="cronometro.html"><i class="fa-solid fa-clock"></i></a></li>
-          <li><a href="calendario.html"><i class="fa-solid fa-calendar"></i></a></li>
-        </ul>
-      </nav>
-    </header>
+  <header class="header">
+    <nav class="nav">
+      <a href="telaPrincipalAdm.html"><img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png"
+          alt="logo Site" /></a>
+      <button class="hamburger"></button>
+      <ul class="nav-list">
+        <li><a href="cronometro.html"><i class="fa-solid fa-clock"></i></a></li>
+        <li><a href="calendario.html"><i class="fa-solid fa-calendar"></i></a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main class="container" id="container-calendario">
-        <h2>Selecione a data:</h2>
-        
-        <div id="calendario-inline"></div>
+  <main class="container" id="container-calendario">
+    <h2>Selecione a data:</h2>
 
-    </main>
-    <footer class="container-botao">
-        <input class="botaoPrin" type="submit" value="Avançar">
-    </footer>
+    <div id="calendario-inline"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+  </main>
 
-    <script>
-        flatpickr("#calendario-inline", {
-            "locale": "pt",
-            inline: true, 
-            dateFormat: "d/m/Y",
-            defaultDate: "today" 
-        });
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+
+  <div class="botoes-container">
+    <button class="btn-continuar">Continuar</button>
+  </div>
+
+  <script src="/frontend/javascript/calendario.js"></script>
+
 </body>
+
 </html>
