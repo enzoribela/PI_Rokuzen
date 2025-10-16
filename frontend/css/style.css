@@ -29,7 +29,7 @@ a {
 .header {
   background: #96ad6e98;
   padding-inline: 16px;
-  
+
 }
 
 .nav {
@@ -338,7 +338,7 @@ input[type="password"] {
   font-family: sans-serif;
 }
 
-#container-calendario > h2 {
+#container-calendario>h2 {
   font-size: 24px;
   margin-bottom: 0px;
   padding-top: 0px;
@@ -569,7 +569,7 @@ nav a {
   font-family: sans-serif;
 }
 
-#container-formulario > h2 {
+#container-formulario>h2 {
   font-size: 24px;
   margin-bottom: 0px;
   padding-top: 0px;
@@ -686,6 +686,7 @@ nav a {
 .cta-button:hover {
   background-color: #4db6ac;
 }
+
 .button-sm {
   background-color: #00695c;
   color: white;
@@ -699,6 +700,7 @@ nav a {
   display: inline-block;
   margin-top: 40px;
 }
+
 .button-sm:hover {
   background-color: #4db6ac;
 }
@@ -716,6 +718,7 @@ nav a {
   text-align: center;
   margin: 0;
 }
+
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 10px;
@@ -743,11 +746,12 @@ nav a {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
 }
+
 .services-images {
-  width: 100%; 
-  height: 180px; 
+  width: 100%;
+  height: 180px;
   object-fit: cover;
-  display: block; 
+  display: block;
   border-radius: 20px;
 }
 
@@ -786,18 +790,22 @@ nav a {
 #about {
   padding: 60px 0;
 }
+
 .about-flex {
   display: flex;
   align-items: center;
   gap: 50px;
 }
+
 .about-text {
   flex: 1;
 }
+
 .about-text h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
+
 .about-text p {
   line-height: 1.7;
   margin-bottom: 15px;
@@ -827,22 +835,237 @@ footer h3 {
   text-decoration: none;
   transition: color 0.3s;
 }
+
 .social-media a:hover {
   color: white;
 }
+
 .copyright {
   margin-top: 20px;
   font-size: 0.9rem;
   opacity: 0.8;
 }
 
-.secao-lado-a-lado {
-  display: flex; /* A MÁGICA ACONTECE AQUI! Ativa o layout flexível. */
-  width: 100%;
-  min-height: 80vh; /* Altura mínima de 80% da tela */
-  margin: 0; /* Remove margens que podem quebrar o layout */
-  padding: 0;
-  color: white;
+/* --- Base da Tela e Header (Ajuste para o protótipo) --- */
+body {
+  background-color: #f0f2f5;
+  font-family: 'Montsserat', sans-serif;
+  margin: 0;
 }
 
+/* Centraliza o conteúdo principal */
+.agendamento-content {
+  width: 90%;
+  max-width: 900px;
+  margin: 150px auto 50px;
+  /* Margem do topo para compensar o header fixo */
+  text-align: center;
+}
+
+.agendamento-content h1 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 50px;
+}
+
+/* --- Container dos dois elementos (Profissional e Horário) --- */
+.profissional-horario-container {
+  display: flex;
+  justify-content: center;
+  /* Centraliza a caixa de Profissional + Horário */
+  align-items: flex-start;
+  /* Alinha o topo dos dois blocos */
+  gap: 80px;
+  /* Espaço entre o profissional e o seletor de horário */
+  margin-bottom: 50px;
+}
+
+/* --- 1. Estilo do Card do Profissional (Carrossel) --- */
+.carrossel-profissionais-selecao {
+  width: 350px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  /* **JÁ EXISTE** esta linha para a transição suave */
+  transition: border 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 3px solid transparent;
+  box-sizing: border-box;
+}
+
+/* **ADICIONE ESTA NOVA REGRA** para o efeito hover */
+.carrossel-profissionais-selecao:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(176, 201, 154, 0.3);
+  border-color: #14854d;
+}
+
+.carrossel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* Transição de slide */
+}
+
+.card-profissional {
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 0;
+
+}
+
+
+.profissional-nome {
+  font-size: 25px;
+  font-weight: bold;
+  color: #3b6e5e;
+  /* Um toque de verde do seu protótipo */
+  margin-top: 0px;
+  margin-bottom: -75px;
+}
+
+.card-image-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  margin-top: 0px;
+  margin: 0;
+  /* Espaço para as setas não colarem na imagem */
+}
+
+.card-imagem-wrapper {
+  width: 200px;
+  /* Largura da imagem visível */
+  height: 200px;
+  /* Altura da imagem visível */
+  overflow: hidden;
+  border-radius: 50%;
+  /* Imagem redonda */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-imagem-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-descricao {
+  padding: 20px 30px;
+  min-height: 10px;
+  padding-top: 10px;
+  margin-top: 5px;
+  /* Garante que todos os cards tenham altura similar */
+}
+
+.card-descricao p {
+  color: #555;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/* Botões do Carrossel */
+.carrossel-button {
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #3b6e5e;
+  /* Cor da seta verde */
+  cursor: pointer;
+  padding: 0 10px;
+  transition: color 0.2s;
+}
+
+.carrossel-button:hover:not(:disabled) {
+  color: #1c3d31;
+}
+
+.carrossel-button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* --- 2. Estilo do Seletor de Horários --- */
+/* Container que envolve a label e o select */
+/* Container que envolve o label e o select */
+.horario-select-group {
+    /* Largura definida para a caixa do seletor. Ajuste se precisar de mais espaço */
+    width: 230px; 
+    
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    display: block;
+    
+    /* Garante a transição suave para o efeito scale do hover */
+    transition: transform 0.25s ease-out;
+}
+
+/* Estilo para o texto "Horário:" */
+.horario-select-group label {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Estilo principal do campo <select> (caixa branca) */
+.horario-select-group select {
+    /* Remove a seta padrão do navegador */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    width: 100%;
+    padding: 10px 15px;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    color: #333;
+
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+
+    cursor: pointer;
+    outline: none;
+    
+    /* Seta customizada em SVG (triângulo) */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path fill="%23333" d="M0 0l5 6 5-6z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Efeito Hover no próprio campo <select> (Borda e Sombra inicial) */
+.horario-select-group select:hover {
+    border-color: #b0c99a;
+    /* Sombra um pouco mais sutil quando o mouse está só sobre o campo */
+    box-shadow: 0 0 10px rgba(176, 201, 154, 0.7); 
+}
+
+/* Efeito Hover no grupo inteiro: Ativa o Transform e o Brilho forte */
+.horario-select-group:hover {
+    /* Move o grupo ligeiramente para fora */
+    transform: scale(1.02);
+}
+
+.horario-select-group:hover select {
+    /* Aplica a borda, o brilho forte e a transição suave */
+    transform: none; /* Garante que a escala não se aplique aqui também */
+    border-color: #96b478;
+    box-shadow: 0 0 20px rgba(176, 201, 154, 0.9);
+    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out,
+                border-color 0.25s ease-out;
+}
+
+/* Regra para garantir que o <select> não esteja escondido, caso tenha alguma regra conflitante */
+#horario-select {
+    display: block !important;
+}
 
