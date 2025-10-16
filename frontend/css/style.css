@@ -748,11 +748,20 @@ nav a {
   height: 180px; 
   object-fit: cover;
   display: block; 
+  border-radius: 20px;
 }
+
+.unidades-img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+}
+
 .service-card {
   background: var(--white);
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   overflow: hidden;
