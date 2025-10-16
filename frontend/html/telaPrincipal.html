@@ -6,7 +6,10 @@
     <title>Página Inicial | Rokuzen</title>
     <link rel="stylesheet" href="../css/style.css" />
     <script defer src="../javascript/app.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -19,32 +22,120 @@
         /></a>
         <button class="hamburger"></button>
         <ul class="nav-list">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#unidades">Unidades</a></li>
-          <li><a href="#contato">Contato</a></li>
-          <li><a href="unidades.html">Agende sua consulta</a></li>
-          <li><a class="btnNav" href="telaLogin.html"><i class="fa-solid fa-user-gear"></i></a> </li>
+          <li><a href="#hero">Sobre</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#about">Unidades</a></li>
+          <li><a href="#contact">Contato</a></li>
+          <li>
+            <a class="cta-button" href="unidades.html">Agende sua consulta</a>
+          </li>
+          <li>
+            <a class="btnNav" href="telaLogin.html"
+              ><i class="fa-solid fa-user-gear"></i
+            ></a>
+          </li>
         </ul>
       </nav>
     </header>
+    <main>
+      <section id="hero">
+        <div class="hero-content">
+          <h1>Sobre o Rokuzen</h1>
+          <p>Criada em 2015, a Rokuzen é uma empresa brasileira de massagem terapêutica que se propõe a conduzir bem-estar às pessoas, por meio de técnicas orientais milenares, como o Shiatsu e Anmá.
 
-    <div class="esquerda"></div>
-    <div class="direita">
-        <div class="w3-content w3-display-container">
-          <img class="mySlides" src="img/01.png">
-          <img class="mySlides" src="img/02.jpg">
-          <img class="mySlides" src="img/03.jpg">
-          <div class="w3-center w3-display-bottommiddle" style="width:100%">
-            <div class="w3-left" onclick="plusDivs(-1)">&#10094;</div>
-            <div class="w3-right" onclick="plusDivs(1)">&#10095;</div>
-            <span class="w3-badge demo w3-border" onclick="currentDiv(1)"></span>
-            <span class="w3-badge demo w3-border" onclick="currentDiv(2)"></span>
-            <span class="w3-badge demo w3-border" onclick="currentDiv(3)"></span>
-         </div>
-        
-        <div class="container-botao">
-            <input class="botaoPrin" type="submit" value="Agende sua consulta">
+Oferece à seus clientes uma equipe composta por massoterapeutas especializados e experientes, além de um ambiente confortável e provido de elementos para o relaxamento dos 5 (cinco) sentidos do ser humano. Um conjunto de aspectos que permitem o desenvolvimento e a ampliação do bem-estar, ou seja, um momento dedicado a si mesmo, favorecendo melhores condições para a sua saúde física e mental.</p>
+          <a href="#services" class="cta-button">Conheça nossos Serviços</a>
         </div>
+      </section>
+
+      <section id="services" class="container">
+        <h2>Nossos Serviços</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <img class ="services-images" src="../arquivos/quickmassage.png" alt="">
+            <h3>Quick Massage</h3>
+            <p>É uma sessão de massagem rápida(Quick) que trabalha a parte superior das costas, ombros, pescoço e cabeça.</p>
+          </div>
+          <div class="service-card">
+            <img class ="services-images" src="../arquivos/maca.png" alt="">
+            <h3>Terapia na Maca</h3>
+            <p>Trabalha o corpo todo utilizando técnicas como: Shiatsu, Anmá, Relaxante, Liberação Miofascial e Ventosaterapia</p>
+          </div>
+          <div class="service-card">
+            <img class ="services-images" src="../arquivos/reflexologiapodal.png" alt="">
+            <h3>Reflexologia Podal</h3>
+            <p>A terapia além de relaxante, trata dores, funcionamento dos órgãos e emoções por meio de pressão digital nos pés, aplicada em determinados pontos favorecendo o processo de autocura.</p>
+          </div>
+          <div class="service-card">
+            <img class ="services-images" src="../arquivos/auriculoterapia.png" alt="">
+            <h3>Auriculoterapia</h3>
+            <p>Técnica que utiliza o pavilhão auricular para diagnosticar e tratar dores e condições médicas do corpo</p>
+            
+          </div>
+        </div>
+        <a href="#services" class="button-sm" >Saiba mais</a>
+      </section>
+            
+
+      <section id="about">
+        <div class="container about-flex">
+
+          <div class="about-text">
+            <h2>Nossas Unidades</h2>
+ <div class="services-grid">
+          <div class="service-card">
+            <img src="../arquivos/un_santoandre.jpg" alt="">
+            <h3>Santo André</h3>
+            <p><strong>Grand Plaza Shopping</strong> | Loja 305</p>
+            <p>Av. Industrial, 600 | Centro</p>
+            <p>Santo André | SP | CEP 09080-510</p>
+          </div>
+          <div class="service-card">
+            <img src="../arquivos/un_sbc.jpg" alt="">
+            <h3>São Bernardo do Campo</h3>
+            <p><strong>Golden Square Shopping </strong>| Piso 1</p>
+            <p>Av. Kennedy, 700 | Bairro Jardim do Mar</p>
+            <p>São Bernardo do Campo | SP | CEP 09726-253</p>
+          </div>
+          <div class="service-card">
+            <img src="../arquivos/un_mooca.jpg" alt="">
+            <h3>São Paulo</h3>
+            <p><strong>Mooca Plaza Shopping</strong> | Piso L1 | Loja 1087</p>
+            <p>Rua Capitão Pacheco e Chaves, 313 | Mooca</p>
+            <p>São Paulo | SP | CEP 03126-000</p>
+          </div>
+          <div class="service-card">
+            <img src="../arquivos/un_westplaza.jpg" alt="">
+            <h3>São Paulo</h3>
+            <p><strong>West Plaza Shopping</strong> | Loja 3102 - Bloco A | 2º andar</p>
+            <p>Av. Francisco Matarazzo | Água Branca</p>
+            <p>São Paulo | SP | CEP 05003-020</p>
+          </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+    
+
+    <footer id="contact">
+      <div class="container">
+        <h3>Entre em Contato</h3>
+        <p><strong>WhatsApp:</strong> (11) 94749-5306 | Unidade Golden Square Shopping</p>
+        <p><strong>WhatsApp:</strong> (11) 95084-1087 | Unidade Mooca Plaza Shopping</p>
+        <p><strong>WhatsApp:</strong> (11) 91665-7900 | Unidade Grand Plaza Shopping</p>
+        <p><strong>WhatsApp:</strong> (11) 91942-7901 | Unidade West Plaza Shopping</p>
+        <p><strong>E-mail:</strong> contato@rokuzen.com.br
+
+        <div class="social-media">
+          <a href="https://www.instagram.com/rokuzen.massagem" target="_blank"><i class="fab fa-instagram" target="_blank"></i></a>
+          <a href="https://www.facebook.com/rokuzen.massagem" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/authwall?trkInfo=AQGK1pg33_z2QAAAAZnuU8tIBJ2Or03aiWZTB1UWpQcQhGk6SxIEAHUlD8IT5qeIQ1As_x6NDEuu9Igi40VLra5GBdCh9JBf9qCBF-X3BryW-Dha9sC4h3nQeZ87Qyhxef7pO2g=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Frokuzen%3Ftrk%3Dtop_nav_home" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="copyright">
+          &copy; 2025 Rokuzen. Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
