@@ -22,13 +22,14 @@ body {
 }
 
 a {
-  font-family: sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-decoration: none;
 }
 
 .header {
   background: #96ad6e98;
   padding-inline: 16px;
+  
 }
 
 .nav {
@@ -824,6 +825,15 @@ footer h3 {
   margin-top: 20px;
   font-size: 0.9rem;
   opacity: 0.8;
+}
+
+.secao-lado-a-lado {
+  display: flex; /* A MÁGICA ACONTECE AQUI! Ativa o layout flexível. */
+  width: 100%;
+  min-height: 80vh; /* Altura mínima de 80% da tela */
+  margin: 0; /* Remove margens que podem quebrar o layout */
+  padding: 0;
+  color: white;
 }
 
 
