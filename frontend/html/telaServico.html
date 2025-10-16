@@ -56,27 +56,8 @@
       <button class="btn-continuar">Continuar</button>
     </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const servicoItems = document.querySelectorAll('.servico-item');
 
-      if (servicoItems.length === 0) {
-        console.error("Erro: Nenhum elemento com a classe '.servico-item' foi encontrado.");
-        return;
-      }
-
-      servicoItems.forEach(item => {
-        item.addEventListener('click', function () {
-
-          servicoItems.forEach(i => {
-            i.classList.remove('selected');
-          });
-
-          this.classList.add('selected');
-        });
-      });
-    });
-  </script>
+  <script src="/frontend/javascript/servicos.js"></script>
 </body>
 
 </html>

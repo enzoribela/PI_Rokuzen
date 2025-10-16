@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // VARIÁVEIS PARA O BOTÃO
   const btnContinuar = document.querySelector('.btn-continuar');
-  const proximaURL = 'calendario.html';
+  const proximaURL = 'telaServico.html';
 
   // ----------------------------------------------------
   // LÓGICA DE SELEÇÃO DOS CARDS (CLIQUE)
