@@ -6,8 +6,14 @@
     <title>Administração | Rokuzen</title>
     <link rel="stylesheet" href="../css/style.css" />
     <script defer src="../javascript/app.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -20,11 +26,24 @@
         /></a>
         <button class="hamburger"></button>
         <ul class="nav-list">
-          <a class="btnNav" href="cronometro.html"><i class="fa-solid fa-clock"></i></a> 
-        <a class="btnNav" href="calendario.html"><i class="fa-solid fa-calendar"></i></a>
+          <a class="btnNav" href="cronometro.html"
+            ><i class="fa-solid fa-clock"></i
+          ></a>
+          <a class="btnNav" href="calendario.html"
+            ><i class="fa-solid fa-calendar"></i
+          ></a>
         </ul>
       </nav>
     </header>
-
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
   </body>
 </html>
