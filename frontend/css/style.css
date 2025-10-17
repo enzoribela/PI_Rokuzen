@@ -462,6 +462,7 @@ nav a {
 
 .titulo-pergunta {
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .main-content h1 {
@@ -529,6 +530,7 @@ nav a {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
+  margin-top: -25px;
 }
 
 .btn-continuar:hover {
@@ -922,6 +924,7 @@ body {
   box-sizing: border-box;
   text-align: center;
   padding: 0;
+  margin-bottom: 1px;
 
 }
 
