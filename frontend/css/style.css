@@ -1076,3 +1076,23 @@ body {
     display: block !important;
 }
 
+.container-imagens {
+    display: flex;             
+    justify-content: center;   
+    align-items: center;       
+    gap: 30px;                
+    padding: 20px;             
+    flex-wrap: wrap;           
+}
+
+.imagem {
+    max-width: 400px; 
+    width: 100%;      
+    height: auto;     
+    border-radius: 10px; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    
+}
+
+
+
