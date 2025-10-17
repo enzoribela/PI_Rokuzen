@@ -682,6 +682,9 @@ nav a {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
 }
+.nav-list .cta-button {
+  color: white;
+}
 
 .cta-button:hover {
   background-color: #4db6ac;
@@ -706,11 +709,11 @@ nav a {
 }
 
 #hero {
-  background-color: gray;
+  background-image: url("../arquivos/rokuzeninic.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: 80vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -721,12 +724,16 @@ nav a {
 
 .hero-content h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  color: white;
 }
 
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
+  color: white;
+  text-align: center;
+  padding: 15px;
 }
 
 /* 3. Estilos dos Serviços */
@@ -812,7 +819,7 @@ nav a {
 }
 
 footer {
-  background: gray;
+  background: #96b478;
   text-align: center;
   padding: 40px 20px;
   height: auto;
