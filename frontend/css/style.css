@@ -33,9 +33,8 @@ a {
 }
 
 .nav {
-  max-width: 1280px;
   height: 70px;
-  margin-inline: auto;
+  margin-inline: 0;
 
   display: flex;
   justify-content: space-between;
@@ -221,7 +220,7 @@ footer {
   color: white;
   font-size: 24px;
   font-family: Arial, sans-serif;
-  padding: 20px 60px;
+  padding: 0px 100px;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -231,7 +230,7 @@ footer {
   display: flex;
   justify-content: center;
   margin-top: 40px;
-  height: 70px;
+  height: 55px;
   width: 40%;
   margin-top: 40px;
   align-self: center;
@@ -249,12 +248,16 @@ footer {
   color: #7bb32e;
   font-size: 100px;
 }
+i.fa-solid.fa-user {
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
 
 .labelTxtLogin {
   font-size: 20px;
   font-weight: normal;
   color: #00000093;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -263,7 +266,13 @@ input[type="password"] {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 35px;
-  text-align: center;
+  text-align: left;
+  padding: 5px;
+  padding-left: 15px;
+}
+label.labelTxtLogin{
+  margin-top: 20px;
+  margin-bottom: -5px;
 }
 
 .unidades-container {
@@ -748,6 +757,8 @@ nav a {
   font-size: 2.5rem;
   margin-bottom: 40px;
   color: var(--primary-color);
+  height: auto;
+  width: auto;
 }
 
 .services-grid {
@@ -812,7 +823,9 @@ nav a {
 
 .about-text h2 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  height: auto;
+  width: auto;
 }
 
 .about-text p {
