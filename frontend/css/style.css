@@ -312,7 +312,7 @@ label.labelTxtLogin{
 }
 
 .unidade-item.selected {
-  border-color: #b0c99a;
+  border-color: #81cc40;
   /* Altera a borda do DIV principal para verde */
   box-shadow: 0 4px 15px rgba(176, 201, 154, 0.3);
   /* Adiciona uma sombra suave ao DIV */
