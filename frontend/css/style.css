@@ -1110,5 +1110,9 @@ body {
     
 }
 
-
-
+#adm {
+  background: #96b478;
+  text-align: center;
+  padding: 20px 10px;
+  height: auto;
+}
