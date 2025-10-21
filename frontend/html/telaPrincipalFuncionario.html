@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administração | Rokuzen</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script defer src="../javascript/app.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="telaPrincipalAdm.html"><img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png"
+          alt="logo Site" /></a>
+      <button class="hamburger"></button>
+      <ul class="nav-list">
+        <li><a href="#hero">Sobre</a></li>
+        <li><a href="#horarios">Seus horários</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="hero">
+      <div class="hero-content">
+        <h1>Área do funcionário</h1>
+        <p>Bem-vindo à sua área exclusiva.
+          Aqui você tem acesso a informações, comunicados e ferramentas que facilitam o seu trabalho e
+          fortalecem a conexão com a Rokuzen.</p>
+      </div>
+    </section>
+    <section id=horarios>
+      <h2>Seus horários</h2>
+      <div class="profissional-horario-wrapper">
+        <div class="profissional-horario-container">
+          <div class="carrossel-profissionais-selecao">
+              <div class="card-profissional">
+                <h2 class="profissional-nome">João Silva</h2>
+                <div class="card-image-content">
+
+                  <div class="card-imagem-wrapper">
+                    <img src="/frontend/arquivos/terapeuta-falso.png" alt="Foto do João Silva" />
+                  </div>
+
+                </div>
+
+                <div class="card-descricao">
+                  <p>
+                    Especialista em Massagem Desportiva e Liberação Miofascial.
+                    Atua há 7 anos com foco em recuperação muscular e prevenção de
+                    lesões.
+                  </p>
+                </div>
+              </div>
+
+    </section>
+
+
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <footer id="adm">
+      <p>Desenvolvido para uso interno dos colaboradores.</p>
+    </footer>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+</body>
+
+</html>
