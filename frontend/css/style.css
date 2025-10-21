@@ -312,7 +312,7 @@ label.labelTxtLogin{
 }
 
 .unidade-item.selected {
-  border-color: #b0c99a;
+  border-color: #81cc40;
   /* Altera a borda do DIV principal para verde */
   box-shadow: 0 4px 15px rgba(176, 201, 154, 0.3);
   /* Adiciona uma sombra suave ao DIV */
@@ -1116,3 +1116,12 @@ body {
   padding: 20px 10px;
   height: auto;
 }
+
+#horarios h2{
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--primary-color);
+  height: auto;
+  width: auto;
+}
+
