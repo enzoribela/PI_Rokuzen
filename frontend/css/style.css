@@ -248,6 +248,7 @@ footer {
   color: #7bb32e;
   font-size: 100px;
 }
+
 i.fa-solid.fa-user {
   margin-top: 80px;
   margin-bottom: 30px;
@@ -270,7 +271,8 @@ input[type="password"] {
   padding: 5px;
   padding-left: 15px;
 }
-label.labelTxtLogin{
+
+label.labelTxtLogin {
   margin-top: 20px;
   margin-bottom: -5px;
 }
@@ -619,8 +621,8 @@ nav a {
   margin: 40px auto;
   padding: 20px;
   background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);
 }
 
 .select-group {
@@ -693,6 +695,7 @@ nav a {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s;
 }
+
 .nav-list .cta-button {
   color: white;
 }
@@ -1017,97 +1020,98 @@ body {
 /* Container que envolve a label e o select */
 /* Container que envolve o label e o select */
 .horario-select-group {
-    /* Largura definida para a caixa do seletor. Ajuste se precisar de mais espaço */
-    width: 230px; 
-    
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    display: block;
-    
-    /* Garante a transição suave para o efeito scale do hover */
-    transition: transform 0.25s ease-out;
+  /* Largura definida para a caixa do seletor. Ajuste se precisar de mais espaço */
+  width: 230px;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  display: block;
+
+  /* Garante a transição suave para o efeito scale do hover */
+  transition: transform 0.25s ease-out;
 }
 
 /* Estilo para o texto "Horário:" */
 .horario-select-group label {
-    display: block;
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 8px;
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
 }
 
 /* Estilo principal do campo <select> (caixa branca) */
 .horario-select-group select {
-    /* Remove a seta padrão do navegador */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  /* Remove a seta padrão do navegador */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 
-    width: 100%;
-    padding: 10px 15px;
+  width: 100%;
+  padding: 10px 15px;
 
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    color: #333;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #333;
 
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 
-    cursor: pointer;
-    outline: none;
-    
-    /* Seta customizada em SVG (triângulo) */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path fill="%23333" d="M0 0l5 6 5-6z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
+  cursor: pointer;
+  outline: none;
+
+  /* Seta customizada em SVG (triângulo) */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path fill="%23333" d="M0 0l5 6 5-6z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
 }
 
 /* Efeito Hover no próprio campo <select> (Borda e Sombra inicial) */
 .horario-select-group select:hover {
-    border-color: #b0c99a;
-    /* Sombra um pouco mais sutil quando o mouse está só sobre o campo */
-    box-shadow: 0 0 10px rgba(176, 201, 154, 0.7); 
+  border-color: #b0c99a;
+  /* Sombra um pouco mais sutil quando o mouse está só sobre o campo */
+  box-shadow: 0 0 10px rgba(176, 201, 154, 0.7);
 }
 
 /* Efeito Hover no grupo inteiro: Ativa o Transform e o Brilho forte */
 .horario-select-group:hover {
-    /* Move o grupo ligeiramente para fora */
-    transform: scale(1.02);
+  /* Move o grupo ligeiramente para fora */
+  transform: scale(1.02);
 }
 
 .horario-select-group:hover select {
-    /* Aplica a borda, o brilho forte e a transição suave */
-    transform: none; /* Garante que a escala não se aplique aqui também */
-    border-color: #96b478;
-    box-shadow: 0 0 20px rgba(176, 201, 154, 0.9);
-    transition: transform 0.25s ease-out, box-shadow 0.25s ease-out,
-                border-color 0.25s ease-out;
+  /* Aplica a borda, o brilho forte e a transição suave */
+  transform: none;
+  /* Garante que a escala não se aplique aqui também */
+  border-color: #96b478;
+  box-shadow: 0 0 20px rgba(176, 201, 154, 0.9);
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out,
+    border-color 0.25s ease-out;
 }
 
 /* Regra para garantir que o <select> não esteja escondido, caso tenha alguma regra conflitante */
 #horario-select {
-    display: block !important;
+  display: block !important;
 }
 
 .container-imagens {
-    display: flex;             
-    justify-content: center;   
-    align-items: center;       
-    gap: 30px;                
-    padding: 20px;             
-    flex-wrap: wrap;           
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
+  flex-wrap: wrap;
 }
 
 .imagem {
-    max-width: 400px; 
-    width: 100%;      
-    height: auto;     
-    border-radius: 10px; 
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
 }
 
 #adm {
@@ -1117,7 +1121,7 @@ body {
   height: auto;
 }
 
-#horarios h2{
+#horarios h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
   color: var(--primary-color);
@@ -1125,3 +1129,11 @@ body {
   width: auto;
 }
 
+.form-info {
+  max-width: 300px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px #81cc40;
+}
