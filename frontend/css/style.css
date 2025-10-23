@@ -229,30 +229,25 @@ footer {
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 15px;
   height: 55px;
   width: 40%;
-  margin-top: 40px;
   align-self: center;
 }
 
 .botaoPrin:hover {
   background-color: #7bb32e;
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
-  transform: translateY(-5px);
+  transform: translateY(-2px);
   justify-content: center;
   align-items: center;
 }
 
 .fa-user {
   color: #7bb32e;
-  font-size: 100px;
+  font-size: 70px;
+  margin-bottom: 20px;
 }
 
-i.fa-solid.fa-user {
-  margin-top: 80px;
-  margin-bottom: 30px;
-}
 
 .labelTxtLogin {
   font-size: 20px;
@@ -261,7 +256,7 @@ i.fa-solid.fa-user {
   margin-bottom: 10px;
   text-align: center;
 }
-
+input[type="checkbox"],
 input[type="email"],
 input[type="password"] {
   font-size: 16px;
@@ -270,6 +265,7 @@ input[type="password"] {
   text-align: left;
   padding: 5px;
   padding-left: 15px;
+  margin-top: 15px;
 }
 
 label.labelTxtLogin {
@@ -1138,6 +1134,3 @@ body {
   box-shadow: 0 4px 8px #81cc40;
 }
 
-.bxs-user{
-  color: #9acd32;
-}
