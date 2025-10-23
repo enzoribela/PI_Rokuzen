@@ -13,6 +13,14 @@ const VALIDATION_CONSTANTS = {
     MACA: "Maca",
     REFLEXOLOGIA_PODAL: "Reflexologia Podal",
     AURICULOTERAPIA: "Auriculoterapia"
+  },
+
+  // Constantes das unidades do Rokuzen
+  UNIDADES: {
+    GRAND_PLAZA: "Grand Plaza",
+    GOLDEN_SQUARE: "Golden Square",
+    MOOCA_PLAZA: "Mooca Plaza",
+    WEST_PLAZA: "West Plaza"
   }
 }
 
