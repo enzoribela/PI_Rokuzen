@@ -25,6 +25,19 @@ const RESPONSE_MESSAGES = {
     
     SALA: {
       NOME_OBRIGATORIO: "O nome (ou número) da sala é obrigatório"
+    },
+
+    AGENDAMENTO: {
+      TIPO_DE_SERVICO_OBRIGATORIO: "O tipo de serviço é obrigatório",
+      TERAPEUTA_OBRIGATORIO: "O terapeuta é obrigatório",
+      UNIDADE_OBRIGATORIA: "A unidade é obrigatória",
+      SALA_OBRIGATORIA: "A sala é obrigatória",
+      NOME_DO_CLIENTE_OBRIGATORIO: "O nome do cliente é obrigatório",
+      EMAIL_DO_CLIENTE_OBRIGATORIO: "O email do cliente é obrigatório",
+      TELEFONE_DO_CLIENTE_OBRIGATORIO: "O telefone do cliente é obrigatório",
+      CPF_DO_CLIENTE_OBRIGATORIO: "O CPF do cliente é obrigatório",
+      DATA_DE_INICIO_OBRIGATORIA: "A data e hora de inicio do agendamento são obrigatórias",
+      DATA_DE_FIM_OBRIGATORIA: "A data e hora de fim do agendamento são obrigatórias"
     }
   }
 }
