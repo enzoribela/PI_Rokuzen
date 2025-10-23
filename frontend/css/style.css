@@ -26,7 +26,7 @@ a {
   text-decoration: none;
 }
 
-.header {
+header {
   background: #96ad6e98;
   padding-inline: 16px;
 
@@ -190,8 +190,8 @@ h2 {
 }
 
 .login {
-  width: 250px;
-  margin: 00px auto;
+  width: 200px;
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -262,7 +262,7 @@ i.fa-solid.fa-user {
   text-align: center;
 }
 
-input[type="text"],
+input[type="email"],
 input[type="password"] {
   font-size: 16px;
   border: 1px solid #ccc;
@@ -1136,4 +1136,8 @@ body {
   background-color: #f0f0f0;
   border-radius: 15px;
   box-shadow: 0 4px 8px #81cc40;
+}
+
+.bxs-user{
+  color: #9acd32;
 }
