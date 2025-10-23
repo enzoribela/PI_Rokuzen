@@ -3,15 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <title>Tela de Login</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
   </head>
-  <body>
-    <header class="header">
+   <header class="header">
       <nav class="nav">
         <a href="telaPrincipal.html"
           ><img
@@ -19,35 +17,33 @@
             src="../arquivos/RokuzenLogo.png"
             alt="logo Site"
         /></a>
-        <button class="hamburger"></button>
-        <ul class="nav-list">
-          <li><a href="telaPrincipal.html">Página Inicial</a></li>
-        </ul>
-      </nav>
-    </header>
-    <h1>
-      <i class="fa-solid fa-user"></i>
-    </h1>
-    <form class="login" onsubmit="return login(event)">
-      <label class="labelTxtLogin" for="usuario">Usuário:</label>
-      <input id="usuario" type="text" />
+        </header>
+  <body>
+    <main class="login">
+      <form>
+        <h1><i class="fa-solid fa-user"></i>
+</h1>
+        <div class="input-box">
+          <input type="email" placeholder="Usuário" />
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Senha" />
+        </div>
+        
+                <div class="remember-forgot">
+          <label>
+            <input type="checkbox" />
+            Lembrar senha
+          </label>
+          <a href="#">Esqueci minha senha</a>
+        </div>
+        <button type="submit" class="botaoPrin">Login</button>
 
-      <label class="labelTxtLogin" for="senha">Senha:</label>
-      <input id="senha" type="password" />
+        <div class="register-link">
+          <p>Não tem uma conta? <a href="#">Cadastre-se</a></p>
+        </div>
 
-      <button class="botaoPrin" type="submit">Entrar</button>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../javascript/frontend.js"></script>
-    <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-      </div>
-    </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-      new window.VLibras.Widget("https://vlibras.gov.br/app");
-    </script>
+      </form>
+    </main>
   </body>
 </html>
