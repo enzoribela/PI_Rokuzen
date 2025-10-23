@@ -1135,3 +1135,29 @@ body {
   box-shadow: 0 1px 8px #96b478;
 }
 
+.remember-forgot {
+  display: flex;
+  justify-content: space-between; /* Joga cada item para um lado */
+  align-items: center;           /* Alinha verticalmente no centro */
+  width: 100%;                   /* Garante que o container ocupe todo o espaço */
+  margin-top: 10px;              /* Adiciona um pequeno espaço acima */
+  font-size: 14px;               /* Ajusta o tamanho da fonte */
+}
+
+.register-link {
+  text-align: center; /* Centraliza o texto */
+  margin-top: 20px;   /* Adiciona espaço acima */
+  font-size: 15px;
+}
+
+.register-link a {
+  color: #7bb32e;     /* Cor verde para o link */
+  font-weight: bold;
+}
+
+.remember-forgot a {
+  margin-top: 15px;
+  color: #7bb32e;
+  font-weight: bold;
+}
+
