@@ -198,7 +198,6 @@ h2 {
   padding: 20px 60px;
   border: none;
   border-radius: 40px;
-  cursor: pointer;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
 }
 
@@ -257,7 +256,7 @@ footer {
   text-align: center;
 }
 input[type="checkbox"],
-input[type="email"],
+input[type="text"],
 input[type="password"] {
   font-size: 16px;
   border: 1px solid #ccc;
@@ -1065,30 +1064,26 @@ body {
   background-position: right 10px center;
 }
 
-/* Efeito Hover no próprio campo <select> (Borda e Sombra inicial) */
+
 .horario-select-group select:hover {
   border-color: #b0c99a;
-  /* Sombra um pouco mais sutil quando o mouse está só sobre o campo */
   box-shadow: 0 0 10px rgba(176, 201, 154, 0.7);
 }
 
-/* Efeito Hover no grupo inteiro: Ativa o Transform e o Brilho forte */
+
 .horario-select-group:hover {
-  /* Move o grupo ligeiramente para fora */
   transform: scale(1.02);
 }
 
 .horario-select-group:hover select {
-  /* Aplica a borda, o brilho forte e a transição suave */
   transform: none;
-  /* Garante que a escala não se aplique aqui também */
   border-color: #96b478;
   box-shadow: 0 0 20px rgba(176, 201, 154, 0.9);
   transition: transform 0.25s ease-out, box-shadow 0.25s ease-out,
     border-color 0.25s ease-out;
 }
 
-/* Regra para garantir que o <select> não esteja escondido, caso tenha alguma regra conflitante */
+
 #horario-select {
   display: block !important;
 }
@@ -1137,21 +1132,24 @@ body {
 
 .remember-forgot {
   display: flex;
-  justify-content: space-between; /* Joga cada item para um lado */
-  align-items: center;           /* Alinha verticalmente no centro */
-  width: 100%;                   /* Garante que o container ocupe todo o espaço */
-  margin-top: 10px;              /* Adiciona um pequeno espaço acima */
-  font-size: 14px;               /* Ajusta o tamanho da fonte */
+  justify-content: space-between;
+  align-items: center;           
+  width: 100%;                  
+  margin-top: 10px;              
+  font-size: 14px;              
+  
 }
-
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
 .register-link {
-  text-align: center; /* Centraliza o texto */
-  margin-top: 20px;   /* Adiciona espaço acima */
+  text-align: center; 
+  margin-top: 20px;  
   font-size: 15px;
 }
 
 .register-link a {
-  color: #7bb32e;     /* Cor verde para o link */
+  color: #7bb32e;
   font-weight: bold;
 }
 
@@ -1159,5 +1157,9 @@ body {
   margin-top: 15px;
   color: #7bb32e;
   font-weight: bold;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
 }
 
