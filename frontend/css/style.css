@@ -282,6 +282,14 @@ label.labelTxtLogin {
   margin-top: 70px;
 }
 
+.unidade-txt {
+  text-align: center;
+  color: #000;
+  font-weight: lighter;
+  margin-left: 0px;
+  font-size: 18px;
+}
+
 .unidade-item {
   background-color: #f0f0f0;
   border: 2px solid #ccc;
@@ -575,7 +583,7 @@ nav a {
   text-align: center;
   justify-content: center;
   font-family: sans-serif;
-  margin-top: 120px;
+  margin-top: 90px;
 }
 
 #container-formulario>h2 {
@@ -1127,7 +1135,7 @@ body {
   padding: 20px;
   background-color: #f0f0f0;
   border-radius: 15px;
-  box-shadow: 0 1px 8px #96b478;
+  box-shadow: 0 1px 8px #61b012;
 }
 
 .remember-forgot {
