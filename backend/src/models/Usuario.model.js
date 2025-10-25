@@ -28,7 +28,7 @@ const usuarioSchema = mongoose.Schema({
   role: {
     type: String,
     required: [true, VALIDACAO.GERAL.ROLE_OBRIGATORIA],
-    enum: [Object.values(ROLES)]
+    enum: Object.values(ROLES)
   }
 })
 
