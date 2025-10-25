@@ -1,4 +1,6 @@
 const mongoose = require("mongoose")
+const bcrypt = require("bcrypt")
+const {validaSenha} = require("../utils/validators.utils")
 
 const {
   VALIDACAO
@@ -29,6 +31,29 @@ const usuarioSchema = mongoose.Schema({
     type: String,
     required: [true, VALIDACAO.GERAL.ROLE_OBRIGATORIA],
     enum: Object.values(ROLES)
+  }
+})
+
+usuarioSchema.pre("save", async function(next) {
+  const usuario = this
+
+  if (!usuario.isModified("password"))
+    return next();
+
+  // 1. Valida a senha
+  if(!validaSenha(usuario.password))
+    return next(new Error(VALIDACAO.GERAL.SENHA_INVALIDA))
+
+  // 2. Faz o hashing
+  try
+  {
+    const senhaHasheada = await bcrypt.hash(usuario.password, 10)
+    usuario.password = senhaHasheada
+    next()
+  }
+  catch(error)
+  {
+    next(error);
   }
 })
 
