@@ -10,6 +10,10 @@ const {
 } = require("../../constants/permission.constants")
 
 // Rotas públicas
+router.post(
+  "/login",
+  authController.login
+)
 
 // Rotas protegidas
 

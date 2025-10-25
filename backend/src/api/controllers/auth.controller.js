@@ -60,5 +60,37 @@ exports.register = async (req, res) => {
 }
 
 exports.login = async (req, res) => {
-  
+  const username = req.body.username
+  const password = req.body.password
+
+  // Testa se o campo username ou o campo password estão vazios
+  if(!username || !password)
+    return res.status(400).json({message: AUTH.CREDENCIAIS_INVALIDAS})  // Status 400: Bad Request
+
+  const usuario = await Usuario.findOne({username: username}).select("+password")
+
+  // Verifica se o usuário existe
+  if(!usuario)
+    return res.status(401).json({message: AUTH.CREDENCIAIS_INVALIDAS})  // Status 401: Sem autorização
+
+  // Verifica se a senha está correta
+  const senhaEstaCerta = await bcrypt.compare(password, usuario.password)
+  if(!senhaEstaCerta)
+    return res.status(401).json({message: AUTH.CREDENCIAIS_INVALIDAS})  // Status 401: Sem autorização
+
+  // Cria o payload do token
+  const payload = {
+    sub: usuario._id,   // sub significa subject ou sujeito, esse campo representa de qual usuario é esse token, guardando o id dele
+    nome: usuario.nome,
+    role: usuario.role
+  }
+
+  // Cria o token
+  const token = jwt.sign(
+    payload,
+    process.env.JWT_SECRET,
+    {expiresIn: "1h"}
+  )
+
+  res.status(200).json({message: AUTH.LOGIN_FEITO, token: token})
 }
