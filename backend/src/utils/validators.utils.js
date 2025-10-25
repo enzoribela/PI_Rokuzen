@@ -15,7 +15,7 @@ const validaSenha = (senha) => {
   return senha.length >= TAMANHO_MINIMO_SENHA
 }
 
-function validaCPF(cpf) {
+const validaCPF = (cpf) => {
   // 1. Remove caracteres não numéricos (pontos, traços, etc.)
   const cpfLimpo = String(cpf).replace(/[^\d]/g, '');
 
