@@ -16,7 +16,9 @@ const RESPONSE_MESSAGES = {
       USERNAME_OBRIGATORIO: "O username é obrigatório",
       SENHA_OBRIGATORIA: "A senha é obrigatória",
       ROLE_OBRIGATORIA: "O cargo é obrigatório",
-      SENHA_INVALIDA: "A senha está inválida"
+      SENHA_INVALIDA: "A senha está inválida",
+      EMAIL_INVALIDO: "Email inválido",
+      CPF_INVALIDO: "CPF inválido"
     },
 
     USUARIO: {
