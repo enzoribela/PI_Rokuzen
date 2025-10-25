@@ -9,6 +9,8 @@ const {
   UNIDADES
 } = require("../constants/validation.constants")
 
+const {validaEmail, validaCPF} = require("../utils/validators.utils")
+
 const agendamentoSchema = mongoose.Schema({
   tipoDeServico: {
     type: String,
@@ -46,7 +48,12 @@ const agendamentoSchema = mongoose.Schema({
   emailDoCliente: {
     type: String,
     required: [true, VALIDACAO.AGENDAMENTO.EMAIL_DO_CLIENTE_OBRIGATORIO],
-    trim: true
+    trim: true,
+    lowercase: true,
+    validate: {
+      validator: validaEmail,
+      message: VALIDACAO.GERAL.EMAIL_INVALIDO
+    }
   },
   telefone: {
     type: String,
@@ -56,7 +63,11 @@ const agendamentoSchema = mongoose.Schema({
   cpf: {
     type: String,
     required: [true, VALIDACAO.AGENDAMENTO.CPF_DO_CLIENTE_OBRIGATORIO],
-    trim: true
+    trim: true,
+    validate: {
+      validator: validaCPF,
+      message: VALIDACAO.GERAL.CPF_INVALIDO
+    }
   }
 })
 
