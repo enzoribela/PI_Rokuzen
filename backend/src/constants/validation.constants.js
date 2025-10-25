@@ -21,7 +21,13 @@ const VALIDATION_CONSTANTS = {
     GOLDEN_SQUARE: "Golden Square",
     MOOCA_PLAZA: "Mooca Plaza",
     WEST_PLAZA: "West Plaza"
-  }
+  },
+
+  // Constantes de Senha
+  TAMANHO_MINIMO_SENHA: 8,
+
+  // Constantes de Email
+  REGEX_EMAIL: /^\S+@\S+\.\S+$/
 }
 
 // Congela o objeto para torná-lo imutável
