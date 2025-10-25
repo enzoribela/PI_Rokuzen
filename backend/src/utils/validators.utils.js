@@ -73,3 +73,9 @@ const validaCPF = (cpf) => {
   // Se passou por todas as verificações, o CPF é válido
   return true;
 }
+
+module.exports = {
+  validaEmail,
+  validaSenha,
+  validaCPF
+}
