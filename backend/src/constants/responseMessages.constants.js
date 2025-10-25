@@ -1,7 +1,9 @@
 const RESPONSE_MESSAGES = {
   AUTH: {
     USUARIO_CRIADO: "Usuário criado com sucesso",
-    USERNAME_EM_USO: "Esse username já está em uso"
+    USERNAME_EM_USO: "Esse username já está em uso",
+    CREDENCIAIS_INVALIDAS: "Credenciais inválidas",
+    LOGIN_FEITO: "Login realizado com sucesso"
   },
 
   // Mensagens de erro genéricas
