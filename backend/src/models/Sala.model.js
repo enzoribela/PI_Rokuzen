@@ -5,7 +5,8 @@ const {
 } = require("../constants/responseMessages.constants")
 
 const {
-  SERVICOS
+  SERVICOS,
+  UNIDADES
 } = require("../constants/validation.constants")
 
 const salaSchema = mongoose.Schema({
@@ -19,6 +20,11 @@ const salaSchema = mongoose.Schema({
     type: [String],
     enum: Object.values(SERVICOS),
     default: []
+  },
+  unidade: {
+    type: String,
+    required: [true, VALIDACAO.SALA.UNIDADE_OBRIGATORIA],
+    enum: Object.values(UNIDADES)
   }
 })
 
