@@ -13,7 +13,6 @@ const salaSchema = mongoose.Schema({
   nome: {
     type: String,
     required: [true, VALIDACAO.SALA.NOME_OBRIGATORIO],
-    unique: true,
     trim: true
   },
   servicos: {
@@ -27,6 +26,8 @@ const salaSchema = mongoose.Schema({
     enum: Object.values(UNIDADES)
   }
 })
+
+salaSchema.index({nome: 1, unidade: 1}, {unique: true})
 
 const Sala = mongoose.model("Sala", salaSchema)
 
