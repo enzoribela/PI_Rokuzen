@@ -51,7 +51,9 @@ const RESPONSE_MESSAGES = {
       TELEFONE_DO_CLIENTE_OBRIGATORIO: "O telefone do cliente é obrigatório",
       CPF_DO_CLIENTE_OBRIGATORIO: "O CPF do cliente é obrigatório",
       DATA_DE_INICIO_OBRIGATORIA: "A data e hora de inicio do agendamento são obrigatórias",
-      DATA_DE_FIM_OBRIGATORIA: "A data e hora de fim do agendamento são obrigatórias"
+      DATA_DE_FIM_OBRIGATORIA: "A data e hora de fim do agendamento são obrigatórias",
+      TERAPEUTA_OCUPADO: "Não foi possível registrar esse agendamento pois o terapeuta em questão está ocupado ou em intervalo, nesse horário",
+      SALA_OCUPADA: "Não foi possível registrar esse agendamento pois a sala em questão está ocupada ou em limpeza, nesse horário"
     }
   },
 
