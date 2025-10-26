@@ -23,6 +23,10 @@ const VALIDATION_CONSTANTS = {
     WEST_PLAZA: "West Plaza"
   },
 
+  // Definição do tempo de intervalo entre cada sessão em uma sala e com um terapeuta específico
+  INTERVALO_TERAPEUTA_MINUTOS: 15,
+  INTERVALO_SALA_MINUTOS: 10,
+
   // Constantes de Senha
   TAMANHO_MINIMO_SENHA: 8,
 
