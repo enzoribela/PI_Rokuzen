@@ -20,7 +20,7 @@ router.post(
 // Rotas restritas
 router.post(
   "/register",
-  // authMiddleware,
+  authMiddleware,
   // checkRole(PERMISSION_CONSTANTS.PERMISSAO_PARA_CADASTRO),
   authController.register
 )
