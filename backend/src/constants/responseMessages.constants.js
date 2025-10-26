@@ -36,7 +36,8 @@ const RESPONSE_MESSAGES = {
     },
     
     SALA: {
-      NOME_OBRIGATORIO: "O nome (ou número) da sala é obrigatório"
+      NOME_OBRIGATORIO: "O nome (ou número) da sala é obrigatório",
+      UNIDADE_OBRIGATORIA: "A unidade da sala é obrigatória"
     },
 
     AGENDAMENTO: {
