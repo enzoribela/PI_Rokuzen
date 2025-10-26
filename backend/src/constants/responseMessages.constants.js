@@ -27,7 +27,8 @@ const RESPONSE_MESSAGES = {
       ROLE_OBRIGATORIA: "O cargo é obrigatório",
       SENHA_INVALIDA: "A senha está inválida",
       EMAIL_INVALIDO: "Email inválido",
-      CPF_INVALIDO: "CPF inválido"
+      CPF_INVALIDO: "CPF inválido",
+      INTERVALO_DE_TEMPO_INVALIDO: "O período de tempo do agendamento está inválido. A data/hora de término deve ser posterior à data/hora de início"
     },
 
     USUARIO: {
@@ -50,6 +51,10 @@ const RESPONSE_MESSAGES = {
       DATA_DE_INICIO_OBRIGATORIA: "A data e hora de inicio do agendamento são obrigatórias",
       DATA_DE_FIM_OBRIGATORIA: "A data e hora de fim do agendamento são obrigatórias"
     }
+  },
+
+  AGENDAMENTO: {
+    CRIADO_COM_SUCESSO: "Agendamento registrado com sucesso"
   }
 }
 
