@@ -3,7 +3,11 @@ const RESPONSE_MESSAGES = {
     USUARIO_CRIADO: "Usuário criado com sucesso",
     USERNAME_EM_USO: "Esse username já está em uso",
     CREDENCIAIS_INVALIDAS: "Credenciais inválidas",
-    LOGIN_FEITO: "Login realizado com sucesso"
+    LOGIN_FEITO: "Login realizado com sucesso",
+    TOKEN_NAO_FORNECIDO: "Acesso negado. O token de autenticação não foi fornecido",
+    TOKEN_MAL_FORMATADO: "Erro no formato do token. O formato esperado é \"Bearer <token>\"",
+    TOKEN_EXPIROU: "Sua sessão expirou. Por favor, faça login novamente",
+    TOKEN_INVALIDO: "Token de autenticação inválido"
   },
 
   // Mensagens de erro genéricas
