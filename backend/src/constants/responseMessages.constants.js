@@ -37,7 +37,8 @@ const RESPONSE_MESSAGES = {
     
     SALA: {
       NOME_OBRIGATORIO: "O nome (ou número) da sala é obrigatório",
-      UNIDADE_OBRIGATORIA: "A unidade da sala é obrigatória"
+      UNIDADE_OBRIGATORIA: "A unidade da sala é obrigatória",
+      NOME_EM_USO_NA_UNIDADE: "Já existe uma sala com esse nome nessa unidade"
     },
 
     AGENDAMENTO: {
@@ -56,6 +57,10 @@ const RESPONSE_MESSAGES = {
 
   AGENDAMENTO: {
     CRIADO_COM_SUCESSO: "Agendamento registrado com sucesso"
+  },
+
+  SALA: {
+    CRIADA_COM_SUCESSO: "Sala criada com sucesso"
   }
 }
 
