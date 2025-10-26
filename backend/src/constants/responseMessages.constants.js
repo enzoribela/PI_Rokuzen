@@ -7,7 +7,9 @@ const RESPONSE_MESSAGES = {
     TOKEN_NAO_FORNECIDO: "Acesso negado. O token de autenticação não foi fornecido",
     TOKEN_MAL_FORMATADO: "Erro no formato do token. O formato esperado é \"Bearer <token>\"",
     TOKEN_EXPIROU: "Sua sessão expirou. Por favor, faça login novamente",
-    TOKEN_INVALIDO: "Token de autenticação inválido"
+    TOKEN_INVALIDO: "Token de autenticação inválido",
+    TOKEN_NAO_ENCONTRADO: "Acesso negado. O token não foi encontrado no corpo da requisição",
+    NAO_TEM_PERMISSAO: "Acesso proibido. Você não tem a permissão necessária para acessar esse recurso"
   },
 
   // Mensagens de erro genéricas
