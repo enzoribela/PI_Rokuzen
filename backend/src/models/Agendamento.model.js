@@ -75,7 +75,7 @@ const agendamentoSchema = mongoose.Schema({
 agendamentoSchema.pre('save', function(next) {
   if(this.fim <= this.inicio)
   {
-    next(new Error("A data/hora de término deve ser posterior à data/hora de início"))
+    next(new Error(VALIDACAO.GERAL.INTERVALO_DE_TEMPO_INVALIDO))
   }
   else
   {
