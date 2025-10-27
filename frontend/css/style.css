@@ -219,7 +219,7 @@ footer {
   color: white;
   font-size: 24px;
   font-family: Arial, sans-serif;
-  padding: 0px 100px;
+  padding: 0px 80px;
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -228,9 +228,9 @@ footer {
   align-items: center;
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  margin-top: 50px;
   height: 55px;
-  width: 40%;
+  width: 100%;
   align-self: center;
 }
 
@@ -267,6 +267,7 @@ input[type="password"] {
   margin-top: 15px;
 }
 
+
 label.labelTxtLogin {
   margin-top: 20px;
   margin-bottom: -5px;
@@ -288,6 +289,10 @@ label.labelTxtLogin {
   font-weight: lighter;
   margin-left: 0px;
   font-size: 18px;
+}
+.input-box{
+  display: flex;
+  justify-content: center;
 }
 
 .unidade-item {

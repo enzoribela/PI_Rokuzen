@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnContinuar = document.querySelector('.btn-continuar');
   const proximaURL = 'telaProfissionais.html';
 
-  // --- SOLUÇÃO ---
-
   // Função auxiliar para formatar a data de hoje no formato "d/m/Y"
   function getTodayFormatted() {
     const today = new Date();
@@ -21,12 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inicializa a variável 'selectedDate' JÁ COM A DATA DE HOJE.
   let selectedDate = getTodayFormatted();
 
-  // --- FIM DA SOLUÇÃO ---
-
 
   // ---------------------------------------------------------------------
   // 2. INICIALIZAÇÃO E CONFIGURAÇÃO DO FLATPICKR
   // ---------------------------------------------------------------------
+
+  // --- ADIÇÃO: CALCULAR A DATA MÁXIMA ---
+  const today = new Date();
+  const maxDate = new Date(today); // Cria uma nova instância baseada em 'hoje'
+  
+  // Adiciona 3 meses à data
+  // O setMonth lida automaticamente com a virada do ano (ex: Outubro + 3 = Janeiro do ano seguinte)
+  maxDate.setMonth(maxDate.getMonth() + 6);
+  // --- FIM DA ADIÇÃO ---
+
 
   // Verifica se a função flatpickr existe
   if (typeof flatpickr === 'undefined') {
@@ -38,14 +44,17 @@ document.addEventListener('DOMContentLoaded', () => {
     "locale": "pt",
     inline: true,
     dateFormat: "d/m/Y",
-    defaultDate: "today", // Continua mostrando "hoje" visualmente
-    minDate: "today",
+    defaultDate: "today",
+    minDate: "today", // Não permite selecionar datas passadas
+
+    // --- ADIÇÃO: DEFINE A DATA MÁXIMA NO CALENDÁRIO ---
+    maxDate: maxDate,
+    // --- FIM DA ADIÇÃO ---
 
     // 'onChange' agora só ATUALIZA a variável se o usuário mudar
     onChange: function (selectedDates, dateStr, instance) {
       selectedDate = dateStr;
     }
-    // Não precisamos mais do 'onReady'
   });
 
   // ---------------------------------------------------------------------
@@ -57,24 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // --- MUDANÇA NA LÓGICA ---
-  // O botão agora começa HABILITADO, pois 'selectedDate' já tem um valor.
+  // O botão agora começa HABILITADO
   btnContinuar.disabled = false;
   btnContinuar.classList.add('active');
-  // --- FIM DA MUDANÇA ---
 
 
   btnContinuar.addEventListener('click', (event) => {
-    // Impede o comportamento padrão (como recarregar a página)
     event.preventDefault();
 
-    // Esta verificação agora funciona imediatamente,
-    // pois 'selectedDate' já contém a data de hoje.
     if (selectedDate && selectedDate.length > 0) {
       // REDIRECIONAMENTO
       window.location.href = proximaURL;
     } else {
-      // Se a variável for null, impede o avanço
       alert('Por favor, selecione uma data no calendário antes de continuar.');
     }
   });

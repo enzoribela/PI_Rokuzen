@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Seleciona todos os botões "próximo" e "anterior"
     const prevButtons = document.querySelectorAll('.carrossel-button.prev');
     const nextButtons = document.querySelectorAll('.carrossel-button.next');
+    
+    // Selecionador do botão Continuar
+    const btnContinuar = document.querySelector('.btn-continuar');
+    // URL de destino
+    const proximaURL = 'confirmacao.html';
 
     let currentSlide = 0;
 
@@ -52,10 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ***********************************************
+    // CÓDIGO PARA O BOTÃO CONTINUAR
+    // ***********************************************
+    if (btnContinuar) {
+        btnContinuar.addEventListener('click', () => {
+            // Redireciona o usuário para a URL definida (confirmacao.html)
+            window.location.href = proximaURL;
+        });
+    }
+    // ***********************************************
+
     // Recalcula a posição em caso de redimensionamento da janela
     window.addEventListener('resize', updateCarrossel);
 
     // Inicializa o carrossel na posição 0
     updateCarrossel();
 });
-
