@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css" />
+    <script defer src="../javascript/app.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Salas</title>
+</head>
+<body>
+    <header class="header">
+      <nav class="nav">
+        <a href="telaPrincipal.html"
+          ><img
+            class="RokuzenAgendamento"
+            src="../arquivos/RokuzenLogo.png"
+            alt="logo Site"
+        /></a>
+        </header>
+        <h1 class="titulo-pergunta">Selecione um profissional e um horário</h1>
+
+    <div class="profissional-horario-wrapper">
+      <div class="profissional-horario-container">
+        <div class="carrossel-profissionais-selecao">
+          <div class="carrossel-slides">
+            <div class="card-profissional">
+              <h2 class="profissional-nome">João Silva</h2>
+              <div class="card-image-content">
+                <button class="carrossel-button prev">&lt;</button>
+
+                <div class="card-imagem-wrapper">
+                  <img
+                    src="/frontend/arquivos/salaMassagem.png"
+                    alt="Foto sala de massagem"
+                  />
+                </div>
+
+                <button class="carrossel-button next">&gt;</button>
+              </div>
+            </div>
+
+            <div class="card-profissional">
+              <h2 class="profissional-nome">Sala massagem</h2>
+              <div class="card-image-content">
+                <button class="carrossel-button prev">&lt;</button>
+
+                <div class="card-imagem-wrapper">
+                  <img
+                    src="/frontend/arquivos/salaMassagem.png"
+                    alt="Foto sala de massagem"
+                  />
+                </div>
+
+                <button class="carrossel-button next">&gt;</button>
+              </div>
+
+              <div class="card-descricao">
+                <p>
+                  Terapeuta Holística especializada em Massagem Relaxante e
+                  Aromaterapia. Seu foco é no alívio do estresse, ansiedade e
+                  bem-estar emocional.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="horario-selecao">
+          <h3>Horários disponíveis:</h3>
+
+          <div class="horario-select-group">
+            <label for="horario-select"></label>
+            <select id="horario-select" name="horario">
+              <option value="" disabled selected>Selecione um horário</option>
+              <option value="1200">12:00</option>
+              <option value="1300">13:00</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="botoes-container">
+            <script src="/frontend/javascript/profissionais.js"></script>
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+</body>
+</html>
