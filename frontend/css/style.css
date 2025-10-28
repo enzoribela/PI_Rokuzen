@@ -1178,3 +1178,15 @@ body {
   text-decoration: underline;
 }
 
+.seta-voltar {
+  position: absolute;
+  top: 70px;
+  left: 0px;
+}
+
+
+@media (max-width: 360px) {
+    .seta-voltar {
+        height: 50px;
+    }
+}
