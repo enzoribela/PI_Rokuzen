@@ -286,9 +286,11 @@ label.labelTxtLogin {
 .unidade-txt {
   text-align: center;
   color: #000;
-  font-weight: lighter;
+  font-weight: lighter !important;
   margin-left: 0px;
-  font-size: 18px;
+  font-size: 25px !important;
+  white-space: nowrap;  
+  
 }
 .input-box{
   display: flex;
