@@ -1190,3 +1190,18 @@ body {
         height: 50px;
     }
 }
+
+main.login {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 177px;
+  left:283px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(123, 179, 46);
+  font-size: 1.1em;
+}
