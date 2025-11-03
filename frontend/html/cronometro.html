@@ -8,46 +8,50 @@
     <title>Cronômetro|Rokuzen</title>
 </head>
 <body>
-<header class="header">
-      <nav class="nav">
-        <a href="telaPrincipalAdm.html"
-          ><img
-            class="RokuzenAgendamento"
-            src="../arquivos/RokuzenLogo.png"
-            alt="logo Site"
-        /></a>
-        <button class="hamburger"></button>
-        <ul class="nav-list">
-          <li><a href="cronometro.html"><i class="fa-solid fa-clock"></i></a></li>
-          <li><a href="calendario.html"><i class="fa-solid fa-calendar"></i></a></li>
-        </ul>
-      </nav>
+    <header class="header">
+        <nav class="nav">
+            <a href="telaPrincipalAdm.html">
+                <img
+                    class="RokuzenAgendamento"
+                    src="../arquivos/RokuzenLogo.png"
+                    alt="logo Site"
+                />
+            </a>
+            <button class="hamburger"></button>
+            <ul class="nav-list">
+                <li><a href="cronometro.html"><i class="fa-solid fa-clock"></i></a></li>
+                <li><a href="calendario.html"><i class="fa-solid fa-calendar"></i></a></li>
+            </ul>
+        </nav>
     </header>
-<h1>Cronômetro</h1>
-<h1 id="demo">Configure o tempo e inicie.</h1>
-  <form id="cronometro" onsubmit="return false;">
-    Horas: <input class="cronometro" type="number" name="hr" min="0"><br>
-    Minutos: <input class="cronometro" type="number" name="min" min="0"><br>
-    Segundos: <input class="cronometro" type="number" name="sec" min="0"><br><br>
-  </form>
-<div class="botoesCro">
-    <button onclick="iniciarTimer()" class="btnCro"><i class="fa-solid fa-play"></i></button>
-    <button onclick="continuarTimer()" class="btnCro">...</button>
-    <button onclick="pause()" class="btnCro"><i class="fa-solid fa-pause"></i></button>
-    <button onclick="cancelarTimer()" class="btnCro"><i class="fa solid fa-xmark"></i></button>
-</div>
+    <div id="cronometro">
+      <h1>Cronômetro</h1>
+      <h2>Configure o tempo e inicie.</h2> 
+      <form id="cronometro" onsubmit="return false;">
+          Horas: <input class="cronometro" type="number" name="hr" min="0"><br>
+          Minutos: <input class="cronometro" type="number" name="min" min="0"><br>
+          Segundos: <input class="cronometro" type="number" name="sec" min="0"><br><br>
+      </form>
+      <div class="botoesCro">
+          <button onclick="iniciarTimer()" class="btnCro"><i class="fa-solid fa-play"></i></button>
+          <button onclick="continuarTimer()" class="btnCro">...</button>
+          <button onclick="pause()" class="btnCro"><i class="fa-solid fa-pause"></i></button>
+          <button onclick="cancelarTimer()" class="btnCro"><i class="fa-solid fa-xmark"></i></button> 
+      </div>
+    </div>
 
-        <script src="../javascript/cronometro.js"></script>
-  </div>
-  <div vw class="enabled">
-<div vw-access-button class="active"></div>
-<div vw-plugin-wrapper>
-<div class="vw-plugin-top-wrapper"></div>
-</div>
-</div>
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
+
+    <script src="../javascript/cronometro.js"></script>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 </body>
 </html>

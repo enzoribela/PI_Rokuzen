@@ -377,8 +377,8 @@ label.labelTxtLogin {
   gap: 20px;
 }
 
-#cronometro {
-  display: flex;
+#cronometro  {
+  display: flex ;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -388,7 +388,62 @@ label.labelTxtLogin {
   padding: 0px 90px;
   cursor: pointer;
 }
+#cronometro h1{
+  margin-top: 300px;
+}
+#cronometro h2{
+  display: inline;
+  margin: 0px;
+  white-space: nowrap;
+  align-items: center;
+}
+.cronometroFunc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 
+#cronometroFunc  {
+  display: flex ;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(70vh - 200px);
+  display: flex;
+  flex-direction: column;
+  padding: 0px 90px;
+  cursor: pointer;
+}
+#cronometroFunc h1{
+  margin-top: 300px;
+}
+#cronometroFunc h2{
+  display: inline;
+  margin: 0px;
+  white-space: nowrap;
+  align-items: center;
+}
+.botoesCroFunc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.btnCroFunc {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #7dbb3e;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.btnCroFunc:hover {
+  transform: scale(1.2);
+  color: #5f9230;
+}
 .botoesCro {
   display: flex;
   justify-content: center;
