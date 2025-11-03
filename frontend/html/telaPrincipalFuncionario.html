@@ -20,6 +20,7 @@
       <ul class="nav-list">
         <li><a href="#hero">Sobre</a></li>
         <li><a href="#horarios">Seus horários</a></li>
+        <li><a href="#cronometro">Cronômetro</a></li>
       </ul>
     </nav>
   </header>
@@ -37,28 +38,51 @@
       <div class="profissional-horario-wrapper">
         <div class="profissional-horario-container">
           <div class="carrossel-profissionais-selecao">
-              <div class="card-profissional">
-                <h2 class="profissional-nome">João Silva</h2>
-                <div class="card-image-content">
+            <div class="card-profissional">
+              <h2 class="profissional-nome">João Silva</h2>
+              <div class="card-image-content">
 
-                  <div class="card-imagem-wrapper">
-                    <img src="/frontend/arquivos/terapeuta-falso.png" alt="Foto do João Silva" />
-                  </div>
-
+                <div class="card-imagem-wrapper">
+                  <img src="/frontend/arquivos/terapeuta-falso.png" alt="Foto do João Silva" />
                 </div>
 
-                <div class="card-descricao">
-                  <p>
-                    Especialista em Massagem Desportiva e Liberação Miofascial.
-                    Atua há 7 anos com foco em recuperação muscular e prevenção de
-                    lesões.
-                  </p>
-                </div>
               </div>
+
+              <div class="card-descricao">
+                <p>
+                  Especialista em Massagem Desportiva e Liberação Miofascial.
+                  Atua há 7 anos com foco em recuperação muscular e prevenção de
+                  lesões.
+                </p>
+              </div>
+            </div>
 
     </section>
 
 
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <div id="cronometro" class="cronometro-section">
+      <h1>Cronômetro</h1>
+      <h1 id="demo">Configure o tempo e inicie.</h1>
+      <form id="cronometro" onsubmit="return false;">
+        Horas: <input class="cronometro" type="number" name="hr" min="0"><br>
+        Minutos: <input class="cronometro" type="number" name="min" min="0"><br>
+        Segundos: <input class="cronometro" type="number" name="sec" min="0"><br><br>
+      </form>
+      <div class="botoesCro">
+        <button onclick="iniciarTimer()" class="btnCro"><i class="fa-solid fa-play"></i></button>
+        <button onclick="continuarTimer()" class="btnCro">...</button>
+        <button onclick="pause()" class="btnCro"><i class="fa-solid fa-pause"></i></button>
+        <button onclick="cancelarTimer()" class="btnCro"><i class="fa solid fa-xmark"></i></button>
+      </div>
+
+      <script src="../javascript/cronometro.js"></script>
+    </div>
     <div vw class="enabled">
       <div vw-access-button class="active"></div>
       <div vw-plugin-wrapper>
