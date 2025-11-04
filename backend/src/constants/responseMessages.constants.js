@@ -70,7 +70,9 @@ const RESPONSE_MESSAGES = {
     ID_FORNECIDO_INVALIDO: "O id fornecido é inválido",
     USUARIO_NAO_ENCONTRADO: "Usuário não encontrado",
     USUARIO_ENCONTRADO: "Usuario encontrado com sucesso",
-    TODOS_USUARIOS_ENCONTRADOS: "Todos os usuários foram encontrados com sucesso"
+    TODOS_USUARIOS_ENCONTRADOS: "Todos os usuários foram encontrados com sucesso",
+    USUARIO_DELETADO: "Usuário deletado com sucesso",
+    USUARIO_ATUALIZADO: "Usuário atualizado com sucesso"
   }
 }
 
