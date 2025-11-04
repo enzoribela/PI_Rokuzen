@@ -9,6 +9,7 @@ const configuraExpress = require("./src/config/express")
 const authRoutes = require("./src/api/routes/auth.routes")
 const agendamentoRoutes = require("./src/api/routes/agendamento.routes")
 const salaRoutes = require("./src/api/routes/sala.routes")
+const usuarioRoutes = require("./src/api/routes/usuario.routes")
 
 const app = express()
 
@@ -18,6 +19,7 @@ configuraExpress(app)
 app.use("/auth", authRoutes)
 app.use("/agendamentos", agendamentoRoutes)
 app.use("/salas", salaRoutes)
+app.use("/usuarios", usuarioRoutes)
 
 // Exporta o app para uso dos testes (caso façamos)
 module.exports = app
