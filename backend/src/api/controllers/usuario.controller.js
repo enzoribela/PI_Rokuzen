@@ -41,7 +41,19 @@ exports.getUsuarioById = async (req, res) => {
 }
 
 exports.getTodosUsuarios = async (req, res) => {
+  try
+  {
+    const usuarios = await Usuario.find({}).select("-__v")
 
+    res.status(200).json({
+      message: USUARIO.TODOS_USUARIOS_ENCONTRADOS,
+      users: usuarios
+    })
+  }
+  catch(error)
+  {
+    return res.status(500).json({message: ERRO.ERRO_INTERNO_NO_SERVIDOR}) // código 500, internal server error
+  }
 }
 
 exports.updateUsuarioById = async (req, res) => {

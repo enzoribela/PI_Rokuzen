@@ -21,4 +21,11 @@ router.get(
   usuarioController.getUsuarioById
 )
 
+router.get(
+  "/",
+  authMiddleware,
+  checkRole(PERMISSAO_PARA_VER_OS_DADOS_DOS_USUARIOS),
+  usuarioController.getTodosUsuarios
+)
+
 module.exports = router
