@@ -69,7 +69,8 @@ const RESPONSE_MESSAGES = {
     ID_NAO_FORNECIDO: "O id do usuário não foi fornecido",
     ID_FORNECIDO_INVALIDO: "O id fornecido é inválido",
     USUARIO_NAO_ENCONTRADO: "Usuário não encontrado",
-    USUARIO_ENCONTRADO: "Usuario encontrado com sucesso"
+    USUARIO_ENCONTRADO: "Usuario encontrado com sucesso",
+    TODOS_USUARIOS_ENCONTRADOS: "Todos os usuários foram encontrados com sucesso"
   }
 }
 
