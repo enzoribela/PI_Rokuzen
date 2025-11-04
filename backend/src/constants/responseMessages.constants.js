@@ -63,6 +63,13 @@ const RESPONSE_MESSAGES = {
 
   SALA: {
     CRIADA_COM_SUCESSO: "Sala criada com sucesso"
+  },
+
+  USUARIO: {
+    ID_NAO_FORNECIDO: "O id do usuário não foi fornecido",
+    ID_FORNECIDO_INVALIDO: "O id fornecido é inválido",
+    USUARIO_NAO_ENCONTRADO: "Usuário não encontrado",
+    USUARIO_ENCONTRADO: "Usuario encontrado com sucesso"
   }
 }
 
