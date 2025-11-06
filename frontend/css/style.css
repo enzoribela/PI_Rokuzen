@@ -1324,3 +1324,24 @@ main.login {
   color: rgb(123, 179, 46);
   font-size: 1.1em;
 }
+
+#header-profissionais{
+  margin: 10px;
+}
+
+#container-profissionais{
+  margin: 10px;
+}
+
+#btn-continuar-profissionais {
+  margin: 10px;
+}
+
+main#container-formulario.form-info {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#container-confirmacao {
+  padding: 0px;
+}
