@@ -5,9 +5,7 @@ const authController = require("../controllers/auth.controller")
 const authMiddleware = require("../../middlewares/auth.middleware")
 const checkRole = require("../../middlewares/checkRole.middleware")
 
-const {
-  PERMISSAO_PARA_CADASTRO
-} = require("../../constants/permission.constants")
+const PERMISSIONS = require("../../constants/permission.constants")
 
 // Rotas públicas
 router.post(
@@ -21,7 +19,7 @@ router.post(
 router.post(
   "/register",
   authMiddleware,
-  checkRole(PERMISSAO_PARA_CADASTRO),
+  checkRole(PERMISSIONS.AUTH.CADASTRAR),
   authController.register
 )
 
