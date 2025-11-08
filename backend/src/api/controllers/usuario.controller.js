@@ -134,21 +134,15 @@ exports.deleteUsuarioById = async (req, res) => {
     const {id} = req.params
 
     if(!id)
-    {
       return res.status(400).json({message: USUARIO.ID_NAO_FORNECIDO})
-    }
 
     if(!mongoose.Types.ObjectId.isValid(id))
-    {
       return res.status(400).json({message: USUARIO.ID_FORNECIDO_INVALIDO})
-    }
 
     const usuario = await Usuario.findByIdAndDelete(id).select("-__v")
 
     if(!usuario)
-    {
       return res.status(400).json({message: USUARIO.USUARIO_NAO_ENCONTRADO})
-    }
 
     res.status(200).json({
       message: USUARIO.USUARIO_DELETADO,
