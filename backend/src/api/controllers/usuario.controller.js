@@ -63,6 +63,12 @@ exports.updateUsuarioById = async (req, res) => {
   {
     const {id} = req.params
 
+    if(!id)
+      return res.status(400).json({message: USUARIO.ID_NAO_FORNECIDO})
+
+    if(!mongoose.Types.ObjectId.isValid(id))
+      return res.status(400).json({message: USUARIO.ID_FORNECIDO_INVALIDO})
+
     const{username, password, nome, role} = req.body
 
     // 1. Find
