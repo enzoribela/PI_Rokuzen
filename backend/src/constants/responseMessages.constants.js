@@ -62,12 +62,19 @@ const RESPONSE_MESSAGES = {
   },
 
   SALA: {
-    CRIADA_COM_SUCESSO: "Sala criada com sucesso"
+    CRIADA_COM_SUCESSO: "Sala criada com sucesso",
+    ID_NAO_FORNECIDO: "O id da sala não foi fornecido",
+    ID_FORNECIDO_INVALIDO: "O id fornecido da sala é inválido",
+    SALA_NAO_ENCONTRADA: "Sala não encontrada",
+    SALA_ENCONTRADA: "Sala encontrada com sucesso",
+    TODAS_AS_SALAS_ENCONTRADAS: "Todas as salas foram encontradas com sucesso",
+    SALA_DELETADA: "Sala deletada com sucesso",
+    SALA_ATUALIZADA: "Sala atualizada com sucesso"
   },
 
   USUARIO: {
     ID_NAO_FORNECIDO: "O id do usuário não foi fornecido",
-    ID_FORNECIDO_INVALIDO: "O id fornecido é inválido",
+    ID_FORNECIDO_INVALIDO: "O id fornecido do usuário é inválido",
     USUARIO_NAO_ENCONTRADO: "Usuário não encontrado",
     USUARIO_ENCONTRADO: "Usuario encontrado com sucesso",
     TODOS_USUARIOS_ENCONTRADOS: "Todos os usuários foram encontrados com sucesso",
