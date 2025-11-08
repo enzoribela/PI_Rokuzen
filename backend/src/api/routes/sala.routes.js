@@ -10,6 +10,17 @@ const PERMISSIONS = require("../../constants/permission.constants")
 // Rotas públicas
 
 // Rotas protegidas
+router.get(
+  "/:id",
+  authMiddleware,
+  salaController.getSalaById
+)
+
+router.get(
+  "/",
+  authMiddleware,
+  salaController.getTodasSalas
+)
 
 // Rotas restritas
 router.post(
@@ -17,6 +28,20 @@ router.post(
   authMiddleware,
   checkRole(PERMISSIONS.SALA.CRIAR),
   salaController.criaSala
+)
+
+router.put(
+  "/:id",
+  authMiddleware,
+  checkRole(PERMISSIONS.SALA.ATUALIZAR),
+  salaController.updateSalaById
+)
+
+router.delete(
+  "/:id",
+  authMiddleware,
+  checkRole(PERMISSIONS.SALA.DELETAR),
+  salaController.deleteSalaById
 )
 
 module.exports = router
