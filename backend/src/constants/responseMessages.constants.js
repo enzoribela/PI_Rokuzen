@@ -57,8 +57,15 @@ const RESPONSE_MESSAGES = {
     }
   },
 
-  AGENDAMENTO: {
-    CRIADO_COM_SUCESSO: "Agendamento registrado com sucesso"
+    AGENDAMENTO: {
+    CRIADO_COM_SUCESSO: "Agendamento registrado com sucesso",
+    ID_NAO_FORNECIDO: "O id do agendamento não foi fornecido",
+    ID_FORNECIDO_INVALIDO: "O id fornecido do agendamento é inválido",
+    AGENDAMENTO_NAO_ENCONTRADO: "Agendamento não encontrado",
+    AGENDAMENTO_ENCONTRADO: "Agendamento encontrado com sucesso",
+    TODOS_AGENDAMENTOS_ENCONTRADOS: "Todos os agendamentos foram encontrados com sucesso",
+    AGENDAMENTO_DELETADO: "Agendamento deletado com sucesso",
+    AGENDAMENTO_ATUALIZADO: "Agendamento atualizado com sucesso"
   },
 
   SALA: {
