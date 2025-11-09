@@ -17,6 +17,18 @@ router.post(
 )
 
 router.get(
+  "/meus/:dia",
+  authMiddleware,
+  agendamentoController.getMeusAgendamentosPorDia
+);
+
+router.get(
+  "/meus",
+  authMiddleware,
+  agendamentoController.getMeusAgendamentos
+);
+
+router.get(
   "/:id",
   authMiddleware,
   agendamentoController.getAgendamentoById
@@ -29,6 +41,20 @@ router.get(
 )
 
 // Rotas restritas
+router.get(
+  "/terapeuta/:terapeutaId",
+  authMiddleware,
+  checkRole(PERMISSIONS.AGENDAMENTO.LER),
+  agendamentoController.getAgendamentosPorTerapeuta
+);
+
+router.get(
+  "/dia/:dia",
+  authMiddleware,
+  checkRole(PERMISSIONS.AGENDAMENTO.LER),
+  agendamentoController.getAgendamentosPorDia
+);
+
 router.put(
   "/:id",
   authMiddleware,

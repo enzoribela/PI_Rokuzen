@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 const Agendamento = require("../../models/Agendamento.model")
+const Usuario = require("../../models/Usuario.model")
 
 const {checaDisponibilidade} = require("../../services/agendamento.service")
 
@@ -11,8 +12,13 @@ const {
 const {
   AGENDAMENTO,
   ERRO,
-  VALIDACAO
+  VALIDACAO,
+  USUARIO
 } = require("../../constants/responseMessages.constants")
+
+const {
+  ROLES
+} = require("../../constants/validation.constants")
 
 exports.criaAgendamento = async (req, res) => {
   try {
@@ -177,5 +183,130 @@ exports.deleteAgendamentoById = async (req, res) => {
   catch(error)
   {
     return res.status(500).json({message: ERRO.ERRO_INTERNO_NO_SERVIDOR})
+  }
+}
+
+exports.getAgendamentosPorTerapeuta = async (req, res) => {
+  try
+  {
+    const {terapeutaId} = req.params
+
+    if(!terapeutaId)
+      return res.status(400).json({message: USUARIO.ID_NAO_FORNECIDO})
+
+    if(!mongoose.Types.ObjectId.isValid(terapeutaId))
+      return res.status(400).json({message: USUARIO.ID_FORNECIDO_INVALIDO})
+
+    const usuario = await Usuario.findById(terapeutaId).select("-__v")
+
+    if(!usuario)
+      return res.status(400).json({message: USUARIO.USUARIO_NAO_ENCONTRADO})
+
+    if(usuario.role != ROLES.TERAPEUTA)
+      return res.status(400).json({message: USUARIO.USUARIO_NAO_EH_TERAPEUTA})
+
+    const agendamentos = await Agendamento.find({ terapeuta: terapeutaId }).select("-__v")
+
+    const mensagem = (agendamentos.length == 0) ? AGENDAMENTO.TERAPEUTA_SEM_AGENDAMENTOS : AGENDAMENTO.TODOS_AGENDAMENTOS_ENCONTRADOS
+
+    res.status(200).json({
+      message: mensagem,
+      agendamentos: agendamentos
+    })
+  }
+  catch(error)
+  {
+    return res.status(500).json({message: ERRO.ERRO_INTERNO_NO_SERVIDOR})
+  }
+}
+
+exports.getAgendamentosPorDia = async (req, res) => {
+  try
+  {
+    const {dia} = req.params // Ex: "2024-05-20"
+
+    if(!dia)
+      return res.status(400).json({message: AGENDAMENTO.DIA_NAO_FORNECIDO});
+
+    const inicioDoDia = new Date(dia + "T00:00:00");
+    const fimDoDia = new Date(dia + "T23:59:59.999");
+
+    if(isNaN(inicioDoDia))
+      return res.status(400).json({message: AGENDAMENTO.DIA_EM_FORMATO_INVALIDO});
+
+    const agendamentos = await Agendamento.find({
+      inicio: { $gte: inicioDoDia, $lte: fimDoDia }
+    }).select("-__v");
+
+    const mensagem = (agendamentos.length == 0) ? AGENDAMENTO.DIA_SEM_AGENDAMENTOS : AGENDAMENTO.TODOS_AGENDAMENTOS_ENCONTRADOS
+
+    res.status(200).json({
+      message: mensagem,
+      agendamentos: agendamentos
+    });
+  }
+  catch (error)
+  {
+    console.log(error)
+    return res.status(500).json({ message: ERRO.ERRO_INTERNO_NO_SERVIDOR });
+  }
+}
+
+exports.getMeusAgendamentos = async (req, res) => {
+  try
+  {
+    const terapeutaId = req.user.sub
+
+    if(req.user.role != ROLES.TERAPEUTA)
+      return res.status(400).json({message: USUARIO.VOCE_NAO_EH_TERAPEUTA})
+
+    const agendamentos = await Agendamento.find({terapeuta: terapeutaId}).select("-__v")
+
+    const mensagem = (agendamentos.length == 0) ? AGENDAMENTO.VOCE_NAO_TEM_AGENDAMENTOS : AGENDAMENTO.TODOS_AGENDAMENTOS_ENCONTRADOS
+
+    res.status(200).json({
+      message: mensagem,
+      agendamentos: agendamentos
+    })
+  }
+  catch(error)
+  {
+    return res.status(500).json({message: ERRO.ERRO_INTERNO_NO_SERVIDOR})
+  }
+}
+
+exports.getMeusAgendamentosPorDia = async (req, res) => {
+  try
+  {
+    const terapeutaId = req.user.sub;
+    const {dia} = req.params;
+
+    if(!dia)
+      return res.status(400).json({message: AGENDAMENTO.DIA_NAO_FORNECIDO});
+
+    if(req.user.role != ROLES.TERAPEUTA)
+      return res.status(400).json({message: USUARIO.VOCE_NAO_EH_TERAPEUTA})
+
+    const inicioDoDia = new Date(dia + "T00:00:00");
+    const fimDoDia = new Date(dia + "T23:59:59.999");
+
+    if(isNaN(inicioDoDia))
+      return res.status(400).json({message: AGENDAMENTO.DIA_EM_FORMATO_INVALIDO});
+
+    const agendamentos = await Agendamento.find({
+      terapeuta: terapeutaId,
+      inicio: { $gte: inicioDoDia, $lte: fimDoDia }
+    }).select("-__v");
+
+    const mensagem = (agendamentos.length == 0) ? AGENDAMENTO.VOCE_NAO_TEM_AGENDAMENTOS_PARA_ESSE_DIA : AGENDAMENTO.TODOS_AGENDAMENTOS_ENCONTRADOS
+
+    res.status(200).json({
+      message: mensagem,
+      agendamentos: agendamentos
+    });
+  }
+  catch(error)
+  {
+    return res.status(500).json({ message: ERRO.ERRO_INTERNO_NO_SERVIDOR });
   }
 }

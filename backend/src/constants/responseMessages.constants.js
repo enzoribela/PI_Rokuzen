@@ -57,7 +57,7 @@ const RESPONSE_MESSAGES = {
     }
   },
 
-    AGENDAMENTO: {
+  AGENDAMENTO: {
     CRIADO_COM_SUCESSO: "Agendamento registrado com sucesso",
     ID_NAO_FORNECIDO: "O id do agendamento não foi fornecido",
     ID_FORNECIDO_INVALIDO: "O id fornecido do agendamento é inválido",
@@ -65,7 +65,13 @@ const RESPONSE_MESSAGES = {
     AGENDAMENTO_ENCONTRADO: "Agendamento encontrado com sucesso",
     TODOS_AGENDAMENTOS_ENCONTRADOS: "Todos os agendamentos foram encontrados com sucesso",
     AGENDAMENTO_DELETADO: "Agendamento deletado com sucesso",
-    AGENDAMENTO_ATUALIZADO: "Agendamento atualizado com sucesso"
+    AGENDAMENTO_ATUALIZADO: "Agendamento atualizado com sucesso",
+    TERAPEUTA_SEM_AGENDAMENTOS: "Esse terapeuta não possui agendamentos",
+    DIA_SEM_AGENDAMENTOS: "Não existem atendimentos marcados para esse dia",
+    DIA_NAO_FORNECIDO: "O dia não foi fornecido",
+    DIA_EM_FORMATO_INVALIDO: "O dia fornecido está em um formato inválido. Por favor use AAAA-MM-DD",
+    VOCE_NAO_TEM_AGENDAMENTOS: "Não existe nenhum agendamento marcado com você",
+    VOCE_NAO_TEM_AGENDAMENTOS_PARA_ESSE_DIA: "Você não possui agendamentos para esse dia"
   },
 
   SALA: {
@@ -86,7 +92,9 @@ const RESPONSE_MESSAGES = {
     USUARIO_ENCONTRADO: "Usuario encontrado com sucesso",
     TODOS_USUARIOS_ENCONTRADOS: "Todos os usuários foram encontrados com sucesso",
     USUARIO_DELETADO: "Usuário deletado com sucesso",
-    USUARIO_ATUALIZADO: "Usuário atualizado com sucesso"
+    USUARIO_ATUALIZADO: "Usuário atualizado com sucesso",
+    USUARIO_NAO_EH_TERAPEUTA: "O usuário fornecido não é terapeuta",
+    VOCE_NAO_EH_TERAPEUTA: "Você não é um terapeuta"
   }
 }
 
