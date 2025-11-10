@@ -2,16 +2,16 @@
 let timer; // Variável para armazenar o ID do setInterval
 let segundosRestantes = 0; // Armazena o tempo total em segundos
 
-// Variável para acessar o novo elemento de visor
+// Variável para acessar o novo elemento de visor (Certifique-se que o ID no HTML é 'visorCronometroFunc')
 const visor = document.getElementById('visorCronometroFunc');
 
-// Variável para acessar o formulário
+// Variável para acessar o formulário (Certifique-se que o ID no HTML é 'minutagemFunc')
 const formElement = document.getElementById('minutagemFunc');
 
 
 // 1. Converte Horas, Minutos e Segundos para Segundos Totais
 function calcularSegundos() {
-    // Busca os valores dos campos de input pelo atributo 'name'
+    // Busca os valores dos campos de input pelo atributo 'name' ('hr', 'min', 'sec')
     const horas = parseInt(formElement.elements['hr'].value) || 0;
     const minutos = parseInt(formElement.elements['min'].value) || 0;
     const segundos = parseInt(formElement.elements['sec'].value) || 0;
@@ -20,8 +20,7 @@ function calcularSegundos() {
     return (horas * 3600) + (minutos * 60) + segundos;
 }
 
-// 2. Formata o tempo e EXIBE NO VISOR (#visorCronometro)
-// 2. Formata o tempo e EXIBE NO VISOR (#visorCronometro)
+// 2. Formata o tempo e EXIBE NO VISOR (#visorCronometroFunc)
 function atualizarDisplay(totalSegundos) {
     const horas = Math.floor(totalSegundos / 3600);
     const minutos = Math.floor((totalSegundos % 3600) / 60);
@@ -32,13 +31,10 @@ function atualizarDisplay(totalSegundos) {
     const displayMinutos = minutos.toString().padStart(2, '0');
     const displaySegundos = segundos.toString().padStart(2, '0');
 
-    // Exibe o tempo no formato HH:MM:SS no novo visor
+    // Exibe o tempo no formato HH:MM:SS no visor
     if (visor) {
         visor.textContent = `${displayHoras}:${displayMinutos}:${displaySegundos}`;
     }
-    
-    // REMOVIDO: A parte que atualizava os inputs (formElement.elements['hr'].value = ...)
-    // Os inputs AGORA SÓ SERÃO MANIPULADOS nas funções iniciarTimer e cancelarTimer.
 }
 
 // 3. Função principal do contador (chamada a cada segundo)
@@ -53,30 +49,48 @@ function contagemRegressiva() {
     atualizarDisplay(segundosRestantes); 
 }
 
-// --- Funções Chamadas pelos Botões (do seu HTML) ---
+// --- Funções Chamadas pelos Botões ---
 
-// Iniciar/Reiniciar (onclick="iniciarTimer()")
+/**
+ * Funções que alteram o estado do cronômetro
+ * O botão "Iniciar" agora serve como "Iniciar" ou "Continuar".
+ * Ele nunca reinicia o cronômetro se ele já estiver ativo.
+ */
+
+// Iniciar/Continuar (onclick="iniciarTimer()")
 function iniciarTimer() {
+    // 1. Se o timer já estiver rodando, IGNORA o clique. (Impede o reinício)
     if (timer) {
-        clearInterval(timer);
+        return; 
     }
 
-    // Pega o tempo digitado nos inputs
-    segundosRestantes = calcularSegundos();
+    // 2. Se o timer estiver parado e houver tempo restante, CONTINUA.
+    if (!timer && segundosRestantes > 0) {
+        continuarTimer(); // Usa a lógica auxiliar para continuar
+        return;
+    }
 
-    if (segundosRestantes > 0) {
-        // Inicializa o visor com o tempo configurado
-        atualizarDisplay(segundosRestantes); 
-
-        // Inicia o timer
-        timer = setInterval(contagemRegressiva, 1000);
+    // 3. Se o timer estiver parado E zerado (segundosRestantes === 0), INICIA.
+    if (!timer && segundosRestantes === 0) {
         
-        // Desabilita os campos de input
-        document.querySelectorAll('.cronometro').forEach(input => {
-            input.disabled = true;
-        });
-    } else {
-        alert("Por favor, configure um tempo maior que zero.");
+        const novoTempo = calcularSegundos();
+
+        if (novoTempo > 0) {
+            segundosRestantes = novoTempo;
+
+            // Inicializa o visor com o tempo configurado
+            atualizarDisplay(segundosRestantes); 
+
+            // Inicia o timer
+            timer = setInterval(contagemRegressiva, 1000);
+            
+            // Desabilita os campos de input (assumindo que todos têm a classe 'cronometro')
+            document.querySelectorAll('.cronometro').forEach(input => {
+                input.disabled = true;
+            });
+        } else {
+            alert("Por favor, configure um tempo maior que zero para iniciar.");
+        }
     }
 }
 
@@ -84,52 +98,50 @@ function iniciarTimer() {
 function pause() {
     if (timer) {
         clearInterval(timer); 
-        timer = null; 
+        timer = null; // Indica que o timer parou, mas há tempo restante
         
-        // Reabilita os campos de input para permitir ajuste
+        // Reabilita os campos de input
         document.querySelectorAll('.cronometro').forEach(input => {
             input.disabled = false;
         });
     }
 }
 
-// Continuar (onclick="continuarTimer()")
+// Continuar (Função auxiliar, usada internamente por iniciarTimer)
 function continuarTimer() {
+    // Só continua se estiver pausado (timer é null) e houver tempo
     if (!timer && segundosRestantes > 0) {
-        // Continua a contagem a partir do tempo pausado
         timer = setInterval(contagemRegressiva, 1000);
         
         // Desabilita os campos de input
         document.querySelectorAll('.cronometro').forEach(input => {
             input.disabled = true;
         });
-    } else if (!timer && segundosRestantes === 0) {
-        // Se estava cancelado/zerado, inicia do zero (lê os inputs)
-        iniciarTimer();
     }
 }
 
 // Cancelar/Zerar (onclick="cancelarTimer()")
 function cancelarTimer() {
-    pause(); 
+    pause(); // Garante que o setInterval seja parado, e reabilita os inputs
     segundosRestantes = 0; 
     
-    // Zera o visor e limpa os inputs
+    // Zera o visor
     atualizarDisplay(0); 
 
-    // Limpa os inputs (deixa-os vazios)
-    formElement.elements['hr'].value = '';
-    formElement.elements['min'].value = '';
-    formElement.elements['sec'].value = '';
+    // Limpa os inputs 
+    if(formElement) {
+        formElement.elements['hr'].value = '';
+        formElement.elements['min'].value = '';
+        formElement.elements['sec'].value = '';
+    }
     
-    // Reabilita os campos de input
+    // Reabilita os campos de input (necessário novamente, caso pause() não tenha sido chamado antes)
     document.querySelectorAll('.cronometro').forEach(input => {
         input.disabled = false;
     });
 }
 
-// Inicialização: Garante que o visor e os inputs sejam limpos ao carregar
+// Inicialização: Garante que o visor e os inputs sejam limpos ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    // Uma inicialização mais limpa (chama o cancelar que já limpa tudo)
     cancelarTimer(); 
 });

@@ -25,24 +25,28 @@
             </ul>
         </nav>
     </header>
-    <div id="cronometro">
-      <h1>Cronômetro</h1>
-      <h2>Configure o tempo e inicie.</h2> 
-      <form id="cronometro" onsubmit="return false;">
-          Horas: <input class="cronometro" type="number" name="hr" min="0"><br>
-          Minutos: <input class="cronometro" type="number" name="min" min="0"><br>
-          Segundos: <input class="cronometro" type="number" name="sec" min="0"><br><br>
-      </form>
-      <div class="botoesCro">
-          <button onclick="iniciarTimer()" class="btnCro"><i class="fa-solid fa-play"></i></button>
-          <button onclick="continuarTimer()" class="btnCro">...</button>
-          <button onclick="pause()" class="btnCro"><i class="fa-solid fa-pause"></i></button>
-          <button onclick="cancelarTimer()" class="btnCro"><i class="fa-solid fa-xmark"></i></button> 
-      </div>
-    </div>
-
-
-    <script src="../javascript/cronometro.js"></script>
+        <section id="cronometro">
+            <h1>Cronômetro</h1>
+            <h2>Configure o tempo e inicie.</h2>
+            <div id="visorCronometroFunc">00:00:00</div>
+            <form id="minutagemFunc" onsubmit="return false;">
+              <div>
+                Horas: <input class="cronometro" type="number" name="hr" min="0">
+              </div>
+              <div>
+                Minutos: <input class="cronometro" type="number" name="min" min="0">
+              </div>
+              <div>
+                Segundos: <input class="cronometro" type="number" name="sec" min="0">
+              </div>
+            </form>
+            <div class="botoesCroFunc">
+              <button onclick="iniciarTimer()" class="btnCroFunc"><i class="fa-solid fa-play"></i></button>
+              <button onclick="pause()" class="btnCroFunc"><i class="fa-solid fa-pause"></i></button>
+              <button onclick="cancelarTimer()" class="btnCroFunc"><i class="fa solid fa-xmark"></i></button>
+            </div>
+            <script src="../javascript/cronometro.js"></script>
+        </section>
 
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
