@@ -1,104 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
   <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css" />
-    <script defer src="../javascript/app.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <title>Salas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escolha a Sala</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
-    <header class="header">
-      <nav class="nav">
-        <a href="telaPrincipalAdm.html"
-          ><img
-            class="RokuzenAgendamento"
-            src="../arquivos/RokuzenLogo.png"
-            alt="logo Site"
-        /></a>
-        </header>
-        <h1 class="titulo-pergunta">Selecione uma sala e um horário</h1>
+  <header class="header">
+    <nav class="nav">
+      <a href="telaPrincipal.html"><img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png"
+          alt="logo Site" /></a>
+    </nav>
+  </header>
 
-    <div class="profissional-horario-wrapper">
-      <div class="profissional-horario-container">
-        <div class="carrossel-profissionais-selecao">
-          <div class="carrossel-slides">
-            <div class="card-profissional">
-              <h2 class="profissional-nome">João Silva</h2>
-              <div class="card-image-content">
-                <button class="carrossel-button prev">&lt;</button>
+  <div class="main-content">
+    <a href="servicos.html">
+      <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
+    </a>
+    <h1 class="titulo-pergunta">Escolha a Sala de Atendimento</h1>
 
-                <div class="card-imagem-wrapper">
-                  <img
-                    src="/frontend/arquivos/salaMassagem.png"
-                    alt="Foto sala de massagem"
-                  />
-                </div>
+    <section class="salas-container">
 
-                <button class="carrossel-button next">&gt;</button>
-              </div>
-            </div>
-
-            <div class="card-profissional">
-              <h2 class="profissional-nome">Sala massagem</h2>
-              <div class="card-image-content">
-                <button class="carrossel-button prev">&lt;</button>
-
-                <div class="card-imagem-wrapper">
-                  <img
-                    src="/frontend/arquivos/salaMassagem.png"
-                    alt="Foto sala de massagem"
-                  />
-                </div>
-
-                <button class="carrossel-button next">&gt;</button>
-              </div>
-
-              <div class="card-descricao">
-                <p>
-                  Terapeuta Holística especializada em Massagem Relaxante e
-                  Aromaterapia. Seu foco é no alívio do estresse, ansiedade e
-                  bem-estar emocional.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="horario-selecao">
-          <h3>Horários disponíveis:</h3>
-
-          <div class="horario-select-group">
-            <label for="horario-select"></label>
-            <select id="horario-select" name="horario">
-              <option value="" disabled selected>Selecione um horário</option>
-              <option value="1000">10:00</option>
-              <option value="1100">11:00</option>
-              <option value="1200">12:00</option>
-              <option value="1300">13:00</option>
-              <option value="1400">14:00</option>
-              <option value="1500">15:00</option>
-              <option value="1600">16:00</option>
-              <option value="1700">17:00</option>
-              <option value="1800">18:00</option>
-              <option value="1900">19:00</option>
-              <option value="2000">20:00</option>
-              <option value="2100">21:00</option>
-            </select>
-          </div>
-        </div>
+      <div class="sala-item disponivel" data-sala-id="1" data-sala-nome="Quick Massage">
+        <img src="../arquivos/sala_quick.png" alt="Sala Quick Massage">
+        <h2>Sala Quick</h2>
+        <h3 class="status-sala">Disponível</h3>
       </div>
-    </div>
+
+      <div class="sala-item ocupada" data-sala-id="2" data-sala-nome="Maca">
+        <img src="../arquivos/sala_maca.png" alt="Sala Maca">
+        <h2>Sala Maca</h2>
+        <h3 class="status-sala">Ocupada</h3>
+      </div>
+
+      <div class="sala-item manutencao" data-sala-id="3" data-sala-nome="Reflexologia Podal">
+        <img src="../arquivos/sala_reflexologia.png" alt="Sala Reflexologia">
+        <h2>Sala Reflexologia</h2>
+        <h3 class="status-sala">Manutenção</h3>
+      </div>
+
+      <div class="sala-item disponivel" data-sala-id="4" data-sala-nome="Auriculoterapia">
+        <img src="../arquivos/sala_auriculoterapia.png" alt="Sala Auriculoterapia">
+        <h2>Sala Auriculo</h2>
+        <h3 class="status-sala">Disponível</h3>
+      </div>
+
+    </section>
+
     <div class="botoes-container">
-            <script src="/frontend/javascript/profissionais.js"></script>
-    <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-      </div>
+      <button class="btn-continuar" disabled>Continuar</button>
+    </div>
+  </div>
+
+  <script src="/javascript/salas.js"></script>
+
 </body>
+
 </html>

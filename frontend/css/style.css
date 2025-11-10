@@ -255,6 +255,7 @@ footer {
   margin-bottom: 10px;
   text-align: center;
 }
+
 input[type="checkbox"],
 input[type="text"],
 input[type="password"] {
@@ -289,10 +290,11 @@ label.labelTxtLogin {
   font-weight: lighter !important;
   margin-left: 0px;
   font-size: 25px !important;
-  white-space: nowrap;  
-  
+  white-space: nowrap;
+
 }
-.input-box{
+
+.input-box {
   display: flex;
   justify-content: center;
 }
@@ -377,8 +379,8 @@ label.labelTxtLogin {
   gap: 20px;
 }
 
-#cronometro  {
-  display: flex ;
+#cronometro {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -388,15 +390,18 @@ label.labelTxtLogin {
   padding: 0px 90px;
   cursor: pointer;
 }
-#cronometro h1{
+
+#cronometro h1 {
   margin-top: 300px;
 }
-#cronometro h2{
+
+#cronometro h2 {
   display: inline;
   margin: 0px;
   white-space: nowrap;
   align-items: center;
 }
+
 .cronometroFunc {
   display: flex;
   justify-content: center;
@@ -407,36 +412,40 @@ label.labelTxtLogin {
 /* --- Seção Cronômetro --- */
 #cronometroFunc {
   display: flex;
-  flex-direction: column; 
-  align-items: center; /* Centraliza todo o conteúdo horizontalmente */
+  flex-direction: column;
+  align-items: center;
+  /* Centraliza todo o conteúdo horizontalmente */
   text-align: center;
   padding: 40px 20px;
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 /* Títulos */
 #cronometroFunc h1 {
-  font-size: 2.2em; 
+  font-size: 2.2em;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 #cronometroFunc h2 {
-  font-size: 1.3em; 
+  font-size: 1.3em;
   font-weight: normal;
   margin-bottom: -100px !important;
-  white-space: nowrap; 
+  white-space: nowrap;
   align-items: center;
   margin: 0px;
   justify-content: center;
   text-align: center;
   margin-right: 120px;
 }
+
 #visorCronometroFunc {
-  font-size: 30px; /* Tamanho grande para destaque */
+  font-size: 30px;
+  /* Tamanho grande para destaque */
   font-weight: normal;
   color: #333;
-  margin: 20px 0 30px 0; /* Espaçamento: afasta do h2 e do formulário */
+  margin: 20px 0 30px 0;
+  /* Espaçamento: afasta do h2 e do formulário */
   text-align: center;
   width: 100%;
 }
@@ -446,45 +455,56 @@ label.labelTxtLogin {
   display: flex;
   flex-direction: column;
   /* AJUSTE: Removemos o alinhamento flex-end para centralizar */
-  align-items: center; 
-  gap: 15px; /* Espaçamento entre os grupos de entrada */
+  align-items: center;
+  gap: 15px;
+  /* Espaçamento entre os grupos de entrada */
   margin-bottom: 30px;
   font-size: 1em;
 }
 
 /* Container de cada linha de input (Horas/Minutos/Segundos) */
 /* Se você usou a estrutura HTML recomendada (com divs), o CSS a seguir vai funcionar */
-#minutagemFunc > div {
+#minutagemFunc>div {
   display: flex;
-  flex-direction: column; /* Rótulo acima do input */
-  align-items: center; /* Centraliza o rótulo e o input entre si */
-  gap: 5px; /* Pequeno espaço entre o rótulo e o input */
+  flex-direction: column;
+  /* Rótulo acima do input */
+  align-items: center;
+  /* Centraliza o rótulo e o input entre si */
+  gap: 5px;
+  /* Pequeno espaço entre o rótulo e o input */
 }
 
 /* Estilo dos Rótulos (o texto: Horas:, Minutos:, Segundos:) */
-#minutagemFunc > div {
-  font-size: 1.1em; /* O texto do rótulo é um pouco maior */
-  white-space: nowrap; /* Garante que não haja quebra de linha */
+#minutagemFunc>div {
+  font-size: 1.1em;
+  /* O texto do rótulo é um pouco maior */
+  white-space: nowrap;
+  /* Garante que não haja quebra de linha */
   text-align: center;
-  margin-bottom: 5px; /* Espaço entre o rótulo e o input */
+  margin-bottom: 5px;
+  /* Espaço entre o rótulo e o input */
 }
 
 /* Campos de entrada (o input em si) */
 .cronometro {
-  width: 150px; /* Mantendo um tamanho razoável para o input */
+  width: 150px;
+  /* Mantendo um tamanho razoável para o input */
   padding: 8px 10px;
-  border: 1px solid #ccc; 
-  border-radius: 5px; 
-  font-size: 1em; 
-  text-align: center; /* Centraliza o texto dentro do input */
-  margin-left: 0; /* Removemos a margem que separava do rótulo */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  text-align: center;
+  /* Centraliza o texto dentro do input */
+  margin-left: 0;
+  /* Removemos a margem que separava do rótulo */
 }
 
 /* Container dos botões (Mantido centralizado e compacto) */
 .botoesCroFunc {
   display: flex;
-  gap: 20px; 
-  margin-top: 15px; /* Leve margem superior para afastar dos inputs */
+  gap: 20px;
+  margin-top: 15px;
+  /* Leve margem superior para afastar dos inputs */
   align-items: center;
   justify-content: center;
   font-size: 20px !important;
@@ -508,6 +528,7 @@ label.labelTxtLogin {
 .btnCroFunc:nth-child(2) {
   font-size: 1.5em;
 }
+
 .botoesCro {
   display: flex;
   justify-content: center;
@@ -1287,18 +1308,20 @@ body {
 .remember-forgot {
   display: flex;
   justify-content: space-between;
-  align-items: center;           
-  width: 100%;                  
-  margin-top: 10px;              
-  font-size: 14px;              
-  
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 14px;
+
 }
+
 .remember-forgot a:hover {
   text-decoration: underline;
 }
+
 .register-link {
-  text-align: center; 
-  margin-top: 20px;  
+  text-align: center;
+  margin-top: 20px;
   font-size: 15px;
 }
 
@@ -1325,9 +1348,9 @@ body {
 
 
 @media (max-width: 360px) {
-    .seta-voltar {
-        height: 50px;
-    }
+  .seta-voltar {
+    height: 50px;
+  }
 }
 
 main.login {
@@ -1337,7 +1360,7 @@ main.login {
 .toggle-password {
   position: absolute;
   top: 177px;
-  left:283px;
+  left: 283px;
   background: none;
   border: none;
   cursor: pointer;
@@ -1345,11 +1368,11 @@ main.login {
   font-size: 1.1em;
 }
 
-#header-profissionais{
+#header-profissionais {
   margin: 10px;
 }
 
-#container-profissionais{
+#container-profissionais {
   margin: 10px;
 }
 
@@ -1364,4 +1387,147 @@ main#container-formulario.form-info {
 
 #container-confirmacao {
   padding: 0px;
+}
+
+/* Reutilização e adaptação das classes de card */
+
+/* Estilos existentes para .sala-item (mantidos) */
+/* Garante que o container principal tenha largura suficiente e centralize */
+/* ---------------------------------------------------- */
+/* 1. ESTRUTURA E LAYOUT (Correção para Alinhamento Lado a Lado) */
+/* ---------------------------------------------------- */
+
+.main-content {
+  /* Mantenha o max-width e centralização */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  /* Alinhamento do título, se estiver centralizado */
+  text-align: center; 
+}
+
+.salas-container {
+  display: flex; /* Habilita o Flexbox */
+  justify-content: center; /* Centraliza o grupo de cards */
+  gap: 55px; /* Espaçamento entre cards */
+  margin-bottom: 60px;
+  flex-wrap: wrap; /* Permite que quebrem a linha */
+  padding: 20px 0; /* Ajuste o padding para não consumir espaço lateral desnecessário */
+  box-sizing: border-box;
+  /* Garantia de largura mínima para que os 4 cards caibam (4x180px + 3x55px = 885px) */
+  min-width: 900px; 
+}
+
+.sala-item {
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px; /* Largura fixa para cada card */
+  padding: 10px;
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0; /* Crucial: Não deixa os cards encolherem */
+  margin-bottom: 20px;
+}
+
+.sala-item img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  /* Borda cinza padrão para a imagem, com transição */
+  border: 3px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* ---------------------------------------------------- */
+/* 2. ESTILOS DE CONTEÚDO E STATUS */
+/* ---------------------------------------------------- */
+
+.sala-item h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.sala-item .status-sala {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 2px 10px;
+  border-radius: 5px;
+  color: white; 
+}
+
+.sala-item.disponivel .status-sala {
+  background-color: #5cb85c;
+}
+
+.sala-item.ocupada .status-sala {
+  background-color: #d9534f;
+}
+
+.sala-item.manutencao .status-sala {
+  background-color: #f0ad4e;
+}
+
+
+/* ---------------------------------------------------- */
+/* 3. HOVER E SELEÇÃO (DESTAQUE VERDE) */
+/* ---------------------------------------------------- */
+
+/* Efeito de HOVER para salas DISPONÍVEIS (mantido, pois já estava bom) */
+.sala-item.disponivel:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); 
+  border-color: #a0c08a; /* Borda verde clara no hover */
+}
+
+/* 🎯 CORREÇÃO: Destaque Verde na Seleção (SUAVE E BRILHANTE) */
+/* Ajustamos a cor da borda e a sombra para um efeito mais sutil, porém visível. */
+.sala-item.disponivel.selected {
+  border-color: #9cd686; /* Um verde um pouco mais claro para a borda */
+  /* Sombra mais espalhada e mais leve, dando um efeito "brilhante" */
+  box-shadow: 0 0 20px rgba(156, 214, 134, 0.8), /* Sombra principal levemente verde */
+              0 0 30px rgba(156, 214, 134, 0.3); /* Uma segunda sombra para o efeito de "brilho" */
+  transform: translateY(-5px); /* Mantém o efeito de elevação */
+  border-width: 3px; /* Mantemos a largura da borda em 3px para não ficar muito grossa */
+}
+
+/* Destaque da Imagem Selecionada (Suave e Brilhante) */
+.sala-item.disponivel.selected img {
+  border-color: #9cd686; /* Borda da imagem com o mesmo verde claro */
+  /* Sombra da imagem também mais suave */
+  box-shadow: 0 0 10px rgba(156, 214, 134, 0.7); 
+}
+
+
+/* ---------------------------------------------------- */
+/* 4. ESTILOS PARA INDISPONÍVEIS (PODE MANTER OU AJUSTAR LEVEMENTE) */
+/* ---------------------------------------------------- */
+
+.sala-item.ocupada,
+.sala-item.manutencao {
+  cursor: default; 
+  opacity: 0.5; /* Mantém a opacidade para indicar indisponibilidade */
+  pointer-events: none; /* Impede completamente interação */
+  border-color: transparent; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: none !important; /* Garante que não eleve no hover */
+}
+
+.sala-item.ocupada:hover,
+.sala-item.manutencao:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra não muda no hover */
 }
