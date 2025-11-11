@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------------------------------------------
     // 1. VARIÁVEIS DE CONTROLE
     // ---------------------------------------------------------------------
-    const btnContinuar = document.querySelector('.btn-continuar');
-    const proximaURL = 'telaProfissionaisAdm.html';
   
     // Variável de controle para a data selecionada (null = nada selecionado)
     let selectedDate = null;

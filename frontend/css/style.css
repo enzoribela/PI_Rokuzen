@@ -717,7 +717,115 @@ nav a {
 h1#header-profissionais.titulo-pergunta-profissionais{
   margin-bottom: 40px;
 }
+/* Estrutura das 3 Colunas */
+.profissional-horario-wrapper {
+  /* Usa CSS Grid para criar as colunas */
+  display: grid;
+  /* Define o tamanho das colunas: 
+     A primeira (Perfil) com 25%, a segunda (Calendário) com 35%, 
+     e a terceira (Agenda) com o restante (auto) */
+  grid-template-columns: 25% 35% auto; 
+  gap: 20px; /* Espaço entre as colunas */
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px; /* Limita a largura do container */
+}
+h3.profissional-nome-func {
+  font-size: 24px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
 
+/* Estilização básica para o Perfil (Coluna 1) */
+.perfil-profissional-coluna {
+  padding: 15px;
+  border-radius: 8px;
+  /* Use as cores e sombras do seu projeto */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: #ffffff;
+}
+
+/* Estilização básica para o Calendário (Coluna 2) e Agenda (Coluna 3) */
+.calendario-coluna, .agenda-detalhada-coluna {
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+.agenda-detalhada-coluna h5{
+  font-size: 24px;
+  padding-top: 0px;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.calendario-coluna h4{
+  font-size: 24px;
+  padding-top: 0px;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.calendario-coluna{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilização da Tabela de Horários */
+.tabela-horarios {
+  width: 100%;
+  border-collapse: collapse; /* Remove espaçamento entre as bordas da tabela */
+  margin-top: 15px;
+}
+
+.tabela-horarios th, .tabela-horarios td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.tabela-horarios th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Estilo para destacar horários livres */
+.horario-livre {
+  background-color: #e6ffe6; /* Um verde claro */
+  color: #008000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* Ajuste a imagem do profissional para caber na coluna menor */
+.card-imagem-wrapper img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Adicione media query para telas menores, se necessário */
+@media (max-width: 768px) {
+  .profissional-horario-wrapper {
+    display: grid;
+    grid-template-columns: 25% 35% auto; /* Mantenha esta linha */
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+}
 
 .form-group input {
   width: 265px;
