@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButtons = document.querySelectorAll('.carrossel-button.next');
     
     // Selecionador do botão Continuar
-    const btnContinuar = document.querySelector('.btn-continuar');
+    const btnContinuar = document.querySelector('.btn-continuar-profissionais');
     // URL de destino
     const proximaURL = 'confirmacao.html';
 

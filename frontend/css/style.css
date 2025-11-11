@@ -718,7 +718,7 @@ h1#header-profissionais.titulo-pergunta-profissionais{
   margin-bottom: 40px;
 }
 /* Estrutura das 3 Colunas */
-.profissional-horario-wrapper {
+.profissional-horario-wrapper-func {
   /* Usa CSS Grid para criar as colunas */
   display: grid;
   /* Define o tamanho das colunas: 
