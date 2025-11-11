@@ -24,26 +24,33 @@
       <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
       </a>
     <main class="login">
-      <form>
+      <form id="login-form">
         <h1><i class="fa-solid fa-user"></i>
 </h1>
+        <!-- Campo de username -->
         <div class="input-box">
-          <input type="text" placeholder="Usuário" />
+          <input id="username-field" type="text" placeholder="Usuário" />
         </div>
+        
+        <!-- Campo de password -->
         <div class="input-box">
-          <input type="password" placeholder="Senha" id="senha" required />
-          <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+          <input type="password" placeholder="Senha" id="password-field" required />
+
+          <button id="toggle-password" type="button" class="toggle-password">
             <i class="fa-solid fa-eye-slash" id="toggleIcon"></i>
           </button>
         </div>
         
-                <div class="remember-forgot">
+        <!-- Lembrar senha e esqueci minha senha -->
+        <div class="remember-forgot">
           <label>
             <input type="checkbox" />
             Lembrar senha
           </label>
           <a href="#">Esqueci minha senha</a>
         </div>
+
+        <!-- Botão de submit -->
         <button type="submit" class="botaoPrin">Login</button>
 
         <div class="register-link">
@@ -54,6 +61,6 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../javascript/telaLogin.js"></script>
+    <script type="module" src="../javascript/telaLogin.js"></script>
   </body>
 </html>
