@@ -92,5 +92,18 @@ exports.login = async (req, res) => {
     {expiresIn: "1h"}
   )
 
-  res.status(200).json({message: AUTH.LOGIN_FEITO, token: token})
+  res.cookie('token', token, {
+    httpOnly: true,  // Não pode ser acessado por JS no frontend
+    secure: false,   // Em dev, use false. Em produção (HTTPS), use true.
+    sameSite: 'Lax', // 'Lax' é necessário para dev cross-portas
+    maxAge: 3600000  // 1 hora (em milissegundos)
+  });
+
+  res.status(200).json({
+    message: AUTH.LOGIN_FEITO,
+    user: {
+      nome: usuario.nome,
+      role: usuario.role
+    }
+  })
 }

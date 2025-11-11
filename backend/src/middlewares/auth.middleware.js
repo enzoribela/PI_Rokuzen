@@ -12,18 +12,10 @@ const {
 } = require("../constants/responseMessages.constants")
 
 const authMiddleware = (req, res, next) => {
-  const authHeader = req.headers.authorization
+  const token = req.cookies.token;
 
-  // Checa se o token foi enviado
-  if(!authHeader)
+  if (!token)
     return res.status(401).json({message: AUTH.TOKEN_NAO_FORNECIDO});
-
-  // Checa se o token está formatado corretamente
-  const parts = authHeader.split(" ");
-  if(parts.length != 2 || parts[0].toLowerCase() != "bearer")
-    return res.status(401).json({message: AUTH.TOKEN_MAL_FORMATADO});
-
-  const token = parts[1];
 
   // Tenta fazer o decode do token para obter as informações que estão no payload
   try
