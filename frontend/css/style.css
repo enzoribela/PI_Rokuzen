@@ -1641,6 +1641,7 @@ main#container-formulario.form-info {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra não muda no hover */
 }
 
+<<<<<<< Updated upstream
 .btn-edit {
   background-color: #96b478;
   color: white;
@@ -1663,3 +1664,8 @@ background-color: #7b995e;
   width: 100%;
   margin-top: 40px;
 }
+=======
+.salas-modal {
+  display: list-item;
+}
+>>>>>>> Stashed changes

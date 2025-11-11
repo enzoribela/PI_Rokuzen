@@ -12,6 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -22,6 +26,26 @@
     </nav>
   </header>
 
+  <div class="modal" tabindex="-1" id="modalSalas">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Salas disponiveís:</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="salas-modal">
+            Sala 1
+          </p>
+          <p class="salas-modal">Sala 2</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="main-content">
     <a href="servicos.html">
       <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
@@ -30,7 +54,8 @@
 
     <section class="salas-container">
 
-      <div class="sala-item disponivel" data-sala-id="1" data-sala-nome="Quick Massage">
+      <div class="sala-item disponivel" data-sala-id="1" data-sala-nome="Quick Massage" data-bs-toggle="modal"
+        data-bs-target="#modalSalas" style="cursor: pointer;">
         <img src="../arquivos/sala_quick.png" alt="Sala Quick Massage">
         <h2>Sala Quick</h2>
         <h3 class="status-sala">Disponível</h3>
@@ -48,7 +73,8 @@
         <h3 class="status-sala">Manutenção</h3>
       </div>
 
-      <div class="sala-item disponivel" data-sala-id="4" data-sala-nome="Auriculoterapia">
+      <div class="sala-item disponivel" data-sala-id="4" data-sala-nome="Auriculoterapia" data-bs-toggle="modal"
+        data-bs-target="#modalSalas" style="cursor: pointer;">
         <img src="../arquivos/sala_auriculoterapia.png" alt="Sala Auriculoterapia">
         <h2>Sala Auriculo</h2>
         <h3 class="status-sala">Disponível</h3>
@@ -62,6 +88,9 @@
   </div>
 
   <script src="/javascript/salas.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 
 </body>
 
