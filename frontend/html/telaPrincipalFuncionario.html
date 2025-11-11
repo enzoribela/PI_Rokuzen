@@ -10,6 +10,10 @@
   <script defer src="../javascript/app.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <!-- Calendário -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 </head>
 
 <body>
@@ -25,81 +29,127 @@
       </ul>
     </nav>
   </header>
-    <section id="hero">
-      <div class="hero-content">
-        <h1>Área do profissional</h1>
-        <p>Bem-vindo à sua área exclusiva.
-          Aqui você tem acesso a informações, comunicados e ferramentas que facilitam o seu trabalho e
-          fortalecem a conexão com a Rokuzen.</p>
-      </div>
-    </section>
-    <section id=horarios>
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Área do profissional</h1>
+      <p>Bem-vindo à sua área exclusiva.
+        Aqui você tem acesso a informações, comunicados e ferramentas que facilitam o seu trabalho e
+        fortalecem a conexão com a Rokuzen.</p>
+    </div>
+  </section>
+  <section id=horarios>
+    <section id="horarios">
       <h2>Seus horários</h2>
       <div class="profissional-horario-wrapper">
-        <div class="profissional-horario-container">
-          <div class="carrossel-profissionais-selecao">
-            <div class="card-profissional">
-              <h2 class="profissional-nome">João Silva</h2>
-              <div class="card-image-content">
 
-                <div class="card-imagem-wrapper">
-                  <img src="/frontend/arquivos/terapeuta-falso.png" alt="Foto do João Silva" />
-                </div>
-
-              </div>
-
-              <div class="card-descricao">
-                <p>
-                  Especialista em Massagem Desportiva e Liberação Miofascial.
-                  Atua há 7 anos com foco em recuperação muscular e prevenção de
-                  lesões.
-                </p>
+        <div class="perfil-profissional-coluna">
+          <div class="card-profissional">
+            <h3 class="profissional-nome-func">João Silva</h3>
+            <div class="card-image-content">
+              <div class="card-imagem-wrapper">
+                <img src="/frontend/arquivos/terapeuta-falso.png" alt="Foto do João Silva" />
               </div>
             </div>
+            <div class="card-descricao">
+              <p>
+                Especialista em Massagem Desportiva e Liberação Miofascial.
+                Atua há 7 anos com foco em recuperação muscular e prevenção de
+                lesões.
+              </p>
+            </div>
+          </div>
+        </div>
 
-    </section>
+        <div class="calendario-coluna">
+          <h4>Selecione a Data</h4>
+          <div id="calendario-funcionario">
 
-    <section id="cronometroFunc">
-      <h1>Cronômetro</h1>
-      <h2>Configure o tempo e inicie.</h2>
-      <div id="visorCronometroFunc">00:00:00</div>
-      <form id="minutagemFunc" onsubmit="return false;">
-        <div>
-          Horas: <input class="cronometro" type="number" name="hr" min="0">
+            <div id="calendario-inline"></div>
+
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+
+
+            <script src="/frontend/javascript/calendarioFunc.js"></script>
+          </div>
         </div>
-        <div>
-          Minutos: <input class="cronometro" type="number" name="min" min="0">
+
+        <div class="agenda-detalhada-coluna">
+          <h5 id="titulo-agenda">Agenda para 11/11/2025</h5>
+
+          <table class="tabela-horarios">
+            <thead>
+              <tr>
+                <th>Horário</th>
+                <th>Sala</th>
+                <th>Paciente</th>
+              </tr>
+            </thead>
+            <tbody id="lista-agendamentos">
+              <tr>
+                <td>08:00 - 09:00</td>
+                <td>Sala 1</td>
+                <td>Ana Ferreira</td>
+              </tr>
+              <tr>
+                <td>09:30 - 10:30</td>
+                <td>Sala 3</td>
+                <td>Pedro Santos</td>
+              </tr>
+              <tr class="horario-livre">
+                <td>11:00 - 12:00</td>
+                <td>Sala 2</td>
+                <td>**LIVRE**</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div>
-          Segundos: <input class="cronometro" type="number" name="sec" min="0">
-        </div>
-      </form>
-      <div class="botoesCroFunc">
-        <button onclick="iniciarTimer()" class="btnCroFunc"><i class="fa-solid fa-play"></i></button>
-        <button onclick="pause()" class="btnCroFunc"><i class="fa-solid fa-pause"></i></button>
-        <button onclick="cancelarTimer()" class="btnCroFunc"><i class="fa solid fa-xmark"></i></button>
+
       </div>
-      <script src="../javascript/cronometroFunc.js"></script>
     </section>
-    <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
+  </section>
+
+  <section id="cronometroFunc">
+    <h1>Cronômetro</h1>
+    <h2>Configure o tempo e inicie.</h2>
+    <div id="visorCronometroFunc">00:00:00</div>
+    <form id="minutagemFunc" onsubmit="return false;">
+      <div>
+        Horas: <input class="cronometro" type="number" name="hr" min="0">
       </div>
-    </div>
-    <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
+      <div>
+        Minutos: <input class="cronometro" type="number" name="min" min="0">
       </div>
+      <div>
+        Segundos: <input class="cronometro" type="number" name="sec" min="0">
+      </div>
+    </form>
+    <div class="botoesCroFunc">
+      <button onclick="iniciarTimer()" class="btnCroFunc"><i class="fa-solid fa-play"></i></button>
+      <button onclick="pause()" class="btnCroFunc"><i class="fa-solid fa-pause"></i></button>
+      <button onclick="cancelarTimer()" class="btnCroFunc"><i class="fa solid fa-xmark"></i></button>
     </div>
-    <footer id="adm">
-      <p>Desenvolvido para uso interno dos colaboradores.</p>
-    </footer>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-      new window.VLibras.Widget("https://vlibras.gov.br/app");
-    </script>
+    <script src="../javascript/cronometroFunc.js"></script>
+  </section>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <footer id="adm">
+    <p>Desenvolvido para uso interno dos colaboradores.</p>
+  </footer>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget("https://vlibras.gov.br/app");
+  </script>
 </body>
 
 </html>
