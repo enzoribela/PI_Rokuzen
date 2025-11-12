@@ -24,27 +24,27 @@
   <div class="main-content">
     <a href="unidades.html">
       <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
-      </a>
+    </a>
     <h1 class="titulo-pergunta">Qual é o serviço de sua preferência?</h1>
 
     <section class="servicos-container">
-      <div class="servico-item">
+      <div class="servico-item" data-servico="QUICK_MASSAGE">
         <img src="../arquivos/quickmassage.png" alt="Quick massage">
         <h2>Quick massage</h2>
         <h3>Técnica rápida de relaxamento, para aliviar tensões e estresse em poucos minutos.</h3>
       </div>
-      <div class="servico-item">
+      <div class="servico-item" data-servico="MACA">
         <img src="../arquivos/maca.png" alt="Maca">
         <h2>Maca</h2>
         <h3>Técnica realizada com o cliente deitado, proporcionando relaxamento profundo e alívio de dores musculares.
         </h3>
       </div>
-      <div class="servico-item">
+      <div class="servico-item" data-servico="REFLEXOLOGIA_PODAL">
         <img src="../arquivos/reflexologiapodal.png" alt="Reflexologia podal">
         <h2>Reflexologia podal</h2>
         <h3>Técnica que estimula pontos dos pés para equilibrar o corpo e promover bem-estar.</h3>
       </div>
-      <div class="servico-item">
+      <div class="servico-item" data-servico="AURICULOTERAPIA">
         <img src="../arquivos/auriculoterapia.png" alt="Auriculoterapia">
         <h2>Auriculoterapia</h2>
         <h3>Técnica que estimula pontos na orelha para tratar dores e equilibrar o organismo. </h3>
@@ -53,21 +53,19 @@
 
     </section>
     <div class="botoes-container">
-      <button class="btn-continuar">Continuar</button>
+      <button id="botao-continuar" class="btn-continuar" disabled>Continuar</button>
     </div>
 
-
-  <script src="/frontend/javascript/servicos.js"></script>
-  <div vw class="enabled">
-<div vw-access-button class="active"></div>
-<div vw-plugin-wrapper>
-<div class="vw-plugin-top-wrapper"></div>
-</div>
-</div>
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-<script>
-new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script type="module" src="../javascript/servicos.js"></script>
 </body>
-
 </html>

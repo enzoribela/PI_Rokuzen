@@ -4,3 +4,10 @@ export const UNIDADES = {
   MOOCA_PLAZA: "Mooca Plaza",
   WEST_PLAZA: "West Plaza"
 }
+
+export const SERVICOS = {
+  QUICK_MASSAGE: "Quick Massage",
+  MACA: "Maca",
+  REFLEXOLOGIA_PODAL: "Reflexologia Podal",
+  AURICULOTERAPIA: "Auriculoterapia"
+}
