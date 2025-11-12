@@ -17,13 +17,15 @@
           alt="logo Site" /></a>
     </nav>
   </header>
-
-  <main class="form-info" id="container-formulario">
-    <a href="telaPrincipal.html">
-      <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
+  <!-- Formulário -->
+  <form id="costumer-info-form">
+    <main class="form-info" id="container-formulario">
+      <a href="telaPrincipal.html">
+        <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
       </a>
-    <h2>Insira seus dados:</h2>
-    <form>
+
+      <h2>Insira seus dados:</h2>
+
       <div class="form-group">
         <label for="nome">Nome Completo: </label>
         <input type="text" id="nome" name="nome" />
@@ -40,11 +42,14 @@
         <label for="cpf">CPF: </label>
         <input type="text" id="cpf" name="cpf" />
       </div>
-    </form>
-  </main>
-  <div class="botoes-container">
-    <button class="btn-continuar" onclick="location.href='unidades.html'">Continuar</button>
-  </div>
+    </main>
+
+    <!-- Submit Button -->
+    <div class="botoes-container">
+      <button id="botao-continuar" type="submit" class="btn-continuar" disabled>Continuar</button>
+    </div>
+  </form>
+
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>
@@ -55,6 +60,7 @@
   <script>
     new window.VLibras.Widget("https://vlibras.gov.br/app");
   </script>
+  <script type="module" src="../javascript/formulario.js"></script>
 </body>
 
 </html>
