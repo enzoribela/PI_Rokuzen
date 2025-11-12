@@ -46,7 +46,7 @@ export function handlesLogin()
 
       localStorage.setItem('user', JSON.stringify(response.data.user));
       
-      window.location.href = '/frontend/html/telaPrincipalFuncionario.html';
+      window.location.href = '/html/telaPrincipalFuncionario.html';
 
     }
     catch(error)  // Lida com casos de erro (status code do tipo 4XX e 5XX)

@@ -95,7 +95,7 @@ exports.login = async (req, res) => {
   res.cookie('token', token, {
     httpOnly: true,  // Não pode ser acessado por JS no frontend
     secure: false,   // Em dev, use false. Em produção (HTTPS), use true.
-    sameSite: 'Lax', // 'Lax' é necessário para dev cross-portas
+    sameSite: 'Strict', // 'Strict': Mais seguro. Só envia o cookie se a requisição for do MESMO site.
     maxAge: 3600000  // 1 hora (em milissegundos)
   });
 
