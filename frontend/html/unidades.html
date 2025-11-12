@@ -1,61 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selecionar Unidade</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-  </head>
 
-  <body class="unidades">
-    <header class="header">
-      <nav class="nav">
-        <a href="telaPrincipal.html"
-          ><img
-            class="RokuzenAgendamento"
-            src="../arquivos/RokuzenLogo.png"
-            alt="logo Site"
-        /></a>
-      </nav>
-    </header>
-      <div class="main-content">
-        <a href="formulário.html">
+<head>
+  <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selecionar Unidade</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body class="unidades">
+  <header class="header">
+    <nav class="nav">
+      <a href="telaPrincipal.html"><img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png"
+          alt="logo Site" /></a>
+    </nav>
+  </header>
+  <div class="main-content">
+    <a href="formulário.html">
       <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
-      </a>
-        <h1 class="titulo-pergunta">Selecione a unidade</h1>
-        
+    </a>
+    <h1 class="titulo-pergunta">Selecione a unidade</h1>
+
     <section class="unidades-container">
-      <div class="unidade-item">
+      <div class="unidade-item" data-unidade="GOLDEN_SQUARE">
         <img src="../arquivos/un_sbc.png" alt="Unidade Golden Square" />
         <h1 class="unidade-txt">Golden Square</h1>
       </div>
 
-      <div class="unidade-item">
+      <div class="unidade-item" data-unidade="GRAND_PLAZA">
         <img src="../arquivos/un_santoandre.png" alt="Unidade Grand Plaza" />
         <h1 class="unidade-txt">Grand Plaza</h1>
       </div>
 
-      <div class="unidade-item">
+      <div class="unidade-item" data-unidade="MOOCA_PLAZA">
         <img src="../arquivos/un_mooca.png" alt="Unidade Mooca" />
         <h1 class="unidade-txt">Mooca</h1>
       </div>
 
-      <div class="unidade-item">
+      <div class="unidade-item" data-unidade="WEST_PLAZA">
         <img src="../arquivos/un_westplaza.jpg" alt="Unidade West Plaza" />
         <h1 class="unidade-txt">West Plaza</h1>
       </div>
     </section>
 
     <div class="botoes-container">
-      <button class="btn-continuar">Continuar</button>
+      <button id="botao-continuar" class="btn-continuar" disabled>Continuar</button>
     </div>
 
-    <script src="/frontend/javascript/unidades.js"></script>
     <div vw class="enabled">
       <div vw-access-button class="active"></div>
       <div vw-plugin-wrapper>
@@ -66,5 +59,7 @@
     <script>
       new window.VLibras.Widget("https://vlibras.gov.br/app");
     </script>
-  </body>
+    <script type="module" src="../javascript/unidades.js"></script>
+</body>
+
 </html>

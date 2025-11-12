@@ -45,7 +45,7 @@ export function handlesCostumerInformation()
     // Junta os dados antigos com os novos desse passo
     const dadosAtualizados = { ...dadosAtuais, ...customerInformation };
 
-    // 3. Salvar no sessionStorage
+    // Salvar no sessionStorage
     // O sessionStorage só aceita STRING, por isso usamos JSON.stringify
     sessionStorage.setItem('dadosAgendamento', JSON.stringify(dadosAtualizados));
 
