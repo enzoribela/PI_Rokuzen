@@ -1,59 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-     <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seleção Data</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <header class="header">
-      <nav class="nav">
-        <a href="telaPrincipal.html"
-          ><img
-            class="RokuzenAgendamento"
-            src="../arquivos/RokuzenLogo.png"
-            alt="logo Site"
-        /></a>
-      </nav>
-    </header>
+<head>
+  <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seleção Data</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
 
-    <main class="container" id="container-calendario">
-      <a href="telaServico.html">
-      <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="telaPrincipal.html">
+        <img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png" alt="logo Site"/>
       </a>
-      <h2>Selecione a data:</h2>
+    </nav>
+  </header>
 
-      <div id="calendario-inline"></div>
-    </main>
+  <main class="container" id="container-calendario">
+    <a href="telaServico.html">
+      <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
+    </a>
+    <h2>Selecione a data:</h2>
 
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+    <div id="calendario-inline"></div>
+  </main>
 
-    <div class="botoes-container">
-      <button class="btn-continuar">Continuar</button>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+
+  <div class="botoes-container">
+    <button id="botao-continuar" class="btn-continuar">Continuar</button>
+  </div>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
     </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget("https://vlibras.gov.br/app");
+  </script>
+  <script type="module" src="../javascript/calendario.js"></script>
+</body>
 
-    <script src="/frontend/javascript/calendario.js"></script>
-    <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
-      </div>
-    </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-      new window.VLibras.Widget("https://vlibras.gov.br/app");
-    </script>
-  </body>
 </html>

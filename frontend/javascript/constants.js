@@ -11,3 +11,7 @@ export const SERVICOS = {
   REFLEXOLOGIA_PODAL: "Reflexologia Podal",
   AURICULOTERAPIA: "Auriculoterapia"
 }
+
+export const MAX_DATE_AGENDAMENTO_EM_MESES = 6
+
+export const TIMEZONE_PARA_O_CALENDARIO = "America/Sao_Paulo"
