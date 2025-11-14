@@ -10,6 +10,11 @@ const PERMISSIONS = require("../../constants/permission.constants")
 // Rotas públicas
 
 // Rotas protegidas
+router.get(
+  "/terapeutas",
+  authMiddleware,
+  usuarioController.getTodosTerapeutas
+)
 
 // Rotas proibidas
 router.get(

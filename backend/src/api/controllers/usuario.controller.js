@@ -15,6 +15,10 @@ const {
   AUTH
 } = require("../../constants/responseMessages.constants")
 
+const {
+  ROLES
+} = require("../../constants/validation.constants")
+
 exports.getUsuarioById = async (req, res) => {
   try
   {
@@ -147,6 +151,22 @@ exports.deleteUsuarioById = async (req, res) => {
     res.status(200).json({
       message: USUARIO.USUARIO_DELETADO,
       user: usuario
+    })
+  }
+  catch(error)
+  {
+    return res.status(500).json({message: ERRO.ERRO_INTERNO_NO_SERVIDOR}) // código 500, internal server error
+  }
+}
+
+exports.getTodosTerapeutas = async (req, res) => {
+  try
+  {
+    const terapeutas = await Usuario.find({role: ROLES.TERAPEUTA}).select("-__v -username -role")
+
+    res.status(200).json({
+      message: USUARIO.TODOS_TERAPEUTAS_ENCONTRADOS,
+      terapeutas: terapeutas
     })
   }
   catch(error)

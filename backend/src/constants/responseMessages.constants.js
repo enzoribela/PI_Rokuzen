@@ -91,6 +91,7 @@ const RESPONSE_MESSAGES = {
     USUARIO_NAO_ENCONTRADO: "Usuário não encontrado",
     USUARIO_ENCONTRADO: "Usuario encontrado com sucesso",
     TODOS_USUARIOS_ENCONTRADOS: "Todos os usuários foram encontrados com sucesso",
+    TODOS_TERAPEUTAS_ENCONTRADOS: "Todos os terapeutas foram encontrados com sucesso",
     USUARIO_DELETADO: "Usuário deletado com sucesso",
     USUARIO_ATUALIZADO: "Usuário atualizado com sucesso",
     USUARIO_NAO_EH_TERAPEUTA: "O usuário fornecido não é terapeuta",
