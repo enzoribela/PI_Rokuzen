@@ -1,85 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tela de confirmacao</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <header class="header">
-      <nav class="nav">
-        <a href="telaPrincipal.html"
-          ><img
-            class="RokuzenAgendamento"
-            src="../arquivos/RokuzenLogo.png"
-            alt="logo Site"
-        /></a>
-      </nav>
-    </header>
+<head>
+  <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tela de confirmacao</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
 
-    <div class="main-content" id="container-confirmacao">
-      <a href="telaProfissionais.html">
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="telaPrincipal.html"><img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png"
+          alt="logo Site" /></a>
+    </nav>
+  </header>
+
+  <div class="main-content" id="container-confirmacao">
+    <a href="telaProfissionais.html">
       <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
-      </a>
-      <h1 class="titulo-pergunta">Confirme seu atendimento</h1>
-      <div class="form-container">
-        <div class="select-group">
-          <label for="unidade">Unidade</label>
-          <select id="unidade">
-            <option value="mooca">Mooca Plaza Shopping</option>
-            <option value="plaza">Grand Plaza Shopping</option>
-            <option value="golden">Golden Square Shopping</option>
-            <option value="West">West Plaza Shopping</option>
-          </select>
-        </div>
-
-        <div class="select-group">
-          <label for="servico">Serviço</label>
-          <select id="servico">
-            <option value="maca">Maca</option>
-            <option value="quick">Quick massage</option>
-            <option value="podal">Reflexologia podal</option>
-            <option value="auriculoterapia">Auriculoterapia</option>
-          </select>
-        </div>
-
-        <div class="select-group">
-          <label for="horario">Horário:</label>
-          <select id="horario">
-            <option value="1200">12:00</option>
-            <option value="1300">13:00</option>
-          </select>
-        </div>
-
-        <div class="select-group">
-          <label for="profissional">Profissional</label>
-          <select id="profissional">
-            <option value="cleriton">Clériton S.</option>
-            <option value="maria">Maria A.</option>
-          </select>
-        </div>
+    </a>
+    <h1 class="titulo-pergunta">Confirme seu atendimento</h1>
+    <div class="form-container">
+      <div class="select-group">
+        <label for="unidade">Unidade</label>
+        <select id="unidade">
+          <option value="mooca">Mooca Plaza</option>
+          <option value="plaza">Grand Plaza</option>
+          <option value="golden">Golden Square</option>
+          <option value="West">West Plaza</option>
+        </select>
       </div>
 
-      <button class="btn-continuar">Confirmar atendimento</button>
-    </div>
+      <div class="select-group">
+        <label for="servico">Serviço</label>
+        <select id="servico">
+          <option value="maca">Maca</option>
+          <option value="quick">Quick Massage</option>
+          <option value="podal">Reflexologia Podal</option>
+          <option value="auriculoterapia">Auriculoterapia</option>
+        </select>
+      </div>
 
-    <script src="script.js"></script>
-    <div vw class="enabled">
-      <div vw-access-button class="active"></div>
-      <div vw-plugin-wrapper>
-        <div class="vw-plugin-top-wrapper"></div>
+      <div class="select-group">
+        <label for="profissional">Profissional</label>
+        <select id="profissional">
+          <option value="cleriton">Clériton S.</option>
+          <option value="maria">Maria A.</option>
+        </select>
+      </div>
+
+      <div class="select-group">
+        <label for="horario">Horário:</label>
+        <select id="horario">
+          <option value="1200">12:00</option>
+          <option value="1300">13:00</option>
+        </select>
       </div>
     </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-      new window.VLibras.Widget("https://vlibras.gov.br/app");
-    </script>
-  </body>
+
+    <button class="btn-continuar">Confirmar atendimento</button>
+  </div>
+
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget("https://vlibras.gov.br/app");
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="../javascript/confirmacao.js"></script>
+</body>
+
 </html>

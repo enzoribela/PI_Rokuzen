@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 const Agendamento = require("../../models/Agendamento.model")
 const Usuario = require("../../models/Usuario.model")
+const Sala = require("../../models/Sala.model")
 
 const {checaDisponibilidade} = require("../../services/agendamento.service")
 
@@ -19,6 +20,7 @@ const {
 const {
   ROLES,
   INTERVALO_TERAPEUTA_MINUTOS,
+  INTERVALO_SALA_MINUTOS,
   HORA_INICIO_TRABALHO,
   HORA_FIM_TRABALHO
 } = require("../../constants/validation.constants")
@@ -26,44 +28,131 @@ const {
 const minutosParaMs = (minutos) => minutos * 60 * 1000;
 
 exports.criaAgendamento = async (req, res) => {
+  const INTERVALO_MINUTOS_TERAPEUTA = INTERVALO_TERAPEUTA_MINUTOS
+  const INTERVALO_MINUTOS_SALA = INTERVALO_SALA_MINUTOS
+
   try {
-    const agendamento = new Agendamento(req.body)
+    // 1. Pega os dados brutos da requisição
+    const { 
+      inicio, 
+      fim, 
+      terapeuta, 
+      unidade, 
+      tipoDeServico,
+      nomeDoCliente,
+      emailDoCliente,
+      telefone,
+      cpf 
+    } = req.body;
 
-    const conflito = await checaDisponibilidade(agendamento.inicio, agendamento.fim, agendamento.terapeuta, agendamento.sala);
+    const dia = inicio.substring(0, 10); // Ex: "2025-11-15"
 
-    if(conflito)
-    {
-      let mensagem = conflito.terapeuta.equals(agendamento.terapeuta) ? VALIDACAO.AGENDAMENTO.TERAPEUTA_OCUPADO : VALIDACAO.AGENDAMENTO.SALA_OCUPADA
+    // Converte datas para objetos Date (pois vêm como string ISO)
+    const dataInicio = new Date(inicio);
+    const dataFim = new Date(fim);
 
-      return res.status(409).json({message: mensagem})
+    // --- 2. CHECAGEM DE CONFLITO DO TERAPEUTA (FAIL-FAST) ---
+    // (Lógica de "bloco virtual" que usamos antes)
+    const bufferTerapeutaMs = minutosParaMs(INTERVALO_MINUTOS_TERAPEUTA);
+    const inicioVirtualTerapeuta = new Date(dataInicio.getTime() - bufferTerapeutaMs);
+    const fimVirtualTerapeuta = new Date(dataFim.getTime() + bufferTerapeutaMs);
+
+    const conflitoTerapeuta = await Agendamento.findOne({
+      terapeuta: terapeuta,
+      inicio: { $lt: fimVirtualTerapeuta }, // Começa antes do bloco virtual terminar
+      fim: { $gt: inicioVirtualTerapeuta }    // Termina depois do bloco virtual começar
+    });
+
+    if (conflitoTerapeuta) {
+      return res.status(409).json({ message: VALIDACAO.AGENDAMENTO.TERAPEUTA_OCUPADO });
     }
 
-    await agendamento.save()
+    // --- 3. ALOCAÇÃO AUTOMÁTICA DA SALA ---
 
-    res.status(201).json({ message: AGENDAMENTO.CRIADO_COM_SUCESSO })
-  }
-  catch (error) {
-    // Problema de validação em geral
+    // a) Encontra todas as salas candidatas (mesma unidade, serviço compatível)
+    const salasCandidatas = await Sala.find({
+      unidade: unidade,
+      servicos: tipoDeServico // Checa se 'tipoDeServico' está no array 'servicos'
+    });
+
+    if (salasCandidatas.length === 0) {
+      return res.status(404).json({ message: VALIDACAO.AGENDAMENTO.SALA_NAO_ENCONTRADA_PARA_SERVICO });
+    }
+
+    // b) Busca todos os agendamentos que já usam QUALQUER uma dessas salas no dia
+    const idsSalasCandidatas = salasCandidatas.map(s => s._id);
+    const agendamentosNasSalas = await Agendamento.find({
+      sala: { $in: idsSalasCandidatas },
+      inicio: { $lt: new Date(dia + "T23:59:59") }, // Otimização: busca só no dia
+      fim: { $gt: new Date(dia + "T00:00:00") }
+    });
+
+    // c) Encontra a primeira sala livre
+    let salaIdSelecionada = null;
+    const bufferSalaMs = minutosParaMs(INTERVALO_MINUTOS_SALA);
+
+    for (const sala of salasCandidatas) {
+      // Pega só os agendamentos desta sala específica
+      const agendamentosDaSala = agendamentosNasSalas.filter(
+        ag => ag.sala.equals(sala._id)
+      );
+
+      // Cria os blocos virtuais (com buffer de limpeza)
+      const blocosOcupadosSala = agendamentosDaSala.map(ag => ({
+        inicio: new Date(ag.inicio.getTime() - bufferSalaMs),
+        fim: new Date(ag.fim.getTime() + bufferSalaMs)
+      }));
+
+      // Checa se o horário desejado (dataInicio/dataFim) conflita com os blocos
+      let salaEstaOcupada = false;
+      for (const bloco of blocosOcupadosSala) {
+        if ((dataInicio < bloco.fim) && (dataFim > bloco.inicio)) {
+          salaEstaOcupada = true;
+          break; // Conflito encontrado, testar próxima sala
+        }
+      }
+
+      // Se a sala NÃO está ocupada, encontramos!
+      if (!salaEstaOcupada) {
+        salaIdSelecionada = sala._id;
+        break; // Para o loop 'for (const sala...)'
+      }
+    }
+
+    // d) Se, após o loop, nenhuma sala foi encontrada
+    if (!salaIdSelecionada) {
+      return res.status(409).json({ message: VALIDACAO.AGENDAMENTO.SALA_OCUPADA });
+    }
+
+    // --- 4. SALVAR O AGENDAMENTO COMPLETO ---
+    const agendamento = new Agendamento({
+      ...req.body, // Pega todos os campos (nome, cpf, servico, unidade, etc.)
+      sala: salaIdSelecionada // Adiciona a sala que encontramos
+    });
+
+    await agendamento.save();
+
+    res.status(201).json({ message: AGENDAMENTO.CRIADO_COM_SUCESSO });
+
+  } catch (error) {
+    // (Seu tratamento de erro original, está ótimo)
     if (error.name == MONGOOSE_VALIDATION_ERROR) {
-      const errorMessages = Object.values(error.errors).map(err => err.message)
-
+      const errorMessages = Object.values(error.errors).map(err => err.message);
       return res.status(400).json({
         message: ERRO.VALIDACAO,
         erros: errorMessages
-      })
+      });
     }
-
-    // Intervalo de tempo do agendamento está inválido (o início ocorre depois do fim)
     if (error.name == NOME_DE_ERRO_GENERICO && error.message == VALIDACAO.GERAL.INTERVALO_DE_TEMPO_INVALIDO) {
       return res.status(400).json({
         message: ERRO.VALIDACAO,
         erros: [VALIDACAO.GERAL.INTERVALO_DE_TEMPO_INVALIDO]
-      })
+      });
     }
-
-    return res.status(500).json({ message: ERRO.ERRO_INTERNO_NO_SERVIDOR }) // código 500, internal server error
+    console.error(error); // Log do erro
+    return res.status(500).json({ message: ERRO.ERRO_INTERNO_NO_SERVIDOR });
   }
-}
+};
 
 exports.getAgendamentoById = async (req, res) => {
   try
