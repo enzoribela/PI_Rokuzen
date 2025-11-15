@@ -27,6 +27,10 @@ const VALIDATION_CONSTANTS = {
   INTERVALO_TERAPEUTA_MINUTOS: 15,
   INTERVALO_SALA_MINUTOS: 10,
 
+  // Definição dos horários de trabalho dos terapeutas
+  HORA_INICIO_TRABALHO: 9,
+  HORA_FIM_TRABALHO: 18,
+
   // Constantes de Senha
   TAMANHO_MINIMO_SENHA: 8,
 

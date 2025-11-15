@@ -17,8 +17,13 @@ const {
 } = require("../../constants/responseMessages.constants")
 
 const {
-  ROLES
+  ROLES,
+  INTERVALO_TERAPEUTA_MINUTOS,
+  HORA_INICIO_TRABALHO,
+  HORA_FIM_TRABALHO
 } = require("../../constants/validation.constants")
+
+const minutosParaMs = (minutos) => minutos * 60 * 1000;
 
 exports.criaAgendamento = async (req, res) => {
   try {
@@ -308,5 +313,98 @@ exports.getMeusAgendamentosPorDia = async (req, res) => {
   catch(error)
   {
     return res.status(500).json({ message: ERRO.ERRO_INTERNO_NO_SERVIDOR });
+  }
+}
+
+exports.getDisponibilidadeGeral = async (req, res) => {
+  const DURACAO_SLOT_MINUTOS = 60;
+  const INTERVALO_MINUTOS = INTERVALO_TERAPEUTA_MINUTOS
+  
+  try {
+      const { dia } = req.query;
+
+      // --- 2. PREPARAÇÃO DAS DATAS ---
+      const inicioDoDia = new Date(dia + "T00:00:00");
+      const fimDoDia = new Date(dia + "T23:59:59");
+      
+      // --- 3. BUSCAS EFICIENTES (Duas chamadas ao DB) ---
+      
+      // a) Buscar TODOS os terapeutas
+      const todosTerapeutas = await Usuario.find({ role: 'terapeuta' })
+                                            .select('nome'); // Pegamos _id e nome
+
+      // b) Buscar TODOS os agendamentos daquele dia
+      const todosAgendamentosDoDia = await Agendamento.find({
+          inicio: { $gte: inicioDoDia, $lte: fimDoDia }
+      });
+
+      // --- 4. MAPEAR AGENDAMENTOS (Para performance) ---
+      // Cria um "dicionário" (Map) para agrupar os agendamentos por terapeuta
+      const agendamentosPorTerapeuta = new Map();
+
+      for (const agendamento of todosAgendamentosDoDia) {
+          const terapeutaIdStr = agendamento.terapeuta.toString();
+          
+          if (!agendamentosPorTerapeuta.has(terapeutaIdStr)) {
+              agendamentosPorTerapeuta.set(terapeutaIdStr, []);
+          }
+          agendamentosPorTerapeuta.get(terapeutaIdStr).push(agendamento);
+      }
+
+      // --- 5. PROCESSAR A DISPONIBILIDADE DE CADA UM ---
+      const bufferMs = minutosParaMs(INTERVALO_MINUTOS);
+      
+      // O array final que será retornado
+      const disponibilidadeGeral = [];
+
+      // Loop principal: Para cada terapeuta que encontramos...
+      for (const terapeuta of todosTerapeutas) {
+          const terapeutaIdStr = terapeuta._id.toString();
+          
+          // a) Pega os agendamentos reais (do nosso Map) ou um array vazio
+          const agendamentosReais = agendamentosPorTerapeuta.get(terapeutaIdStr) || [];
+
+          // b) Cria os "blocos virtuais" (com buffer)
+          const blocosOcupados = agendamentosReais.map(ag => {
+              const inicioVirtual = new Date(ag.inicio.getTime() - bufferMs);
+              const fimVirtual = new Date(ag.fim.getTime() + bufferMs);
+              return { inicio: inicioVirtual, fim: fimVirtual };
+          });
+
+          // c) Testa os slots de 1h (Lógica idêntica à anterior)
+          const horariosDisponiveis = [];
+          for (let hora = HORA_INICIO_TRABALHO; hora < HORA_FIM_TRABALHO; hora++) {
+              
+              const slotInicio = new Date(inicioDoDia);
+              slotInicio.setHours(hora, 0, 0, 0);
+              const slotFim = new Date(slotInicio.getTime() + minutosParaMs(DURACAO_SLOT_MINUTOS));
+
+              let slotEstaOcupado = false;
+              for (const bloco of blocosOcupados) {
+                  if ((slotInicio < bloco.fim) && (slotFim > bloco.inicio)) {
+                      slotEstaOcupado = true;
+                      break;
+                  }
+              }
+
+              if (!slotEstaOcupado) {
+                  horariosDisponiveis.push(String(hora).padStart(2, '0') + ':00');
+              }
+          }
+
+          // d) Adiciona o resultado ao array final
+          disponibilidadeGeral.push({
+              terapeutaId: terapeuta._id,
+              nome: terapeuta.nome,
+              horarios: horariosDisponiveis
+          });
+      }
+
+      // --- 6. Retornar a Lista Completa ---
+      res.status(200).json(disponibilidadeGeral);
+
+  } catch (error) {
+      console.error("Erro ao buscar disponibilidade geral:", error);
+      res.status(500).json({ message: "Erro interno do servidor." });
   }
 }

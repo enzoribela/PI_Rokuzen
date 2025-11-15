@@ -10,6 +10,12 @@ const PERMISSIONS = require("../../constants/permission.constants")
 // Rotas públicas
 
 // Rotas protegidas
+router.get(
+  "/horarios-disponiveis",
+  authMiddleware,
+  agendamentoController.getDisponibilidadeGeral
+)
+
 router.post(
   "/",
   authMiddleware,
