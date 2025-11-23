@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selecionar Profissional</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body class="unidades">
+    <header class="header">
+      <nav class="nav">
+        <a href="telaPrincipalAdm.html"
+          ><img
+            class="RokuzenAgendamento"
+            src="../arquivos/RokuzenLogo.png"
+            alt="logo Site"
+        /></a>
+        <button class="hamburger"></button>
+        <ul class="nav-list">
+          <li>
+            <a href="cronometro.html"><i class="fa-solid fa-clock"></i></a>
+          </li>
+          <li>
+            <a href="calendario.html"><i class="fa-solid fa-calendar"></i></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <h1 class="titulo-pergunta">Selecione um profissional e uma estatística</h1>
+
+    <div class="profissional-horario-wrapper">
+      <div class="profissional-horario-container">
+        <div class="carrossel-profissionais-selecao">
+          <div class="carrossel-slides">
+            <div class="card-profissional">
+              <h2 class="profissional-nome">João Silva</h2>
+              <div class="card-image-content">
+                <button class="carrossel-button prev">&lt;</button>
+
+                <div class="card-imagem-wrapper">
+                  <img
+                    src="/frontend/arquivos/terapeuta-falso.png"
+                    alt="Foto do João Silva"
+                  />
+                </div>
+
+                <button class="carrossel-button next">&gt;</button>
+              </div>
+
+              <div class="card-descricao">
+                <p>
+                  Especialista em Massagem Desportiva e Liberação Miofascial.
+                  Atua há 7 anos com foco em recuperação muscular e prevenção de
+                  lesões.
+                </p>
+              </div>
+            </div>
+
+            <div class="card-profissional">
+              <h2 class="profissional-nome">Ana Souza</h2>
+              <div class="card-image-content">
+                <button class="carrossel-button prev">&lt;</button>
+
+                <div class="card-imagem-wrapper">
+                  <img
+                    src="/frontend/arquivos/terapeuta-falsa.png"
+                    alt="Foto da Ana Souza"
+                  />
+                </div>
+
+                <button class="carrossel-button next">&gt;</button>
+              </div>
+
+              <div class="card-descricao">
+                <p>
+                  Terapeuta Holística especializada em Massagem Relaxante e
+                  Aromaterapia. Seu foco é no alívio do estresse, ansiedade e
+                  bem-estar emocional.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="horario-selecao">
+          <h3>Selecione a estatística: </h3>
+
+          <div class="horario-select-group">
+            <label for="horario-select"></label>
+            <select id="horario-select" name="horario">
+              <option value="" disabled selected>Selecione um horário</option>
+              <option >média por dia</option>
+              <option >média por mês</option>
+              <option >dia do mês com mais massagens</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="botoes-container">
+      <button class="btn-continuar">Consultar</button>
+    </div>
+
+    <script src="/frontend/javascript/profissionaisAdm.js"></script>
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+  </body>
+</html>
