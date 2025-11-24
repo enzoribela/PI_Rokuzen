@@ -1,116 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selecionar Profissional</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selecionar Profissional</title>
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-</head>
+  <body class="unidades">
+    <header class="header">
+      <nav class="nav">
+        <a href="telaPrincipal.html"
+          ><img
+            class="RokuzenAgendamento"
+            src="../arquivos/RokuzenLogo.png"
+            alt="logo Site"
+        /></a>
+      </nav>
+    </header>
 
-<body class="unidades">
-  <header class="header">
-    <nav class="nav">
-      <a href="telaPrincipal.html"><img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png"
-          alt="logo Site" /></a>
-    </nav>
-  </header>
+    <a href="calendario.html">
+      <img
+        src="../arquivos/seta_voltar.png"
+        alt="página anterior"
+        height="70"
+        class="seta-voltar"
+      />
+    </a>
 
-  <a href="calendario.html">
-    <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
-  </a>
+    <h1 class="titulo-pergunta-profissionais" id="header-profissionais">
+      Selecione um profissional e um horário
+    </h1>
 
-  <h1 class="titulo-pergunta-profissionais" id="header-profissionais">Selecione um profissional e um horário</h1>
+    <div class="profissional-horario-wrapper">
+      <div class="profissional-horario-container" id="container-profissionais">
+        <!-- Carrossel -->
+        <div class="carrossel-profissionais-selecao">
+          <div class="carrossel-slides">
+            <!-- Card do profissional -->
+            <div class="card-profissional">
+              <!-- Nome do terapeuta -->
+              <h2 class="profissional-nome">João Silva</h2>
 
-  <div class="profissional-horario-wrapper">
-    <div class="profissional-horario-container" id="container-profissionais">
-      <!-- Carrossel -->
-      <div class="carrossel-profissionais-selecao">
-        <div class="carrossel-slides">
+              <!-- Imagem do terapeuta + botões de navegação -->
+              <div class="card-image-content">
+                <button class="carrossel-button prev">&lt;</button>
 
-          <!-- Card do profissional -->
-          <div class="card-profissional">
-            <!-- Nome do terapeuta -->
-            <h2 class="profissional-nome">João Silva</h2>
+                <div class="card-imagem-wrapper">
+                  <img
+                    src="../arquivos/terapeuta-falso.png"
+                    alt="Foto do João Silva"
+                  />
+                </div>
 
-            <!-- Imagem do terapeuta + botões de navegação -->
-            <div class="card-image-content">
-              <button class="carrossel-button prev">&lt;</button>
-
-              <div class="card-imagem-wrapper">
-                <img src="../arquivos/terapeuta-falso.png" alt="Foto do João Silva" />
+                <button class="carrossel-button next">&gt;</button>
               </div>
 
-              <button class="carrossel-button next">&gt;</button>
+              <!-- Descrição -->
+              <div class="card-descricao">
+                <p>
+                  Especialista em Massagem Desportiva e Liberação Miofascial.
+                  Atua há 7 anos com foco em recuperação muscular e prevenção de
+                  lesões.
+                </p>
+              </div>
             </div>
 
-            <!-- Descrição -->
-            <div class="card-descricao">
-              <p>
-                Especialista em Massagem Desportiva e Liberação Miofascial.
-                Atua há 7 anos com foco em recuperação muscular e prevenção de
-                lesões.
-              </p>
-            </div>
-          </div>
+            <div class="card-profissional">
+              <h2 class="profissional-nome">Ana Souza</h2>
+              <div class="card-image-content">
+                <button class="carrossel-button prev">&lt;</button>
 
-          <div class="card-profissional">
-            <h2 class="profissional-nome">Ana Souza</h2>
-            <div class="card-image-content">
-              <button class="carrossel-button prev">&lt;</button>
+                <div class="card-imagem-wrapper">
+                  <img
+                    src="../arquivos/terapeuta-falsa.png"
+                    alt="Foto da Ana Souza"
+                  />
+                </div>
 
-              <div class="card-imagem-wrapper">
-                <img src="../arquivos/terapeuta-falsa.png" alt="Foto da Ana Souza" />
+                <button class="carrossel-button next">&gt;</button>
               </div>
 
-              <button class="carrossel-button next">&gt;</button>
-            </div>
-
-            <div class="card-descricao">
-              <p>
-                Terapeuta Holística especializada em Massagem Relaxante e
-                Aromaterapia. Seu foco é no alívio do estresse, ansiedade e
-                bem-estar emocional.
-              </p>
+              <div class="card-descricao">
+                <p>
+                  Terapeuta Holística especializada em Massagem Relaxante e
+                  Aromaterapia. Seu foco é no alívio do estresse, ansiedade e
+                  bem-estar emocional.
+                </p>
+              </div>
             </div>
           </div>
+        </div>
 
+        <div class="horario-selecao">
+          <h3>Horários disponíveis:</h3>
+
+          <div class="horario-select-group">
+            <label for="horario-select"></label>
+            <select id="horario-select" name="horario">
+              <option value="" disabled selected>Selecione um horário</option>
+              <option value="1200">12:00</option>
+              <option value="1300">13:00</option>
+              <option value="1200">14:00</option>
+              <option value="1300">15:00</option>
+              <option value="1200">16:00</option>
+              <option value="1300">17:00</option>
+              <option value="1300">18:00</option>
+            </select>
+          </div>
+        </div>
+        <div class="horario-selecao">
+          <h3>Selecione a duração:</h3>
+
+          <div class="horario-select-group">
+            <label for="horario-select"></label>
+            <select id="horario-select" name="horario">
+              <option value="" disabled selected>Selecione a duração</option>
+              <option value="1200">15 minutos</option>
+              <option value="1300">30 minutos</option>
+              <option value="1200">60 minutos</option>
+              <option value="1300">90 minutos</option>
+              <option value="1300">120 minutos</option>
+            </select>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="botoes-container" id="btn-continuar-profissionais">
+      <button class="btn-continuar-profissionais">Continuar</button>
+    </div>
 
-      <div class="horario-selecao">
-        <h3>Horários disponíveis:</h3>
-
-        <div class="horario-select-group">
-          <label for="horario-select"></label>
-          <select id="horario-select" name="horario">
-            <option value="" disabled selected>Selecione um horário</option>
-            <option value="1200">12:00</option>
-            <option value="1300">13:00</option>
-          </select>
-        </div>
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
       </div>
-
     </div>
-  </div>
-  <div class="botoes-container" id="btn-continuar-profissionais">
-    <button class="btn-continuar-profissionais">Continuar</button>
-  </div>
-
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
-  </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-    new window.VLibras.Widget("https://vlibras.gov.br/app");
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script type="module" src="../javascript/profissionais.js"></script>
-</body>
-
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="../javascript/profissionais.js"></script>
+  </body>
 </html>
