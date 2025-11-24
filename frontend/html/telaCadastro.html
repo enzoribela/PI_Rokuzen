@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tela de Login</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-  </head>
-   <header class="header">
-      <nav class="nav">
-        <a href="telaPrincipal.html"
-          ><img
-            class="RokuzenAgendamento"
-            src="../arquivos/RokuzenLogo.png"
-            alt="logo Site"
-        /></a>
-        </header>
-  <body>
-    <main class="login">
-      <form>
-        <h1><i class="fa-solid fa-user"></i>
-</h1>
-        <div class="input-box">
-          <input type="text" placeholder="Digite seu usuário" />
-        </div>
-        <div class="input-box">
-          <input type="password" placeholder="Digite sua senha" />
-        </div>
-        <button type="submit" class="botaoPrin">Registrar</button>
+
+<head>
+  <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tela de Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<header class="header">
+  <nav class="nav">
+    <a href="telaPrincipal.html"><img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png"
+        alt="logo Site" /></a>
+</header>
+
+<body>
+  <main class="login">
+    <form>
+      <h1><i class="fa-solid fa-user"></i>
+      </h1>
+      <div class="input-box">
+        <input type="text" placeholder="Digite seu usuário" />
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Digite sua senha" />
+      </div>
+      <div class="user-type" id="escolher-funcao">
+        <label>
+          <input type="radio" name="tipoUsuario" value="terapeuta" required>
+          Terapeuta
+        </label>
+        <label>
+          <input type="radio" name="tipoUsuario" value="administrador">
+          Administrador
+        </label>
+      </div>
+
+      <button type="submit" class="botaoPrin">Registrar</button>
 
 
-      </form>
-    </main>
-  </body>
+    </form>
+  </main>
+</body>
+
 </html>

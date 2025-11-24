@@ -1765,3 +1765,17 @@ background-color: #7b995e;
 .salas-modal {
   display: list-item;
 }
+
+#escolher-funcao {
+  display: flex;
+  justify-content: center; /* centraliza */
+  gap: 20px;               /* espaço entre as opções */
+  margin: 15px 0;
+}
+
+#escolher-funcao label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
