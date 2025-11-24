@@ -1,76 +1,113 @@
+// O listener 'DOMContentLoaded' garante que o script roda assim que o HTML é totalmente carregado
 document.addEventListener('DOMContentLoaded', () => {
-    // Seletores do Carrossel
-    const carrosselSlides = document.querySelector('.carrossel-slides');
-    // Seleciona todos os cards, independente de estarem visíveis
-    const slides = document.querySelectorAll('.card-profissional');
-    // Seleciona todos os botões "próximo" e "anterior"
-    const prevButtons = document.querySelectorAll('.carrossel-button.prev');
-    const nextButtons = document.querySelectorAll('.carrossel-button.next');
     
-    // Selecionador do botão Continuar
-    //const btnContinuar = document.querySelector('.btn-continuar');
-    // URL de destino
-    //const proximaURL = 'confirmacao.html';
+    // --- 1. Seleção de Elementos usando as classes do seu HTML ---
+    const slides = document.querySelectorAll('.profissional-slide-adm');
+    
+    // Seleciona todos os botões de navegação, usando as classes que estão no seu HTML
+    const allPrevButtons = document.querySelectorAll('.carrossel-button-adm.prev');
+    const allNextButtons = document.querySelectorAll('.carrossel-button-adm.next');
+    
+    const agendaBody = document.getElementById('lista-agendamentos');
+    const tituloAgenda = document.getElementById('titulo-agenda');
+    
+    // --- Verificações de Debug (CRUCIAIS) ---
+    if (slides.length < 2) {
+        console.error("ERRO [ADM-JS]: Apenas 1 ou 0 slides de profissional encontrados. Carrossel inoperante.");
+        return;
+    }
+    if (allPrevButtons.length === 0 || allNextButtons.length === 0) {
+        console.error("ERRO [ADM-JS]: Botões de navegação não encontrados. Verifique a classe 'carrossel-button-adm'.");
+        return;
+    }
+    console.log("SUCESSO [ADM-JS]: Script carregado. Slides encontrados:", slides.length);
+    // ------------------------------------------
 
-    let currentSlide = 0;
+    let currentSlideIndex = 0; 
 
-    // Função principal para mover o carrossel
-    function updateCarrossel() {
-        // Pega a largura do primeiro slide para calcular o deslocamento
-        const slideWidth = slides[0].offsetWidth;
-        const offset = slideWidth * currentSlide;
+    // --- Lógica de Agenda (Simulação) ---
+    const dadosAgenda = {
+        'joao': [
+            { horario: "08:00 - 09:00", sala: "Sala 1", paciente: "Ana Ferreira", livre: false },
+            // ... (restante dos dados)
+        ],
+        'maria': [
+            { horario: "09:00 - 10:00", sala: "Sala 5", paciente: "**LIVRE**", livre: true },
+            // ... (restante dos dados)
+        ]
+    };
+    
+    function updateAgenda(profissionalId) {
+        // ... (lógica de atualização da agenda) ...
+        const agenda = dadosAgenda[profissionalId] || [];
+        let novaAgendaHTML = '';
+        const nomeProfissional = slides[currentSlideIndex].querySelector('.profissional-nome-adm').textContent;
+        const dataExibida = tituloAgenda ? tituloAgenda.textContent.split(' ').slice(-1)[0] : '11/11/2025';
 
-        // Move o contêiner de slides
-        carrosselSlides.style.transform = `translateX(-${offset}px)`;
-
-        // Atualiza o estado dos botões (habilitado/desabilitado)
-        // Como temos vários botões (um em cada slide), precisamos iterar sobre eles
-        prevButtons.forEach(button => {
-            button.disabled = currentSlide === 0;
+        if (tituloAgenda) {
+            tituloAgenda.textContent = `Agenda de ${nomeProfissional} para ${dataExibida}`;
+        }
+        
+        agenda.forEach(item => {
+            const classeLivre = item.livre ? 'horario-livre' : ''; 
+            novaAgendaHTML += `<tr class="${classeLivre}"><td>${item.horario}</td><td>${item.sala}</td><td>${item.paciente}</td></tr>`;
         });
+        
+        if (agendaBody) {
+             agendaBody.innerHTML = novaAgendaHTML || `<tr><td colspan="3">Nenhum agendamento para ${nomeProfissional}.</td></tr>`;
+        }
+    }
 
-        nextButtons.forEach(button => {
-            button.disabled = currentSlide === slides.length - 1;
+
+    // --- 4. Função de Controle do Carrossel (Visibilidade) ---
+    function updateCarousel() {
+        slides.forEach((slide, index) => {
+            if (index === currentSlideIndex) {
+                slide.style.display = 'block'; 
+                slide.classList.add('active');
+                
+                const profissionalId = slide.getAttribute('data-id');
+                updateAgenda(profissionalId); 
+            } else {
+                slide.style.display = 'none'; 
+                slide.classList.remove('active');
+            }
         });
     }
 
-    // Adiciona evento aos botões "Próximo"
-    nextButtons.forEach(button => {
+    // --- 5. Event Listeners ---
+    
+    // Adiciona evento a TODOS os botões "Próximo"
+    allNextButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            // Previne que o clique dispare eventos indesejados no elemento pai
-            e.stopPropagation();
-            if (currentSlide < slides.length - 1) {
-                currentSlide++;
-                updateCarrossel();
-            }
+            e.preventDefault();
+            e.stopPropagation(); 
+            
+            // Troca para o próximo slide, ou volta para o 0
+            currentSlideIndex = (currentSlideIndex < slides.length - 1) ? currentSlideIndex + 1 : 0;
+            updateCarousel();
         });
     });
 
-    // Adiciona evento aos botões "Anterior"
-    prevButtons.forEach(button => {
+    // Adiciona evento a TODOS os botões "Anterior"
+    allPrevButtons.forEach(button => {
         button.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (currentSlide > 0) {
-                currentSlide--;
-                updateCarrossel();
-            }
+            e.preventDefault();
+            e.stopPropagation(); 
+            
+            // Troca para o slide anterior, ou vai para o último
+            currentSlideIndex = (currentSlideIndex > 0) ? currentSlideIndex - 1 : slides.length - 1;
+            updateCarousel();
         });
     });
 
-    // ***********************************************
-    // CÓDIGO PARA O BOTÃO CONTINUAR
-    // ***********************************************
-    if (btnContinuar) {
-        btnContinuar.addEventListener('click', () => {
-            // Redireciona o usuário para a URL definida (confirmacao.html)
-            window.location.href = proximaURL;
-        });
+    // --- 6. Inicialização ---
+    // Encontra o slide inicial (que tem 'active' no HTML)
+    const initialActiveSlide = document.querySelector('.profissional-slide-adm.active');
+    if (initialActiveSlide) {
+        currentSlideIndex = Array.from(slides).indexOf(initialActiveSlide);
     }
-    // ***********************************************
+    
+    updateCarousel();
 
-    // Recalcula a posição em caso de redimensionamento da janela
-    window.addEventListener('resize', updateCarrossel);
-
-    // Inicializa o carrossel na posição 0
-    updateCarrossel();
 });

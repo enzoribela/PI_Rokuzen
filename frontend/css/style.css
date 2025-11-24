@@ -740,6 +740,28 @@ h3.profissional-nome-func {
   margin-top: 30px;
   margin-bottom: 20px;
 }
+.profissional-horario-wrapper-adm {
+  /* Usa CSS Grid para criar as colunas */
+  display: grid;
+  /* Define o tamanho das colunas: 
+     A primeira (Perfil) com 25%, a segunda (Calendário) com 35%, 
+     e a terceira (Agenda) com o restante (auto) */
+  grid-template-columns: 25% 35% auto; 
+  gap: 20px; /* Espaço entre as colunas */
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px; /* Limita a largura do container */
+}
+h3.profissional-nome-adm {
+  font-size: 24px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
 
 /* Estilização básica para o Perfil (Coluna 1) */
 .perfil-profissional-coluna {
@@ -1295,6 +1317,83 @@ body {
   color: #ccc;
   cursor: not-allowed;
 }
+.carrossel-button-adm {
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #3b6e5e;
+  /* Cor da seta verde */
+  cursor: pointer;
+  padding: 0 10px;
+  transition: color 0.2s;
+}
+
+.carrossel-button-adm:hover:not(:disabled) {
+  color: #1c3d31;
+}
+
+.carrossel-button-adm:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* ---------------------------------------------------- */
+/* CSS Essencial para o Carrossel Interno (Posicionamento das Setas) */
+/* ---------------------------------------------------- */
+
+/* Contêiner que envolve a imagem e as setas. Deve ser relative para as setas serem absolutas. */
+.card-image-wrapper-com-setas {
+    position: relative; 
+    display: flex;
+    justify-content: center; /* Centraliza a imagem no meio */
+    align-items: center;
+    width: 100%;
+}
+
+/* Opcional, mas útil: Garante que o wrapper da imagem fique no centro do card */
+.card-imagem-wrapper {
+    position: relative;
+    z-index: 1; /* Garante que a imagem esteja abaixo das setas */
+    /* Você pode manter o estilo de borda circular aqui, se for o caso */
+}
+
+/* Estilo e posicionamento das setas internas (Absoluto) */
+.prev-profissional-adm-interno, 
+.next-profissional-adm-interno {
+    position: absolute; /* Tira do fluxo e posiciona em relação ao pai relative */
+    background: none;
+    border: none;
+    font-size: 36px; /* Tamanho do ícone */
+    cursor: pointer;
+    color: #4CAF50; /* Cor principal */
+    padding: 5px;
+    transition: color 0.3s, transform 0.3s;
+    z-index: 10; /* Garante que as setas fiquem visíveis por cima da imagem */
+    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.3)); /* Sombra para destaque */
+    line-height: 1; /* Ajuda a centralizar ícones */
+}
+
+/* Posicionamento da seta esquerda (Prev) */
+.prev-profissional-adm-interno {
+    left: 0px; /* Alinha à borda esquerda do .card-image-wrapper-com-setas */
+    top: 50%; /* Move para o meio vertical */
+    transform: translateY(-50%); /* Ajusta 50% da altura do próprio botão para centralizar */
+}
+
+/* Posicionamento da seta direita (Next) */
+.next-profissional-adm-interno {
+    right: 0px; /* Alinha à borda direita do .card-image-wrapper-com-setas */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Efeitos de Hover */
+.prev-profissional-adm-interno:hover, 
+.next-profissional-adm-interno:hover {
+    color: #388E3C;
+    transform: translateY(-50%) scale(1.1); /* Leve aumento no hover */
+}
+
 
 /* --- 2. Estilo do Seletor de Horários --- */
 /* Container que envolve a label e o select */
