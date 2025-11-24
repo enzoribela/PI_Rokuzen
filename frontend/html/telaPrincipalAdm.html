@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrador | Rokuzen</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script defer src="../javascript/app.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="telaPrincipalAdm.html"><img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png"
+          alt="logo Site" /></a>
+      <button class="hamburger"></button>
+      <ul class="nav-list">
+        <li><a href="#hero">Sobre</a></li>
+        <li><a href="#horarios">Profissionais</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Área do administrador</h1>
+      <p>Bem-vindo à sua área exclusiva.
+        Aqui você tem acesso a informações, comunicados e ferramentas que facilitam o seu trabalho e
+        fortalecem a conexão com a Rokuzen.</p>
+    </div>
+  </section>
+
+  <section id="horarios">
+    <h2>Profissionais e Agenda</h2>
+
+    <div class="profissional-horario-wrapper-adm">
+
+      <div class="carrossel-profissionais-adm-slides">
+
+        <div class="perfil-profissional-coluna profissional-slide-adm active" data-id="joao" style="display: block;">
+          <div class="card-profissional">
+            <h3 class="profissional-nome-adm">João Silva</h3>
+            <div class="card-image-content">
+              <div class="card-image-wrapper-com-setas">
+                 <button class="carrossel-button-adm prev">&lt;</button>
+                <div class="card-imagem-wrapper">
+                  <img src="/frontend/arquivos/terapeuta-falso.png" alt="Foto do João Silva" />
+                </div>
+                 <button class="carrossel-button-adm next">&gt;</button>
+              </div>
+            </div>
+            <div class="card-descricao">
+              <p>
+                Especialista em Massagem Desportiva e Liberação Miofascial.
+                Atua há 7 anos com foco em recuperação muscular e prevenção de
+                lesões.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="perfil-profissional-coluna profissional-slide-adm" data-id="maria" style="display: none;">
+          <div class="card-profissional">
+            <h3 class="profissional-nome-adm">Maria Oliveira</h3>
+            <div class="card-image-content">
+              <div class="card-image-wrapper-com-setas">
+                 <button class="carrossel-button-adm prev">&lt;</button>
+                <div class="card-imagem-wrapper">
+                  <img src="/frontend/arquivos/terapeuta-falsa.png" alt="Foto da Maria Oliveira" />
+                </div>
+                 <button class="carrossel-button-adm next">&gt;</button>
+              </div>
+            </div>
+            <div class="card-descricao">
+              <p>
+                Especialista em Acupuntura e Quiropraxia. Foco em dor crônica e melhoria da postura.
+              </p>
+            </div>
+          </div>
+          <script src="/frontend/javascript/profissionaisAdm.js"></script>
+        </div>
+
+      </div>
+      <div class="calendario-coluna">
+        <h4>Selecione a Data</h4>
+        <div id="calendario-funcionario">
+          <div id="calendario-inline"></div>
+          <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+          <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+          <script src="/frontend/javascript/calendarioFunc.js"></script>
+        </div>
+      </div>
+
+      <div class="agenda-detalhada-coluna">
+        <h5 id="titulo-agenda">Agenda para 11/11/2025</h5>
+
+        <table class="tabela-horarios">
+          <thead>
+            <tr>
+              <th>Horário</th>
+              <th>Sala</th>
+              <th>Paciente</th>
+            </tr>
+          </thead>
+          <tbody id="lista-agendamentos">
+            <tr>
+              <td>08:00 - 09:00</td>
+              <td>Sala 1</td>
+              <td>Ana Ferreira</td>
+            </tr>
+            <tr>
+              <td>09:30 - 10:30</td>
+              <td>Sala 3</td>
+              <td>Pedro Santos</td>
+            </tr>
+            <tr class="horario-livre">
+              <td>11:00 - 12:00</td>
+              <td>Sala 2</td>
+              <td>**LIVRE**</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <footer id="adm">
+    <p>Desenvolvido para uso interno dos colaboradores.</p>
+  </footer>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget("https://vlibras.gov.br/app");
+  </script>
+</body>
+
+</html>
