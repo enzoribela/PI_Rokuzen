@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tela de Login</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-  </head>
-   <header class="header">
-      <nav class="nav">
-        <a href="telaPrincipal.html"
-          ><img
-            class="RokuzenAgendamento"
-            src="../arquivos/RokuzenLogo.png"
-            alt="logo Site"
-        /></a>
-        </header>
-  <body>
-    <a href="telaPrincipal.html">
-      <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
-      </a>
-    <main class="login">
-      <form id="login-form">
-        <h1><i class="fa-solid fa-user"></i>
-</h1>
-        <!-- Campo de username -->
-        <div class="input-box">
-          <input id="username-field" type="text" placeholder="Usuário" />
-        </div>
-        
-        <!-- Campo de password -->
-        <div class="input-box">
-          <input id="password-field" type="password" placeholder="Senha" required />
 
-          <button id="toggle-password" type="button" class="toggle-password">
-            <i class="fa-solid fa-eye-slash" id="toggleIcon"></i>
-          </button>
-        </div>
+<head>
+  <link rel="icon" type="image/png" href="../arquivos/rokuzen.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tela de Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<header class="header">
+  <nav class="nav">
+    <a href="telaPrincipal.html"><img class="RokuzenAgendamento" src="../arquivos/RokuzenLogo.png"
+        alt="logo Site" /></a>
+</header>
 
-        <!-- Botão de submit -->
-        <button type="submit" class="botaoPrin">Entrar</button>
+<body>
+  <a href="telaPrincipal.html">
+    <img src="../arquivos/seta_voltar.png" alt="página anterior" height="70" class="seta-voltar">
+  </a>
+  <main class="login">
+    <form id="login-form">
+      <h1><i class="fa-solid fa-user"></i>
+      </h1>
+      <!-- Campo de username -->
+      <div class="input-box">
+        <input id="username-field" type="text" placeholder="Usuário" />
+      </div>
 
-      </form>
-    </main>
+      <!-- Campo de password -->
+      <div class="input-box">
+        <input id="password-field" type="password" placeholder="Senha" required />
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="../javascript/telaLogin.js"></script>
-  </body>
+        <button id="toggle-password" type="button" class="toggle-password">
+          <i class="fa-solid fa-eye-slash" id="toggleIcon"></i>
+        </button>
+      </div>
+
+      <!-- Botão de submit -->
+      <button type="submit" class="botaoPrin">Entrar</button>
+
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="../javascript/telaLogin.js"></script>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+</body>
+
 </html>
