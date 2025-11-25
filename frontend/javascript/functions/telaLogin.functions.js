@@ -1,5 +1,7 @@
 import {api} from "../api.js"
 
+const MASTER_ROLE = "master"
+
 export function handlesTogglePassword()
 {
   const toggleButton = document.getElementById('toggle-password');
@@ -44,9 +46,20 @@ export function handlesLogin()
         password: password
       });
 
-      localStorage.setItem('user', JSON.stringify(response.data.user));
+      const userData = response.data.user
+
+      localStorage.setItem('user', JSON.stringify(userData));
+
+      if(userData.role == MASTER_ROLE)
+      {
+        window.location.href = '/html/telaPrincipalAdm.html';
+      }
+      else
+      {
+        window.location.href = '/html/telaPrincipalFuncionario.html';
+      }
       
-      window.location.href = '/html/telaPrincipalFuncionario.html';
+     
 
     }
     catch(error)  // Lida com casos de erro (status code do tipo 4XX e 5XX)
