@@ -76,7 +76,7 @@ exports.criaAgendamento = async (req, res) => {
     });
 
     if (salasCandidatas.length === 0) {
-      return res.status(404).json({ message: VALIDACAO.AGENDAMENTO.SALA_NAO_ENCONTRADA_PARA_SERVICO });
+      return res.status(404).json({ message: AGENDAMENTO.SALA_NAO_ENCONTRADA_PARA_SERVICO });
     }
 
     // b) Busca todos os agendamentos que já usam QUALQUER uma dessas salas no dia

@@ -71,7 +71,8 @@ const RESPONSE_MESSAGES = {
     DIA_NAO_FORNECIDO: "O dia não foi fornecido",
     DIA_EM_FORMATO_INVALIDO: "O dia fornecido está em um formato inválido. Por favor use AAAA-MM-DD",
     VOCE_NAO_TEM_AGENDAMENTOS: "Não existe nenhum agendamento marcado com você",
-    VOCE_NAO_TEM_AGENDAMENTOS_PARA_ESSE_DIA: "Você não possui agendamentos para esse dia"
+    VOCE_NAO_TEM_AGENDAMENTOS_PARA_ESSE_DIA: "Você não possui agendamentos para esse dia",
+    SALA_NAO_ENCONTRADA_PARA_SERVICO: "Não temos salas disponíveis para esse serviço, nessa unidade"
   },
 
   SALA: {
