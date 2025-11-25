@@ -186,7 +186,7 @@ export function handlesConfirmClick() {
       // 4. Sucesso!
       sessionStorage.clear(); // Limpa a sessão
       alert(response.data.message); // "Agendamento criado com sucesso"
-      window.location.href = '/html/telaPrincipalFuncionario.html'; // Ou sua tela de sucesso
+      window.location.href = '/html/telaPrincipal.html'; // Ou sua tela de sucesso
 
     } catch (error) {
       console.error("Erro ao confirmar agendamento:", error);
