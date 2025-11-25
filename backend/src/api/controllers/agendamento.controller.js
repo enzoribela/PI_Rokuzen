@@ -390,7 +390,7 @@ exports.getMeusAgendamentosPorDia = async (req, res) => {
     const agendamentos = await Agendamento.find({
       terapeuta: terapeutaId,
       inicio: { $gte: inicioDoDia, $lte: fimDoDia }
-    }).select("-__v");
+    }).select("-__v").populate("sala");
 
     const mensagem = (agendamentos.length == 0) ? AGENDAMENTO.VOCE_NAO_TEM_AGENDAMENTOS_PARA_ESSE_DIA : AGENDAMENTO.TODOS_AGENDAMENTOS_ENCONTRADOS
 
