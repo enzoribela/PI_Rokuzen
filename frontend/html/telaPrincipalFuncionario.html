@@ -44,10 +44,10 @@
 
         <div class="perfil-profissional-coluna">
           <div class="card-profissional">
-            <h3 class="profissional-nome-func">João Silva</h3>
+            <h3 id="nome-do-funcionario" class="profissional-nome-func">João Silva</h3>
             <div class="card-image-content">
               <div class="card-imagem-wrapper">
-                <img src="/frontend/arquivos/terapeuta-falso.png" alt="Foto do João Silva" />
+                <img src="../arquivos/terapeuta-falso.png" alt="Foto do João Silva" />
               </div>
             </div>
             <div class="card-descricao">
@@ -74,10 +74,13 @@
           </div>
         </div>
 
+        <!-- Horários do terapeuta -->
         <div class="agenda-detalhada-coluna">
-          <h5 id="titulo-agenda">Agenda para 11/11/2025</h5>
+          <h5 id="titulo-agenda">Agenda</h5>
 
+          <!-- Tabela de horários -->
           <table class="tabela-horarios">
+            <!-- Título da tabela -->
             <thead>
               <tr>
                 <th>Horário</th>
@@ -85,24 +88,30 @@
                 <th>Paciente</th>
               </tr>
             </thead>
+
+            <!-- Corpo da tabela -->
             <tbody id="lista-agendamentos">
               <tr>
                 <td>08:00 - 09:00</td>
                 <td>Sala 1</td>
                 <td>Ana Ferreira</td>
               </tr>
+
               <tr>
                 <td>09:30 - 10:30</td>
                 <td>Sala 3</td>
                 <td>Pedro Santos</td>
               </tr>
+
               <tr class="horario-livre">
                 <td>11:00 - 12:00</td>
                 <td>Sala 2</td>
                 <td>**LIVRE**</td>
               </tr>
             </tbody>
+            
           </table>
+
         </div>
 
       </div>
@@ -150,6 +159,7 @@
   <script>
     new window.VLibras.Widget("https://vlibras.gov.br/app");
   </script>
+  <script type="module" src="../javascript/telaPrincipalFuncionario.js"></script>
 </body>
 
 </html>
