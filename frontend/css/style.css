@@ -1825,3 +1825,41 @@ background-color: #7b995e;
   text-align: center;
 }
 
+/* MODAL */
+.modal-overlay-média {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-overlay-média.active {
+  display: flex;
+}
+
+.modal-overlay-média .modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.modal-overlay-média .modal-botoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.modal-overlay-média .modal-botoes button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+
+

@@ -51,7 +51,33 @@
       <button class="btn-continuar">Consultar</button>
     </div>
 
-    <script src="/frontend/javascript/profissionaisAdm.js"></script>
+<div id="modal-mes" class="modal-overlay-média">
+  <div class="modal-content">
+    <h2>Selecione o mês</h2>
+
+    <input type="month" id="mes-estatistica" />
+
+    <div class="modal-botoes">
+      <button id="btn-cancelar-mes">Cancelar</button>
+      <button id="btn-confirmar-mes">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-dia" class="modal-overlay-média">
+  <div class="modal-content">
+    <h2>Selecione o dia</h2>
+
+    <input type="date" id="dia-estatistica" />
+
+    <div class="modal-botoes">
+      <button id="btn-cancelar-dia">Cancelar</button>
+      <button id="btn-confirmar-dia">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+    <script src="/frontend/javascript/telaEstatisticaGeral.js"></script>
     <div vw class="enabled">
       <div vw-access-button class="active"></div>
       <div vw-plugin-wrapper>
