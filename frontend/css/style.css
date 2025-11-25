@@ -1860,6 +1860,40 @@ background-color: #7b995e;
   cursor: pointer;
 }
 
+.modal-overlay-resultado {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-overlay-resultado.active {
+  display: flex;
+}
+
+.modal-overlay-resultado .modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal-overlay-resultado h2 {
+  height: 80px;
+}
+
+.modal-overlay-resultado p {
+  font-size: 24px;
+}
+
 
 
 

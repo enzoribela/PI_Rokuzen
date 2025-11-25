@@ -62,3 +62,38 @@ document.addEventListener("DOMContentLoaded", function () {
     fecharModal(modalMes);
   });
 });
+
+const btnConsultar = document.querySelector(".btn-continuar");
+const modalResultado = document.getElementById("modal-resultado");
+const btnFecharResultado = document.getElementById("btn-fechar-resultado");
+const resultadoTexto = document.getElementById("resultado-texto");
+const selectEstatistica = document.getElementById("horario-select");
+
+btnConsultar.addEventListener("click", function () {
+  const estatistica = selectEstatistica.value;
+
+  if (!estatistica) {
+    alert("Selecione uma estatística antes de consultar.");
+    return;
+  }
+
+  let mensagem = "";
+
+  if (estatistica === "média por dia") {
+    mensagem = "Resultado: Média de 117 minutos por massagem neste dia.";
+  } 
+  else if (estatistica === "média por mês") {
+    mensagem = "Resultado: Média de 5 massagens por dia neste mês.";
+  } 
+  else {
+    mensagem = "Resultado: O dia com mais massagens foi o dia 13 e teve 7 atendimentos.";
+  }
+
+  resultadoTexto.textContent = mensagem;
+  modalResultado.classList.add("active");
+});
+
+btnFecharResultado.addEventListener("click", function () {
+  modalResultado.classList.remove("active");
+});
+
