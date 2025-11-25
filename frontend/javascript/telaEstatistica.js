@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       abrirModal(modalDia);
     }
 
-    if (select.value === "média por mês") {
+    else {
       abrirModal(modalMes);
     }
   });
